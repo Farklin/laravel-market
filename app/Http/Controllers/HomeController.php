@@ -46,6 +46,7 @@ class HomeController extends Controller
     public function show($id)
     {
         //
+        return "Hellow World" . $id;
     }
 
     /**

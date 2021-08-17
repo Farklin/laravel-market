@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController; 
 
-
+use App\Http\Controllers\ProductController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +16,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/{id}', [HomeController::class, 'show']);
+Route::get('/', [ProductController::class, 'show']);
+
+
+// товар
+Route::get('/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
+Route::post('/product/create', [ProductController::class, 'create'])->name('product_create'); 

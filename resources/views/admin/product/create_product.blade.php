@@ -1,29 +1,46 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Создать товар</title>
-</head>
-<body>
-    {{ Form::open(array('route'=>'product_create')) }}
-    {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
-    {{ Form::text('title','',array('id'=>'','class'=>'')) }}
 
+@extends('layouts/app')
+@section('title', 'Создание нового товара')
+@section('content')
 
-    {{ Form::label('description','Цена товара',array('id'=>'','class'=>'')) }}
-    {{ Form::textarea('description','',array('id'=>'','class'=>'')) }}
-
-
-    {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}
-    {{ Form::number('price','',array('id'=>'','class'=>'')) }}
+    <div class="container">
 
     
-    {{ Form::label('old_price','Старая цена товара',array('id'=>'','class'=>'')) }}
-    {{ Form::number('old_price','',array('id'=>'','class'=>'')) }}
-    
-    {{ Form::submit('Создать') }}
-	{{ Form::close() }}
-</body>
-</html>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    
+                    @foreach ($errors->all() as $error)
+                        <li class="alert alert-danger">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
+        {{ Form::open(array('route'=>'product_create', 'class'=>'')) }}
+        {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
+        {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
+
+
+        {{ Form::label('description','Описание',array('id'=>'','class'=>'')) }}
+        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control')) }}
+
+
+        {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}
+        {{ Form::number('price','',array('id'=>'','class'=>'form-control')) }}
+
+        
+        {{ Form::label('old_price','Старая цена товара',array('id'=>'','class'=>'')) }}
+        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control')) }}
+
+        {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
+        {{ Form::number('weight','',array('id'=>'','class'=>'form-control')) }}
+        
+        {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
+        {{ Form::close() }}
+
+    </div>
+
+@endsection
+

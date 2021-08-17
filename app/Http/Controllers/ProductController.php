@@ -9,16 +9,27 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         //
-        // $product = new Product(); 
-        // $product->title = 'Новый товар'; 
-        // $product->description = "Описание товара"; 
-        // $product->price = 10; 
-        // $product->old_price = 11; 
-        // $product->weight = 99; 
-        // $product->save(); 
-        $title = $request->input('title'); 
         
-        echo $title;  
+        $title = $request->input('title'); 
+
+        $validation_data = $request->validate([
+            'title' => ['required' ],
+            'description' => ['required' ],
+            'price' => ['required' ],
+            'old_price' => ['required' ],
+            'weight' => ['required' ],
+        ]); 
+
+
+        $product = new Product(); 
+        $product->title = $validation_data['title']; 
+        $product->description = $validation_data['description']; 
+        $product->price = $validation_data['price']; 
+        $product->old_price = $validation_data['old_price'];  
+        $product->weight = $validation_data['weight']; 
+        $product->save(); 
+        
+        return 'Товар успешно создан'; 
     }
 
     public function form_create()

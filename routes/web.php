@@ -16,9 +16,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [ProductController::class, 'show']);
+Route::get('/', [ProductController::class, 'all_product']);
 
 
 // товар
 Route::get('/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
 Route::post('/product/create', [ProductController::class, 'create'])->name('product_create'); 
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_product'); 

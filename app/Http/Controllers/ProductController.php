@@ -8,7 +8,7 @@ class ProductController extends Controller
 {   
     public function create(Request $request)
     {
-        //
+        //обработчик создания товара 
         
         $title = $request->input('title'); 
 
@@ -31,18 +31,22 @@ class ProductController extends Controller
         
         return 'Товар успешно создан'; 
     }
-
+    public function show($id)
+    {
+        // Показать карточку товара
+        $element = new Product(); 
+        $product = $element->where('id', $id)->first();     
+        return view('catalog/product/view_product', array('product' => $product)); 
+    }
     public function form_create()
     {
+        //Отбражение формы создания товара 
        return view('admin/product/create_product');
     }
 
-    public function show(){
-        $resutl = ''; 
-        foreach (Product::all() as $product) {
-            $resutl .= $product->title;
-        }
-        return $resutl; 
+    public function all_product(){
+        // Отображает все товаров 
+        return view('catalog/product/all_product', array('products'=> Product::all())) ; 
     }
 }
 

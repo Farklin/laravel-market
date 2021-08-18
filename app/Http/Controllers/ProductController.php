@@ -36,7 +36,8 @@ class ProductController extends Controller
         // Показать карточку товара
         $element = new Product(); 
         $product = $element->where('id', $id)->first();     
-        return view('catalog/product/view_product', array('product' => $product)); 
+        $products = Product::all()->take(3); 
+        return view('catalog/product/view_product', array('product' => $product, 'products'=> $products));  
     }
     public function form_create()
     {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;   
+use App\Models\Category;  
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -29,6 +31,8 @@ class ProductController extends Controller
         $product->weight = $validation_data['weight']; 
         $product->save(); 
         
+    
+
         return 'Товар успешно создан'; 
     }
     public function show($id)
@@ -49,5 +53,7 @@ class ProductController extends Controller
         // Отображает все товаров 
         return view('catalog/product/all_product', array('products'=> Product::all())) ; 
     }
+
+    
 }
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; 
 
 use App\Http\Controllers\ProductController; 
+use App\Http\Controllers\CategoryController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,9 @@ Route::get('/', [ProductController::class, 'all_product']);
 Route::get('/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
 Route::post('/product/create', [ProductController::class, 'create'])->name('product_create'); 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_product'); 
+
+
+// категория
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category_create'); 
+
+Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category'); 

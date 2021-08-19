@@ -1,10 +1,11 @@
 
 @extends('layouts/app')
-@section('title', 'Все товары магазина')
+@section('title', $category->title)
 @section('content')
 
     <div class="container mt-5">
 
+        <h1> {{ $category->title }} </h1> 
         <div class="card-columns">
 
         @foreach($products as $product)
@@ -14,6 +15,10 @@
           @endforeach 
 
         </div>
+
+        <div class="content"> 
+            {{ $category->description }}
+        </div> 
 
     </div>
 

@@ -37,6 +37,14 @@
         {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
         {{ Form::number('weight','',array('id'=>'','class'=>'form-control')) }}
         
+        <div class='mt-2'> 
+            <h4> Выбор категории </h4> 
+            @foreach($category as $cat)
+                {{ Form::label('category',$cat->title, array('id'=>'','class'=>'')) }}   
+                {{ Form::checkbox('category[]', $cat->id, false); }} 
+            @endforeach
+        </div> 
+             
         {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
         {{ Form::close() }}
 

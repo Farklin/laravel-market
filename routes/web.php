@@ -17,7 +17,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', [ProductController::class, 'all_product']);
+Route::get('/', [ProductController::class, 'all_product'])->name('all_product');
 
 
 // товар

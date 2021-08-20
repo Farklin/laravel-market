@@ -18,6 +18,10 @@ class CategoryController extends Controller
         $category = new Category();
         $category->title = 'Новая категория'; 
         $category->description = 'Новая категория'; 
+        $category->public = True; 
+        $category->display_main_page = True; 
+
+        $category->display_sidebar = True; 
         $category->save(); 
         return 'Категория успешно создана'; 
     }

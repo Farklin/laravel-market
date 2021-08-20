@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         //обработчик создания товара 
         
-        $title = $request->input('title'); 
+        $category = $request->input('category'); 
 
         $validation_data = $request->validate([
             'title' => ['required' ],
@@ -20,8 +20,10 @@ class ProductController extends Controller
             'price' => ['required' ],
             'old_price' => ['required' ],
             'weight' => ['required' ],
+            'category' => ['required'], 
         ]); 
 
+        $category = Category::find($validation_data['category']); 
 
         $product = new Product(); 
         $product->title = $validation_data['title']; 
@@ -31,9 +33,10 @@ class ProductController extends Controller
         $product->weight = $validation_data['weight']; 
         $product->save(); 
         
-    
 
-        return 'Товар успешно создан'; 
+        $product->categories()->attach($category);
+        
+        return 'Товар успешно создан' . $category[1]; 
     }
     public function show($id)
     {
@@ -45,8 +48,8 @@ class ProductController extends Controller
     }
     public function form_create()
     {
-        //Отбражение формы создания товара 
-       return view('admin/product/create_product');
+       $category = Category::all(); 
+       return view('admin/product/create_product', array('category' => $category));
     }
 
     public function all_product(){

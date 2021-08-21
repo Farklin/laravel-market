@@ -20,22 +20,22 @@
 
         {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
-        {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::text('title','',array('id'=>'','class'=>'form-control', 'value'=> '$product->title')) }}
 
 
         {{ Form::label('description','Описание',array('id'=>'','class'=>'')) }}
-        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control', 'value'=> '$product->description' )) }}
 
 
         {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('price','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::number('price','',array('id'=>'','class'=>'form-control', 'value'=> $product->price)) }}
 
         
         {{ Form::label('old_price','Старая цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control', 'value'=> $product->old_price )) }}
 
         {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
-        {{ Form::number('weight','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::number('weight','',array('id'=>'','class'=>'form-control', 'value'=> $product->price)) }}
         
         {{ Form::label('image','Изображение',array('id'=>'','class'=>'')) }}
         {{ Form::file('image[]',array('id'=>'','class'=>'form-control', 'multiple' => '')) }}

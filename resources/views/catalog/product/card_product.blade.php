@@ -1,6 +1,6 @@
 <div class="card">
     <a href="{{ route('show_product', $product->id) }}">
-        <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" alt="Card image cap">
+        <img class="card-img-top" src="{{ $product->preview_image }}" alt="Card image cap">
     </a>     
     
     <div class="card-body">

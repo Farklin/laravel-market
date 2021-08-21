@@ -9,16 +9,12 @@
         <div class="col-md-5 pr-2">
             <div class="card">
                 <div class="demo">
+                 
                     <ul id="lightSlider">
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
-                        <li data-thumb="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" /> </li>
+                        @foreach( $images as $image )
+                        <li data-thumb="{{ $image->image_path}}"> 
+                        <img src="{{ $image->image_path}}" /> </li>
+                        @endforeach
 
                     </ul>
                 </div>

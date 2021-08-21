@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;   
 use App\Models\Category;  
-
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,8 +12,6 @@ class ProductController extends Controller
     {
         //обработчик создания товара 
         
-        $category = $request->input('category'); 
-
         $validation_data = $request->validate([
             'title' => ['required' ],
             'description' => ['required' ],
@@ -33,10 +31,29 @@ class ProductController extends Controller
         $product->weight = $validation_data['weight']; 
         $product->save(); 
         
-
+        //добавление связей к товару (категория товар)
         $product->categories()->attach($category);
+       
+        // добавление картинок к товару 
+        if($request->hasFile('image'))
+        {
+
+            //  Создание папки для хранения картинок к товару 
+            $path = public_path() . '/images/products/' . $product->id; 
+            File::makeDirectory($path, $mode = 0777, true, true);
+            // конец создания папки для хранения картинок к товару 
+
+            foreach($request->file('image') as $image){
+                $file_name = time().'_'. $image->getClientOriginalName(); 
+                $image->move($path, $file_name); 
+            }
+
+        }
         
-        return 'Товар успешно создан' . $category[1]; 
+        //  конец добавления картинок к товару 
+
+
+        return 'Товар успешно создан'; 
     }
     public function show($id)
     {

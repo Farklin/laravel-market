@@ -18,7 +18,7 @@
         @endif
 
 
-        {{ Form::open(array('route'=>'product_create', 'class'=>'')) }}
+        {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
         {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
 
@@ -37,13 +37,19 @@
         {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
         {{ Form::number('weight','',array('id'=>'','class'=>'form-control')) }}
         
+        {{ Form::label('image','Изображение',array('id'=>'','class'=>'')) }}
+        {{ Form::file('image[]',array('id'=>'','class'=>'form-control', 'multiple' => '')) }}
+
+       
+
         <div class='mt-2'> 
             <h4> Выбор категории </h4> 
             @foreach($category as $cat)
                 {{ Form::label('category',$cat->title, array('id'=>'','class'=>'')) }}   
                 {{ Form::checkbox('category[]', $cat->id, false); }} 
             @endforeach
-        </div> 
+        </div>  
+
              
         {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
         {{ Form::close() }}

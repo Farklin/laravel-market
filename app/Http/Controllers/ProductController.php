@@ -7,6 +7,13 @@ use App\Models\ImageProduct;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
+/* TODO 
+* Реализовать удаление картинок к товару
+* Вывод категорий при обновлении товара
+* 
+*/ 
+
+
 class ProductController extends Controller
 {   
     public function create(Request $request)
@@ -75,18 +82,44 @@ class ProductController extends Controller
     }
     public function form_create()
     {
+        // Вывод формы создания товара
        $category = Category::all(); 
        return view('admin/product/create_product', array('category' => $category));
     }
     public function form_update($id)
-    {
-       $category = Category::all(); 
-       $product = Product::where('id', $id)->first(); 
-       return view('admin/product/create_product', array('product'=> $product, 'category' => $category));
+    {   
+        // Вывод формы обновления товара 
+        $product = Product::where('id', $id)->first(); 
+        return view('admin/product/update_product', array('product'=>$product)); 
+    }
+
+    public function update(Request $request, $id){
+        // обновление товара 
+
+        $validation_data = $request->validate([
+            'title' => ['required' ],
+            'description' => ['required' ],
+            'price' => ['required' ],
+            'old_price' => ['required' ],
+            'weight' => ['required' ],
+        ]); 
+
+
+        $product = Product::find($id); 
+        $product->title = $validation_data['title']; 
+        $product->description = $validation_data['description']; 
+        $product->price = $validation_data['price']; 
+        $product->old_price = $validation_data['old_price'];  
+        $product->weight = $validation_data['weight']; 
+        $product->save(); 
+
+        
+
+
     }
 
     public function all_product(){
-        // Отображает все товаров 
+        // Отображает всех товаров 
         return view('catalog/product/all_product', array('products'=> Product::all())) ; 
     }
 

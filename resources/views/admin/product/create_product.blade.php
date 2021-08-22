@@ -20,22 +20,22 @@
 
         {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
-        {{ Form::text('title','',array('id'=>'','class'=>'form-control', 'value'=> '$product->title')) }}
+        {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
 
 
         {{ Form::label('description','Описание',array('id'=>'','class'=>'')) }}
-        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control', 'value'=> '$product->description' )) }}
+        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control' )) }}
 
 
         {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('price','',array('id'=>'','class'=>'form-control', 'value'=> $product->price)) }}
+        {{ Form::number('price','',array('id'=>'','class'=>'form-control')) }}
 
         
         {{ Form::label('old_price','Старая цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control', 'value'=> $product->old_price )) }}
+        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control')) }}
 
         {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
-        {{ Form::number('weight','',array('id'=>'','class'=>'form-control', 'value'=> $product->price)) }}
+        {{ Form::number('weight','',array('id'=>'','class'=>'form-control' )) }}
         
         {{ Form::label('image','Изображение',array('id'=>'','class'=>'')) }}
         {{ Form::file('image[]',array('id'=>'','class'=>'form-control', 'multiple' => '')) }}
@@ -46,7 +46,7 @@
             <h4> Выбор категории </h4> 
             @foreach($category as $cat)
                 {{ Form::label('category',$cat->title, array('id'=>'','class'=>'')) }}   
-                {{ Form::checkbox('category[]', $cat->id, false); }} 
+                {{ Form::checkbox('category[]', $cat->id, false) }} 
             @endforeach
         </div>  
 

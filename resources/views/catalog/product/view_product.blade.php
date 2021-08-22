@@ -11,7 +11,7 @@
                 <div class="demo">
                  
                     <ul id="lightSlider">
-                        @foreach( $images as $image )
+                        @foreach( $product->images as $image )
                         <li data-thumb="{{ $image->image_path}}"> 
                         <img src="{{ $image->image_path}}" /> </li>
                         @endforeach
@@ -84,7 +84,10 @@
             <div class="card mt-2"> <span>Похожие товары:</span>
                 <div class="similar-products mt-2 d-flex flex-row">
                 @foreach($products as $product_similar)
-                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;"> <img src="https://im0-tub-ru.yandex.net/i?id=4ad08a15a0739a2968ccaf25fbf456a9-l&ref=rim&n=13&w=1080&h=1080" class="card-img-top" alt="...">
+                    <div class="card border p-1" style="width: 9rem;margin-right: 3px;">
+                    <a href="{{ route('show_product', $product_similar->id) }}"> 
+                     <img src="{{ $product->images[0]->image_path}}" class="card-img-top" alt="...">
+                    </a>
                         <div class="card-body">
                             <h6 class="card-title">{{$product_similar->price}}</h6>
                         </div>

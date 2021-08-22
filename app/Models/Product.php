@@ -18,13 +18,9 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
     public function images(){
-        $images = ImageProduct::where('product_id', $this->id)->get(); 
-        return $images; 
+        
+        return $this->hasMany(ImageProduct::class); 
     }
-    public function preview_image(){
-        $image = ImageProduct::where('product_id', $this->id)->first(); 
- 
-        return $image;  
-    }
+
 
 }

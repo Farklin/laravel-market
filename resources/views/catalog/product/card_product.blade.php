@@ -1,6 +1,10 @@
 <div class="card">
     <a href="{{ route('show_product', $product->id) }}">
-        <img class="card-img-top" src="{{ $product->images[0]->image_path }}" alt="Card image cap">
+        <img class="card-img-top" 
+        @if(isset($product->images[0])) 
+        src=" {{ $product->images[0]->image_path }}" 
+        @endif
+        alt="Card image cap">
     </a>     
     
     <div class="card-body">

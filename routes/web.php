@@ -28,6 +28,10 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_prod
 
 
 // категория
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category_create'); 
+Route::get('/category/create', [CategoryController::class, 'form_create'])->name('form_create'); 
+Route::post('/category/create', [CategoryController::class, 'create'])->name('category_create'); 
+
+
+
 
 Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category'); 

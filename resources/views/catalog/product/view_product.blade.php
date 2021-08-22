@@ -11,10 +11,12 @@
                 <div class="demo">
                  
                     <ul id="lightSlider">
+                    @if(isset($product->images)) 
                         @foreach( $product->images as $image )
                         <li data-thumb="{{ $image->image_path}}"> 
                         <img src="{{ $image->image_path}}" /> </li>
                         @endforeach
+                    @endif 
 
                     </ul>
                 </div>
@@ -86,7 +88,13 @@
                 @foreach($products as $product_similar)
                     <div class="card border p-1" style="width: 9rem;margin-right: 3px;">
                     <a href="{{ route('show_product', $product_similar->id) }}"> 
-                     <img src="{{ $product->images[0]->image_path}}" class="card-img-top" alt="...">
+                     <img 
+                     @if( isset($product_similar->images[0]))
+
+                     src="{{ $product_similar->images[0]->image_path}}"
+                     @endif 
+
+                     class="card-img-top" alt="...">
                     </a>
                         <div class="card-body">
                             <h6 class="card-title">{{$product_similar->price}}</h6>

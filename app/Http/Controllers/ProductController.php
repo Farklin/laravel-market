@@ -8,11 +8,14 @@ use App\Models\CategoryProduct;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ImageProductController; 
+
+
 /* TODO 
-* Реализовать удаление картинок к товару
-* Вывод категорий при обновлении товара
+* Оформление заказа на мыльце (телефон, почта, имя, product, кол.)
+* Количество товара 
 * 
 */ 
+
 
 
 class ProductController extends Controller

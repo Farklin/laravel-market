@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProductController; 
 use App\Http\Controllers\CategoryController; 
+
+use App\Http\Controllers\ImageProductController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +34,8 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_prod
 Route::get('/category/create', [CategoryController::class, 'form_create'])->name('form_create'); 
 Route::post('/category/create', [CategoryController::class, 'create'])->name('category_create'); 
 
-
+//картинки товара
+Route::post('/image_product/delete', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
 
 
 Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category'); 

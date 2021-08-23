@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\ImageProduct;  
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\ImageProductController; 
 /* TODO 
 * Реализовать удаление картинок к товару
 * Вывод категорий при обновлении товара
@@ -42,55 +42,14 @@ class ProductController extends Controller
         //добавление связей к товару (категория товар)
         $product->categories()->attach($category);
        
-        // добавление картинок к товару 
-        if($request->hasFile('image'))
-        {
+        // Добавление кртинки
 
-            //  Создание папки для хранения картинок к товару 
-            $path = public_path() . '/images/products/' . $product->id; 
-            File::makeDirectory($path, $mode = 0777, true, true);
-            // конец создания папки для хранения картинок к товару 
+        ImageProductController::add_image_product($request, $product); 
 
-            foreach($request->file('image') as $image){
-                $file_name = time().'_'. $image->getClientOriginalName(); 
-                $image->move($path, $file_name); 
-
-                $image = new ImageProduct(); 
-                $image->alt = $product->title; 
-                $image->image_path = '/images/products/' . $product->id . '/' . $file_name; 
-                $image->product_id = $product->id; 
-                $image->save(); 
-            }
-
-        }
-        
         //  конец добавления картинок к товару 
 
 
         return 'Товар успешно создан'; 
-    }
-    public function show($id)
-    {
-        // Показать карточку товара
-        $element = new Product(); 
-        $product = $element->where('id', $id)->first();     
-        $products = Product::all()->take(3); 
-
-        $images = ImageProduct::where('product_id', $product->id)->get(); 
-
-        return view('catalog/product/view_product', array('product' => $product, 'products'=> $products, 'images' => $images));  
-    }
-    public function form_create()
-    {
-        // Вывод формы создания товара
-       $category = Category::all(); 
-       return view('admin/product/create_product', array('category' => $category));
-    }
-    public function form_update($id)
-    {   
-        // Вывод формы обновления товара 
-        $product = Product::where('id', $id)->first(); 
-        return view('admin/product/update_product', array('product'=>$product)); 
     }
 
     public function update(Request $request, $id){
@@ -113,10 +72,38 @@ class ProductController extends Controller
         $product->weight = $validation_data['weight']; 
         $product->save(); 
 
+        // добавление картинок к товару
+        ImageProductController::add_image_product($request, $product); 
         
-
-
+        return redirect()->route('form_product_update', $product->id); 
+        
     }
+    public function show($id)
+    {
+        // Показать карточку товара
+        $element = new Product(); 
+        $product = $element->where('id', $id)->first();     
+        $products = Product::all()->take(3); 
+
+        $images = ImageProduct::where('product_id', $product->id)->get(); 
+
+        return view('catalog/product/view_product', array('product' => $product, 'products'=> $products, 'images' => $images));  
+    }
+    public function form_create()
+    {
+        // Вывод формы создания товара
+       $category = Category::all(); 
+       return view('admin/product/create_product', array('category' => $category));
+    }
+    public function form_update($id)
+    {   
+        // Вывод формы обновления товара 
+        $product = Product::where('id', $id)->first();
+        $category = Category::all();  
+        return view('admin/product/update_product', array('product'=>$product, 'category' => $category)); 
+    }
+
+    
 
     public function all_product(){
         // Отображает всех товаров 

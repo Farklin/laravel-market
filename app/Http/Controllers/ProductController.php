@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;   
 use App\Models\Category;  
 use App\Models\ImageProduct;  
+use App\Models\CategoryProduct;  
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ImageProductController; 
@@ -72,10 +73,23 @@ class ProductController extends Controller
         $product->weight = $validation_data['weight']; 
         $product->save(); 
 
+        // обновление привязки к категориям 
+        if($request->has('category')){
+
+
+            $categories = Category::find($request->category);
+            CategoryProduct::where('product_id' , $product->id)->delete();
+            foreach($categories as $category){
+                $product->categories()->attach($category); 
+            }
+                
+            
+        }
+
         // добавление картинок к товару
         ImageProductController::add_image_product($request, $product); 
         
-        return redirect()->route('form_product_update', $product->id); 
+        //return redirect()->route('form_product_update', $product->id); 
         
     }
     public function show($id)

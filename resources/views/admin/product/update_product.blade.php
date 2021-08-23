@@ -41,7 +41,7 @@
             <h4> Выбор категории </h4> 
 
             @foreach($category as $cat)
-            
+                @php  $checked = false @endphp 
                 @foreach($product->categories as $select_category)
                     {{-- проверяем есть ли категория в выбранных --}}
                     @if($cat->id == $select_category->id)
@@ -71,7 +71,7 @@
 
         {{ Form::close() }}
 
-        
+
         <h2 class="mt-5"> Изображения товара </h2> 
         <div class="row">
 

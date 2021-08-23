@@ -13,7 +13,7 @@ use App\Http\Controllers\ImageProductController;
 /* TODO 
 * Оформление заказа на мыльце (телефон, почта, имя, product, кол.)
 * Количество товара 
-* 
+* Коментарии
 */ 
 
 

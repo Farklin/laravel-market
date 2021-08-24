@@ -17,7 +17,9 @@
             </div>
         @endif
 
+        <div class="card">
 
+        
         {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
         {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
@@ -37,10 +39,14 @@
         {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
         {{ Form::number('weight','',array('id'=>'','class'=>'form-control' )) }}
         
-        {{ Form::label('image','Изображение',array('id'=>'','class'=>'')) }}
-        {{ Form::file('image[]',array('id'=>'','class'=>'form-control', 'multiple' => '')) }}
+        <div class="form-group d-flex mt-5">
+            {{ Form::label('image','Изображение',array('id'=>'','class'=>'col-form-label')) }}
+            {{ Form::file('image[]',array('id'=>'','class'=>'', 'multiple' => '')) }}
+        </div>
+       
 
        
+        
 
         <div class='mt-2'> 
             <h4> Выбор категории </h4> 
@@ -53,7 +59,7 @@
              
         {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
         {{ Form::close() }}
-
+    </div>
     </div>
 
 @endsection

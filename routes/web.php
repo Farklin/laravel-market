@@ -6,8 +6,9 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProductController; 
 use App\Http\Controllers\CategoryController; 
-
+use App\Http\Middleware\Authenticate; 
 use App\Http\Controllers\ImageProductController; 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +38,10 @@ Route::post('/category/create', [CategoryController::class, 'create'])->name('ca
 //картинки товара
 Route::post('/image_product/delete', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
 
-
+//категория 
 Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category'); 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

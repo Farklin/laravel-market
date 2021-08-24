@@ -5,7 +5,7 @@
 
     <div class="container">
 
-    
+    <div class="card">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -62,12 +62,12 @@
 
 
        
-        
+        <div class="form-group mt-5 d-flex">
         {{ Form::label('image','Изображение',array('id'=>'','class'=>'')) }}
-        {{ Form::file('image[]',array('id'=>'','class'=>'form-control', 'multiple' => '')) }}
+        {{ Form::file('image[]',array('id'=>'','class'=>'', 'multiple' => '')) }}
+         </div>
 
-
-        {{ Form::submit('Сохранить') }}
+        {{ Form::submit('Сохранить',  array('class'=>'btn btn-primary')) }}
 
         {{ Form::close() }}
 
@@ -88,6 +88,7 @@
         </div>
         @endif
 
+    </div> 
     </div>
 
 @endsection

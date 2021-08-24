@@ -92,7 +92,7 @@ class ProductController extends Controller
         // добавление картинок к товару
         ImageProductController::add_image_product($request, $product); 
         
-        //return redirect()->route('form_product_update', $product->id); 
+        return redirect()->route('form_product_update', $product->id); 
         
     }
     public function show($id)

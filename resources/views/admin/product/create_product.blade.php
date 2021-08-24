@@ -1,5 +1,5 @@
 
-@extends('layouts/app')
+@extends('admin.layouts.home')
 @section('title', 'Создание нового товара')
 @section('content')
 
@@ -17,8 +17,8 @@
             </div>
         @endif
 
-        <div class="card">
-
+        <div class="card p-5">
+        <h4> Создание нового товара </h4>
         
         {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}

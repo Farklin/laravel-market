@@ -1,11 +1,12 @@
 
-@extends('layouts/app')
+
+@extends('admin.layouts.home')
 @section('title', 'Создание нового товара')
 @section('content')
 
     <div class="container">
 
-    <div class="card">
+    <div class="card p-5">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

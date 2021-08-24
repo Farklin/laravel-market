@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController; 
 use App\Http\Middleware\Authenticate; 
 use App\Http\Controllers\ImageProductController; 
-
+use App\Http\Controllers\Admin\AdminController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,16 +24,9 @@ Route::get('/', [ProductController::class, 'all_product'])->name('all_product');
 
 
 // товар
-Route::get('/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
-Route::get('/product/update/{id}', [ProductController::class, 'form_update'])->name('form_product_update'); 
-Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('product_update'); 
-Route::post('/product/create', [ProductController::class, 'create'])->name('product_create'); 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_product'); 
 
 
-// категория
-Route::get('/category/create', [CategoryController::class, 'form_create'])->name('form_create'); 
-Route::post('/category/create', [CategoryController::class, 'create'])->name('category_create'); 
 
 //картинки товара
 Route::post('/image_product/delete', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
@@ -44,4 +37,20 @@ Route::get('/category/{id}', [CategoryController::class, 'index'])->name('catego
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Административаная часть
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.home'); 
+
+// категория
+Route::get('/admin/category/create', [CategoryController::class, 'form_create'])->name('form_create'); 
+Route::post('/admin/category/create', [CategoryController::class, 'create'])->name('category_create'); 
+
+
+//товар админ 
+Route::get('/admin/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
+Route::get('/admin/product/update/{id}', [ProductController::class, 'form_update'])->name('form_product_update'); 
+Route::post('/admin/product/update/{id}', [ProductController::class, 'update'])->name('product_update'); 
+Route::post('/admin/product/create', [ProductController::class, 'create'])->name('product_create'); 

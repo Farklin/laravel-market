@@ -16,7 +16,7 @@ class CreateImageProductTable extends Migration
         Schema::create('image_product', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-
+            
             $table->foreign('product_id')->references('id')->on('product'); 
             $table->string('image_path'); 
             $table->string('alt'); 

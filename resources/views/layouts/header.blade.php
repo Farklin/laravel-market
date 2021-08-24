@@ -22,5 +22,24 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Искать мыльце" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
       </form>
+      @guest
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('login')}}">Войти</a>
+        </li>
+        @else 
+
+        <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <div class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        this.closest('form').submit(); " role="button">
+                <i class="fas fa-sign-out-alt"></i>
+
+                {{ __('Выйти') }}
+            </a>
+        </div>
+
+       @endauth
     </div>
   </nav>

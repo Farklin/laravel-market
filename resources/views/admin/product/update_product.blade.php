@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        {{ Form::model($product, array('route' => array('product_update', $product->id), 'enctype'=> "multipart/form-data")) }}
+        {{ Form::model($product, array('route' => array('admin.product.update', $product->id), 'enctype'=> "multipart/form-data")) }}
 
         {{ Form::label('title', 'Название') }}
         {{ Form::text('title', null, array('class'=>'form-control')) }}

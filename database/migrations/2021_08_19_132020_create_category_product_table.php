@@ -18,8 +18,8 @@ class CreateCategoryProductTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('product_id');
             
-            $table->foreign('category_id')->references('id')->on('category'); 
-            $table->foreign('product_id')->references('id')->on('product'); 
+            $table->foreign('category_id')->references('id')->on('category')->onDelete("NO ACTION"); 
+            $table->foreign('product_id')->references('id')->on('product')->onDelete("NO ACTION"); 
             $table->timestamps();
         });
     }

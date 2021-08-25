@@ -20,7 +20,7 @@
         <div class="card p-5">
         <h4> Создание нового товара </h4>
         
-        {{ Form::open(array('route'=>'product_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
+        {{ Form::open(array('route'=>'admin.product.create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
         {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
 

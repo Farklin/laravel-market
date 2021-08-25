@@ -50,7 +50,12 @@ Route::post('/admin/category/create', [CategoryController::class, 'create'])->na
 
 
 //товар админ 
-Route::get('/admin/product/create', [ProductController::class, 'form_create'])->name('form_product_create'); 
-Route::get('/admin/product/update/{id}', [ProductController::class, 'form_update'])->name('form_product_update'); 
-Route::post('/admin/product/update/{id}', [ProductController::class, 'update'])->name('product_update'); 
-Route::post('/admin/product/create', [ProductController::class, 'create'])->name('product_create'); 
+Route::get('/admin/product/all/', [App\Http\Controllers\Admin\ProductController::class, 'all'])->name('admin.product.all'); 
+
+Route::get('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class, 'form_create'])->name('admin.product.form.create'); 
+Route::post('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.product.create'); 
+
+Route::get('/admin/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'form_update'])->name('admin.product.form.update'); 
+Route::post('/admin/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.product.update'); 
+
+Route::get('/admin/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('admin.product.delete'); 

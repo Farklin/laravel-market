@@ -27,7 +27,7 @@
                         <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i> Категории
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('form_product_create')}}"> Товары </a> 
+                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.product.all')}}"> Товары </a> 
                     </li>
          
                     <li class="list-group-item">

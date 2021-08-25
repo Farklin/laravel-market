@@ -6,7 +6,8 @@
 
     <div class="container">
 
-    
+    <h4>Создание новой категории</h4>
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -19,7 +20,7 @@
         @endif
 
 
-        {{ Form::open(array('route'=>'category_create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
+        {{ Form::open(array('route'=>'admin.category.form.create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
         {{ Form::label('title','Название категории',array('id'=>'','class'=>'')) }}
         {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
 

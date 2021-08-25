@@ -18,16 +18,18 @@
 </head>
 
 <body>
-
-    <div class="container-fluid">
+    <nav class="navbar ">
+    <a class="navbar-brand" href="#">Административаная часть</a>
+    </nav>
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-md-4">
                 <ul class="list-group">
-                    <li class="list-group-item active">
-                        <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i> Категории
+                    <li class="list-group-item">
+                        <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i><a href="{{route('admin.category.all')}}">Категории</a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.product.all')}}"> Товары </a> 
+                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.product.all')}}">Товары </a> 
                     </li>
          
                     <li class="list-group-item">

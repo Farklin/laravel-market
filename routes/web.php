@@ -44,8 +44,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Административаная часть
 
 
-// категория
-
+// корзина 
+Route::get('/basket/all', [App\Http\Controllers\BasketController::class, 'index'])->name('basket.index'); 
+Route::get('/basket/checkout', [App\Http\Controllers\BasketController::class, 'checkout'])->name('basket.checkout'); 
+Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'add'])->name('basket.add'); 
 
 
 

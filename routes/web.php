@@ -42,30 +42,40 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //Административаная часть
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.home'); 
+
 
 // категория
 
 
 
-//товар админ 
-Route::get('/admin/product/all/', [App\Http\Controllers\Admin\ProductController::class, 'all'])->name('admin.product.all'); 
-
-Route::get('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class, 'form_create'])->name('admin.product.form.create'); 
-Route::post('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.product.create'); 
-
-Route::get('/admin/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'form_update'])->name('admin.product.form.update'); 
-Route::post('/admin/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.product.update'); 
-
-Route::get('/admin/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('admin.product.delete'); 
 
 
-Route::get('/admin/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'form_create'])->name('admin.category.form.create'); 
-Route::post('/admin/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('admin.category.create');
+Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(function(){
+    //товар админ 
+    Route::get('/', [AdminController::class, 'index'])->name('home'); 
+    Route::get('/product/all/', [App\Http\Controllers\Admin\ProductController::class, 'all'])->name('product.all'); 
 
-Route::get('/admin/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'form_update'])->name('admin.category.form.update'); 
-Route::post('/admin/category/create/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('admin.category.update');
+    Route::get('/product/create', [App\Http\Controllers\Admin\ProductController::class, 'form_create'])->name('product.form.create'); 
+    Route::post('/product/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('product.create'); 
 
-Route::get('/admin/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('admin.category.delete'); 
+    Route::get('/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'form_update'])->name('product.form.update'); 
+    Route::post('/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('product.update'); 
 
-Route::get('/admin/category/all', [App\Http\Controllers\Admin\CategoryController::class, 'all'])->name('admin.category.all'); 
+    Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('product.delete'); 
+
+
+
+    Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'form_create'])->name('category.form.create'); 
+    Route::post('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('category.create');
+
+    Route::get('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'form_update'])->name('category.form.update'); 
+    Route::post('/category/create/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+
+    Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('category.delete'); 
+
+    Route::get('/category/all', [App\Http\Controllers\Admin\CategoryController::class, 'all'])->name('category.all'); 
+
+}); 
+
+    
+

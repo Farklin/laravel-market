@@ -59,7 +59,7 @@
             @endforeach
         </div>  
         
-        @if(isset($product->images))
+       
 
 
        
@@ -72,7 +72,7 @@
 
         {{ Form::close() }}
 
-
+        @if(isset($product->images))
         <h2 class="mt-5"> Изображения товара </h2> 
         <div class="row">
 

@@ -1,128 +1,79 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted mt-5">
-  <!-- Section: Social media -->
-  <section
-    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-  >
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Мы в социальных сетях</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Kamishok
-          </h6>
-          <p>
-           Мы производим лучшее мыло по самым доступным ценам.
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Категори
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Фруктово ягодное мыло</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Цветочное мыло</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Травяное мыло</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Сувенирное мыло</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Все товары</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Информация 
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Доставка</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Оплата</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Обмен / Возврат </a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Помощь</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Контакты
-          </h6>
-          <p><i class="fas fa-home me-3"></i> г. Владимир дом 27</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            info@kamishok.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> +7 (904) 034 30 13  </p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-        </div>
-        <!-- Grid column -->
+<footer class="footer_area clearfix">
+  <div class="container">
+      <div class="row">
+          <!-- Single Widget Area -->
+          <div class="col-12 col-md-6">
+              <div class="single_widget_area d-flex mb-30">
+                  <!-- Logo -->
+                  <div class="footer-logo mr-50">
+                      <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
+                  </div>
+                  <!-- Footer Menu -->
+                  <div class="footer_menu">
+                      <ul>
+                          <li><a href="shop.html">Shop</a></li>
+                          <li><a href="blog.html">Blog</a></li>
+                          <li><a href="contact.html">Contact</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- Single Widget Area -->
+          <div class="col-12 col-md-6">
+              <div class="single_widget_area mb-30">
+                  <ul class="footer_widget_menu">
+                      <li><a href="#">Order Status</a></li>
+                      <li><a href="#">Payment Options</a></li>
+                      <li><a href="#">Shipping and Delivery</a></li>
+                      <li><a href="#">Guides</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Terms of Use</a></li>
+                  </ul>
+              </div>
+          </div>
       </div>
-      <!-- Grid row -->
-    </div>
-  </section>
-  <!-- Section: Links  -->
 
-  <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="/">Kamishok</a>
+      <div class="row align-items-end">
+          <!-- Single Widget Area -->
+          <div class="col-12 col-md-6">
+              <div class="single_widget_area">
+                  <div class="footer_heading mb-30">
+                      <h6>Subscribe</h6>
+                  </div>
+                  <div class="subscribtion_form">
+                      <form action="#" method="post">
+                          <input type="email" name="mail" class="mail" placeholder="Your email here">
+                          <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <!-- Single Widget Area -->
+          <div class="col-12 col-md-6">
+              <div class="single_widget_area">
+                  <div class="footer_social_area">
+                      <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                      <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                      <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                      <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                      <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="row mt-5">
+          <div class="col-md-12 text-center">
+              <p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+          </div>
+      </div>
+      
   </div>
-  <!-- Copyright -->
+
+
+
 </footer>
-<!-- Footer -->

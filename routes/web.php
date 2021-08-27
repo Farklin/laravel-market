@@ -24,7 +24,7 @@ Route::get('/', [ProductController::class, 'all_product'])->name('all_product');
 
 
 // товар
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('show_product'); 
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show'); 
 
 
 

@@ -18,7 +18,7 @@
         <!-- Product Description -->
         <div class="product-description">
             <span>topshop</span>
-            <a href="single-product-details.html">
+            <a href="{{ route('product.show', $product->id)}} ">
                 <h6>{{ $product->title }}</h6>
             </a>
             <p class="product-price">{{ $product->price }} </p>

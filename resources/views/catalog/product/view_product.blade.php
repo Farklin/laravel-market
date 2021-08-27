@@ -99,7 +99,7 @@
                 <div class="similar-products mt-2 d-flex flex-row">
                 @foreach($products as $product_similar)
                     <div class="card border p-1" style="width: 9rem;margin-right: 3px;">
-                    <a href="{{ route('show_product', $product_similar->id) }}"> 
+                    <a href="{{ route('product.show', $product_similar->id) }}"> 
                      <img 
                      @if( isset($product_similar->images[0]))
 

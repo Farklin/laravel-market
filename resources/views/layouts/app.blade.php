@@ -13,21 +13,22 @@
     <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
     <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
     <link href="{{ asset('theme/css/core-style.css') }}" rel="stylesheet">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+    <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>
     @include('layouts/header')
+    @include('catalog/basket/modal')
     @yield('content')
     @include('layouts/footer')
    
-    <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>
- 
-
+  
     <script src="{{ asset('theme/js/popper.min.js') }}"></script>
 
     <script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('theme/js/plugins.js') }}"></script>
     <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
     <script src="{{ asset('theme/js/active.js') }}"></script>
+  
 </body>
 </html>

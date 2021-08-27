@@ -19,6 +19,18 @@ class BasketController extends Controller
       
     }
 
+    public function modal(Request $request){
+
+        $basket_id = $request->cookie('basket_id');
+        if (!empty($basket_id)) {
+            $products = Basket::findOrFail($basket_id)->products;
+            return view('catalog.basket.modal.index', compact('products'));
+        } else {
+            return ''; 
+        }
+    
+    }
+
     public function add( Request $request, $id){
 
         $basket_id = $request->cookie('basket_id');

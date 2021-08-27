@@ -12,8 +12,8 @@
         </div> 
     </div>
     <!-- ##### Right Side Cart End ##### -->
-
     
+    {{-- Вывод корзины --}}
     <script type="text/javascript"> 
         $(document).ready(function(){
             $.ajax({
@@ -29,5 +29,4 @@
             }); 
         }); 
     </script>
- 
- 
+  

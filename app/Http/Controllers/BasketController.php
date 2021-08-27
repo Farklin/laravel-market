@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Basket; 
+
+
 class BasketController extends Controller
 {
     public function index(Request $request){
@@ -19,6 +21,18 @@ class BasketController extends Controller
       
     }
 
+    public function product_delete(Request $request){
+        if($request->has('product_id'))
+        {   
+            $basket_id = $request->cookie('basket_id');
+            $product_id = $request->input('product_id'); 
+
+            $basket = Basket::findOrFail($basket_id);
+            return $pivotRow = $basket->products()->where('product_id', $product_id)->first()->title; 
+        }
+        
+        return 'Данного товара нету в корзине '  ; 
+    }
     public function modal(Request $request){
 
         $basket_id = $request->cookie('basket_id');

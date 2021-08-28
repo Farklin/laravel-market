@@ -28,7 +28,7 @@ class BasketController extends Controller
             $product_id = $request->input('product_id'); 
 
             $basket = Basket::findOrFail($basket_id);
-            return $pivotRow = $basket->products()->where('product_id', $product_id)->first()->title; 
+            return $pivotRow = $basket->products()->where('product_id', $product_id)->first()->pivot->delete(); 
         }
         
         return 'Данного товара нету в корзине '  ; 

@@ -40,8 +40,9 @@ class BasketController extends Controller
             $products = Basket::findOrFail($basket_id)->products;
             return view('catalog.basket.modal.index', compact('products'));
         } else {
-            return ''; 
+            return view('catalog.basket.modal.index');
         }
+        return view('catalog.basket.modal.index');
     
     }
 

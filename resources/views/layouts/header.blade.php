@@ -67,14 +67,12 @@
                         <li><a href="#">Категории</a>
                             <div class="megamenu">
                                 <ul class="single-mega cn-col-4">
-                                    <li class="title">Women's Collection</li>
-                                    <li><a href="shop.html">Dresses</a></li>
-                                    <li><a href="shop.html">Blouses &amp; Shirts</a></li>
-                                    <li><a href="shop.html">T-shirts</a></li>
-                                    <li><a href="shop.html">Rompers</a></li>
-                                    <li><a href="shop.html">Bras &amp; Panties</a></li>
+                                    <li class="title">Мыло</li>
+                                    @foreach($header_category as $category)
+                                    <li><a href="{{ route('category', $category->id)}}">{{ $category->title }}</a></li>
+                                    @endforeach
                                 </ul>
-                                <ul class="single-mega cn-col-4">
+                                <!-- <ul class="single-mega cn-col-4">
                                     <li class="title">Men's Collection</li>
                                     <li><a href="shop.html">T-Shirts</a></li>
                                     <li><a href="shop.html">Polo</a></li>
@@ -89,7 +87,7 @@
                                     <li><a href="shop.html">T-shirts</a></li>
                                     <li><a href="shop.html">Jackets</a></li>
                                     <li><a href="shop.html">Trench</a></li>
-                                </ul>
+                                </ul> -->
                                 <div class="single-mega cn-col-4">
                                     <img src="img/bg-img/bg-6.jpg" alt="">
                                 </div>
@@ -129,9 +127,13 @@
                 <a href="#"><img src="/theme/img/core-img/heart.svg" alt=""></a>
             </div>
             <!-- User Login Info -->
-            <div class="user-login-info">
-                <a href="#"><img src="/theme/img/core-img/user.svg" alt=""></a>
-            </div>
+            @guest
+                <div class="user-login-info">
+                    <a href="{{ route('register') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
+                </div>
+                @else
+
+            @endauth
             <!-- Cart Area -->
             <div class="cart-area">
                 <a href="#" id="essenceCartBtn"><img src="/theme/img/core-img/bag.svg" alt=""> <span>3</span></a>

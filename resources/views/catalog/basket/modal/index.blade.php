@@ -1,24 +1,29 @@
     <div class="cart-content d-flex">
 
         <!-- Cart List Area -->
+        @if(!empty($products))
+        
+    
         <div class="cart-list">
+         
             @if(count($products))
-            @foreach($products as $product)
-                <!-- Single Cart Item -->
-                <div class="single-cart-item">
-                    <a href="" class="product-image">
-                        <img src="{{$product->images->first()->image_path}}" class="cart-thumb" alt="">
-                        <!-- Cart Item Desc -->
-                        <div class="cart-item-desc">
-                        <span class="product-remove" onclick="basket_delete_product({{$product->id}})"><i class="fa fa-close" aria-hidden="true"></i></span>
-                            <span class="badge">Mango</span>
-                            <h6>{{$product->title}}</h6>
-                            <p class="price">{{$product->price}}</p>
-                        </div>
-                    </a>
-                </div>
-            @endforeach 
+                @foreach($products as $product)
+                    <!-- Single Cart Item -->
+                    <div class="single-cart-item">
+                        <a href="" class="product-image">
+                            <img src="{{$product->images->first()->image_path}}" class="cart-thumb" alt="">
+                            <!-- Cart Item Desc -->
+                            <div class="cart-item-desc">
+                            <span class="product-remove" onclick="basket_delete_product({{$product->id}})"><i class="fa fa-close" aria-hidden="true"></i></span>
+                                <span class="badge">Mango</span>
+                                <h6>{{$product->title}}</h6>
+                                <p class="price">{{$product->price}}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach 
             @endif
+
         </div>
 
         <!-- Cart Summary -->
@@ -45,17 +50,23 @@
                 <a href="checkout.html" class="btn essence-btn">Заказать</a>
             </div>
         
+            @else
+            <h2>Корзина</h2>
+                <ul class="summary-table">
+                    <li><span>Ваша корзина пуста</span> </li>
+                </ul>
+            @endif 
+        
         @else
-        <h2>Корзина</h2>
+        <div class="cart-amount-summary">
+            <h2>Корзина</h2>
             <ul class="summary-table">
                 <li><span>Ваша корзина пуста</span> </li>
             </ul>
-        @endif 
-        
-        
+        @endif
         </div>
-
-
+       
+       
   {{-- Удаление из корзины товаров --}}
   <script type="text/javascript"> 
 
@@ -71,7 +82,7 @@
             'product_id': product_id, 
         },
         success: function(data){
-            alert(data); 
+            
         }, 
         
         }); 

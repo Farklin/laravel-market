@@ -149,7 +149,7 @@
                             <div class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- Total Products -->
                                 <div class="total-products">
-                                    <p><span>186</span> Товаров найдено</p>
+                                    <p><span>{{ count($products) }} </span> Товаров найдено</p>
                                 </div>
                                 <!-- Sorting -->
                                 <div class="product-sorting d-flex">

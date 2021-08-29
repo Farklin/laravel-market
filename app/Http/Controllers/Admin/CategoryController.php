@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category; 
 
+/** TODO   
+ * Форма обновления 
+ * Обработчик формы обновления
+ * 
+ */
+
+
 class CategoryController extends Controller
 {
     public function form_create(){
@@ -53,7 +60,7 @@ class CategoryController extends Controller
         }
        
         $category->save(); 
-        return  $request->input('public'); 
+        return back(); 
     }
     
 }

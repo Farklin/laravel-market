@@ -24,6 +24,7 @@
                 },
             success: function(data){
                 $('.right-side-cart-area').append(data);  
+               
             }, 
             
             }); 

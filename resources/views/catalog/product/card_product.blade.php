@@ -1,6 +1,7 @@
 <div class="col-12 col-sm-6 col-lg-4">
     <div class="single-product-wrapper">
         <!-- Product Image -->
+        <a href="{{ route('product.show', $product->id) }}"> 
         <div class="product-img">
 
             @if(isset($product->images[0])) 
@@ -14,6 +15,7 @@
             @endif
 
         </div>
+        </a> 
 
         <!-- Product Description -->
         <div class="product-description">

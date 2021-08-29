@@ -78,7 +78,7 @@
 
         @foreach ($product->images as $image)
             <div class="col-md-2">
-                <img src="{{ $image->image_path }}" alt="" srcset="">
+                <img height="100" src="{{ $image->image_path }}" alt="" srcset="">
                 <form action="{{route('image_product_delete')}}" method="post" > 
                     @csrf
                     <input type="hidden" name='image_product_id' value = {{ $image->id }}>

@@ -50,7 +50,7 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="{{ route('all_product') }}"><img src="/theme/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="{{ route('home') }}"><img src="/theme/img/core-img/logo.png" alt=""></a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -64,7 +64,7 @@
                 <!-- Nav Start -->
                 <div class="classynav">
                     <ul>
-                        <li><a href="#">Категории</a>
+                        <li><a href="{{ route('all_product') }}">Категории</a>
                             <div class="megamenu">
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Мыло</li>

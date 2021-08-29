@@ -20,7 +20,9 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::get('/', [ProductController::class, 'all_product'])->name('all_product');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/product/all', [ProductController::class, 'all_product'])->name('all_product');
 
 
 // товар
@@ -38,7 +40,6 @@ Route::get('/category/{id}', [CategoryController::class, 'index'])->name('catego
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Административаная часть

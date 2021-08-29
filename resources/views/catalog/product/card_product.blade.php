@@ -29,7 +29,13 @@
             <div class="hover-content">
                 <!-- Add to Cart -->
                 <div class="add-to-cart-btn">
-                    <a href="#" class="btn essence-btn">Добавить в корзину</a>
+                     <!-- Form -->
+                     <form class="cart-form clearfix" action="{{ route('basket.add', ['id' => $product->id]) }}" method="post">  
+                        @csrf 
+                    <input type="hidden" name="quantity" id="input-quantity" value="1" class="form-control mx-2 w-25">
+                     <button type="submit" class="btn essence-btn">В корзину</button>
+                     </form> 
+
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@
 
             <!-- Cart Button -->
             <div class="cart-button">
-                <a href="#" id="rightSideCart"><img src="img/core-img/bag.svg" alt=""> <span>3</span></a>
+                <a href="#" id="rightSideCart"><img src="img/core-img/bag.svg" alt=""> <span id="basket_count_product"></span></a>
             </div>
         
         </div> 

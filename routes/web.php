@@ -49,6 +49,8 @@ Route::get('/basket/all', [App\Http\Controllers\BasketController::class, 'index'
 Route::get('/basket/checkout', [App\Http\Controllers\BasketController::class, 'checkout'])->name('basket.checkout'); 
 Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'add'])->name('basket.add'); 
 Route::post('/basket/modal', [App\Http\Controllers\BasketController::class, 'modal'])->name('basket.modal'); 
+Route::post('/basket/object', [App\Http\Controllers\BasketController::class, 'object'])->name('basket.object'); 
+
 Route::post('/basket/product/delete/', [App\Http\Controllers\BasketController::class, 'product_delete'])->name('basket.product.delete');  
 
 

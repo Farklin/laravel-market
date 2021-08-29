@@ -136,9 +136,34 @@
             @endauth
             <!-- Cart Area -->
             <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="/theme/img/core-img/bag.svg" alt=""> <span>3</span></a>
+                <a href="#" id="essenceCartBtn"><img src="/theme/img/core-img/bag.svg" alt=""> <span id="basket_count_product"></span></a>
             </div>
         </div>
 
     </div>
 </header>
+
+
+<script>    
+    // Колличество товаров в корзине
+    $(document).ready(
+        function(){
+
+  
+            $.ajax({
+                headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: 'post',
+                url: "{{ route('basket.object') }} ", 
+                success: function(data){
+                   basket_count_product = $.parseJSON(data).length; 
+                   $('#basket_count_product').text(basket_count_product);
+                }
+
+            });
+        }
+    ); 
+    
+
+</script> 

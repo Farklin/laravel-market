@@ -21,6 +21,19 @@ class BasketController extends Controller
       
     }
 
+    public function object(Request $request){
+        
+        $basket_id = $request->cookie('basket_id');
+        if (!empty($basket_id)) {
+            $products = Basket::findOrFail($basket_id)->products->toJson();
+
+            return $products;
+        } else {
+            return [];
+        }
+        return []; 
+    }
+
     public function product_delete(Request $request){
         if($request->has('product_id'))
         {   

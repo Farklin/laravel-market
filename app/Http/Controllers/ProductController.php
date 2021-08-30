@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Category;  
 use App\Models\ImageProduct;  
 use App\Models\CategoryProduct;  
+use App\Models\Seo;  
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ImageProductController; 
@@ -21,11 +22,14 @@ use App\Http\Controllers\ImageProductController;
 class ProductController extends Controller
 {   
    
-    public function show($id)
+    public function show($slug)
     {
+        
+        // запрос чпу
+        $seo_id = Seo::where('slug', $slug)->first()->id; 
         // Показать карточку товара
         $element = new Product(); 
-        $product = $element->where('id', $id)->first();     
+        $product = $element->where('seo_id', $seo_id)->first();     
         $products = Product::all()->take(3); 
 
         $images = ImageProduct::where('product_id', $product->id)->get(); 

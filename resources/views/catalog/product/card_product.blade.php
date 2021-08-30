@@ -1,7 +1,7 @@
 <div class="col-12 col-sm-6 col-lg-4">
     <div class="single-product-wrapper">
         <!-- Product Image -->
-        <a href="{{ route('product.show', $product->id) }}"> 
+        <a href="{{ route('product.show', $product->seo->slug) }}"> 
         <div class="product-img">
 
             @if(isset($product->images[0])) 
@@ -20,7 +20,7 @@
         <!-- Product Description -->
         <div class="product-description">
             <span>topshop</span>
-            <a href="{{ route('product.show', $product->id)}} ">
+            <a href="{{ route('product.show', $product->seo->slug)}} ">
                 <h6>{{ $product->title }}</h6>
             </a>
             <p class="product-price">{{ $product->price }} </p>

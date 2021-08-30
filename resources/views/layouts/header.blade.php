@@ -136,7 +136,7 @@
             @endauth
             <!-- Cart Area -->
             <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="/theme/img/core-img/bag.svg" alt=""> <span id="basket_count_product"></span></a>
+                <a href="#" id="essenceCartBtn"><img src="/theme/img/core-img/bag.svg" alt=""> <span class="basket_count_product"></span></a>
             </div>
         </div>
 
@@ -158,7 +158,7 @@
                 url: "{{ route('basket.object') }} ", 
                 success: function(data){
                    basket_count_product = $.parseJSON(data).length; 
-                   $('#basket_count_product').text(basket_count_product);
+                   $('.basket_count_product').text(basket_count_product);
                 }
 
             });

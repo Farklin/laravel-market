@@ -20,7 +20,13 @@
         <div class="card p-5">
         <h4> Создание нового товара </h4>
         
+        
+        
         {{ Form::open(array('route'=>'admin.product.create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
+        @include('admin.seo.form')
+
+        <div class="card p-3 mt-3">
+            <h4>Описание товара </h4>
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
         {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
 
@@ -58,7 +64,9 @@
 
              
         {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
-        {{ Form::close() }}
+       
+    </div>
+    {{ Form::close() }}
     </div>
     </div>
 

@@ -8,7 +8,8 @@ use App\Models\Product;
 use App\Models\Category; 
 use App\Models\CategoryProduct; 
 
-
+use App\Http\Controllers\SeoController; 
+use App\Models\Seo; 
 use App\Http\Controllers\ImageProductController; 
 
 
@@ -43,6 +44,10 @@ class ProductController extends Controller
             'category' => ['required'], 
         ]); 
 
+        $seo = new SeoController() ; 
+        $seo_id = $seo->create($request); 
+
+
         $category = Category::find($validation_data['category']); 
 
         $product = new Product(); 
@@ -51,6 +56,7 @@ class ProductController extends Controller
         $product->price = $validation_data['price']; 
         $product->old_price = $validation_data['old_price'];  
         $product->weight = $validation_data['weight']; 
+        $product->seo_id = $seo_id; 
         $product->save(); 
         
         //добавление связей к товару (категория товар)
@@ -63,7 +69,7 @@ class ProductController extends Controller
         //  конец добавления картинок к товару 
 
 
-        return 'Товар успешно создан'; 
+        return back(); 
     }
     
 
@@ -72,7 +78,8 @@ class ProductController extends Controller
         // Вывод формы обновления товара 
         $product = Product::where('id', $id)->first();
         $category = Category::all();  
-        return view('admin/product/update_product', array('product'=>$product, 'category' => $category)); 
+        $seo = $product->seo()->first();  
+        return view('admin/product/update_product', array('product'=>$product, 'category' => $category, 'seo'=> $seo)); 
     }
 
     public function update(Request $request, $id){
@@ -86,7 +93,6 @@ class ProductController extends Controller
             'weight' => ['required' ],
         ]); 
 
-
         $product = Product::find($id); 
         $product->title = $validation_data['title']; 
         $product->description = $validation_data['description']; 
@@ -94,6 +100,9 @@ class ProductController extends Controller
         $product->old_price = $validation_data['old_price'];  
         $product->weight = $validation_data['weight']; 
         $product->save(); 
+
+        $seo = new SeoController(); 
+        $seo_id = $seo->update($request, $product->seo->id); 
 
         // обновление привязки к категориям 
         if($request->has('category')){
@@ -107,6 +116,7 @@ class ProductController extends Controller
                 
             
         }
+
 
         // добавление картинок к товару
         ImageProductController::add_image_product($request, $product); 

@@ -20,6 +20,8 @@ class CreateCategoryTable extends Migration
             $table->string('public'); 
             $table->boolean('display_main_page'); 
             $table->boolean('display_sidebar');
+
+
             $table->timestamps();
         });
     }

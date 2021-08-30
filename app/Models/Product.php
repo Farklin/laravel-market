@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Basket; 
 use App\Models\ImageProduct; 
+use App\Models\Seo; 
 
 class Product extends Model
 {
@@ -23,6 +24,9 @@ class Product extends Model
     }
     public function baskets() {
         return $this->belongsToMany(Basket::class)->withPivot('quantity');
+    }
+    public function seo(){
+        return $this->belongsTo(Seo::class);
     }
 
 

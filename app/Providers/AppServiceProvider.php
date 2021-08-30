@@ -7,6 +7,7 @@ use App\Models\Basket;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,10 +28,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //категории
         $category = Category::where('display_main_page', True)->get(); 
-        view()->share('header_category', $category);      
 
+        view()->share('header_category', $category);   
+
+       
+
+    
 
     }
 }

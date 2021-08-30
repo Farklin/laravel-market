@@ -20,6 +20,10 @@ class CreateProductTable extends Migration
             $table->integer('price'); 
             $table->integer('old_price'); 
             $table->integer('weight'); 
+
+         
+    
+
             $table->timestamps();
         });
     }

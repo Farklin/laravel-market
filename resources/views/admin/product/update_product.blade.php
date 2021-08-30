@@ -19,6 +19,7 @@
         @endif
 
         {{ Form::model($product, array('route' => array('admin.product.update', $product->id), 'enctype'=> "multipart/form-data")) }}
+            @include('admin.seo.form', $seo)
 
         {{ Form::label('title', 'Название') }}
         {{ Form::text('title', null, array('class'=>'form-control')) }}

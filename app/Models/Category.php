@@ -16,6 +16,6 @@ class Category extends Model
         return $this->belongsToMany(Product::class);
     }
     public function seo(){
-        return $this->belongsTo(Seo::class);
+        return $this->belongsTo(Seo::class, 'seo_id');
     }
 }

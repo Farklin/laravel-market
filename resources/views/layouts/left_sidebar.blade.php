@@ -3,7 +3,7 @@
         <!-- Single Item -->
         @foreach($header_category as $category)
         <li data-toggle="collapse" data-target="#clothing">
-            <a href="{{route('category', $category->id )}}">{{ $category->title }}</a>
+            <a href="{{route('category', $category->seo->slug )}}">{{ $category->title }}</a>
             {{-- <ul class="sub-menu collapse show" id="clothing">
                                         <li><a href="#">All</a></li>
                                         <li><a href="#">Bodysuits</a></li>

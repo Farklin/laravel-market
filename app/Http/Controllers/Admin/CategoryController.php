@@ -87,13 +87,13 @@ class CategoryController extends Controller
 
         $seo = new SeoController(); 
         $seo->create($request); 
-
+        
 
 
         $category = new Category();
         $category->title = $validation_data['title']; 
         $category->description = $validation_data['description']; 
-
+        $category->seo_id = $seo->id; 
         if($request->has('public')){
             $category->public = True; 
         }else{ 

@@ -34,7 +34,7 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 Route::post('/image_product/delete', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
 
 //категория 
-Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category'); 
+Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('category'); 
 
 
 Auth::routes();

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class SeoController extends Controller
 {
     public function create(Request $request){
-
+        
         $seo = new Seo();
         $seo->title = $request->input('title_seo'); 
         $seo->description = $request->input('description_seo');
@@ -19,12 +19,22 @@ class SeoController extends Controller
         }else{
             $seo->slug = $request->input('slug'); 
         }
-      
+        
         $seo->save(); 
 
         return $seo->id; 
 
     }
+    static function unique_slug($slug, $id){
+        $seo = Seo::where('slug', $slug)->first(); 
+        if($slug == null)
+        {
+            return $slug; 
+        }else {
+            return $slug . $id; 
+        }
+    }
+    
     public function update(Request $request, $id){
 
         $seo = Seo::findOrFail($id);

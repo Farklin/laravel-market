@@ -12,7 +12,7 @@
        @foreach($header_category as $category)
         
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('category', $category->id) }}">{{$category->title}}</a>
+          <a class="nav-link" href="{{ route('category', $category->seo->slug) }}">{{$category->title}}</a>
         </li>
        @endforeach 
        
@@ -69,7 +69,7 @@
                                 <ul class="single-mega cn-col-4">
                                     <li class="title">Мыло</li>
                                     @foreach($header_category as $category)
-                                    <li><a href="{{ route('category', $category->id)}}">{{ $category->title }}</a></li>
+                                    <li><a href="{{ route('category', $category->seo->slug)}}">{{ $category->title }}</a></li>
                                     @endforeach
                                 </ul>
                                 <!-- <ul class="single-mega cn-col-4">

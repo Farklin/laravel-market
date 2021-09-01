@@ -108,16 +108,10 @@ class BasketController extends Controller
     }
     public function checkout(Request $request){
 
-        $basket_id = $request->cookie('basket_id');
-        // если корзина существует то возвращаем ее
-        if(!empty($basket_id)){
-            $basket = Basket::findOrFail($basket_id);
-            return view('catalog.basket.checkout', array(compact('basket'))); 
-            // если корзины не существует возвращам 404 
-        }else{
-            // abort(404);
-        }
-
+          
+        $basket = Basket::getBasket(); 
+        return view('catalog.basket.checkout', compact('basket')); 
+      
         
     }
 

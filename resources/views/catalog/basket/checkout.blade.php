@@ -83,9 +83,9 @@
 
                         <ul class="order-details-form mb-4">
                             <li><span>Товары</span> <span>Итого</span></li>
-                        <li><span>Стоимость товаров</span> <span>{{ $basket::getBasket() }} </span></li>
+                        <li><span>Стоимость товаров</span> <span>{{ $basket->getAmount(); }} </span></li>
                             <li><span>Доставка</span> <span>Free</span></li>
-                            <li><span>Итого</span> <span>$59.90</span></li>
+                            <li><span>Итого</span> <span>{{ $basket->getAmount(); }} </span></li>
                         </ul>
 
                         <div id="accordion" role="tablist" class="mb-4">

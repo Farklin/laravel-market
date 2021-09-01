@@ -14,24 +14,27 @@ class SeoController extends Controller
         $seo->title = $request->input('title_seo'); 
         $seo->description = $request->input('description_seo');
         $seo->keywords = $request->input('keywords_seo');
-        if($request->input('slug') == ''){
-            $seo->slug = Str::slug($request->input('title'), '-'); 
-        }else{
-            $seo->slug = $request->input('slug'); 
-        }
-        
+    
         $seo->save(); 
+
+        if($request->input('slug') == ''){
+            $seo->slug =$this->unique_slug(Str::slug($request->input('title'), '-'), $seo->id)  ; 
+        }else{
+            $seo->slug = $this->unique_slug($request->input('slug'), $seo->id) ; 
+        }
+
+        $seo->save();  
 
         return $seo->id; 
 
     }
     static function unique_slug($slug, $id){
-        $seo = Seo::where('slug', $slug)->first(); 
-        if($slug == null)
+        $count = Seo::where('slug', $slug)->exists();  
+        if(!$count)
         {
             return $slug; 
         }else {
-            return $slug . $id; 
+            return $slug . (string)$id; 
         }
     }
     

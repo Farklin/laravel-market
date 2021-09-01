@@ -51,11 +51,16 @@
             {{ Form::close() }}
         @else
 
-            @include('admin.seo.form', $seo); 
+            
 
             {{ Form::model($category, ['route' => ['admin.category.update', $category->id], 'enctype' => 'multipart/form-data']) }}
+
+            @include('admin.seo.form', $seo); 
+
+            
             {{ Form::label('title', 'Название категории', ['id' => '', 'class' => '']) }}
             {{ Form::text('title', null, ['id' => '', 'class' => 'form-control']) }}
+
 
 
             {{ Form::label('description', 'Описание', ['id' => '', 'class' => '']) }}

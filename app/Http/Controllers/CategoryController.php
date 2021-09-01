@@ -19,10 +19,9 @@ class CategoryController extends Controller
     public function index($slug){
         $seo_id = Seo::where('slug', $slug)->first()->id; 
 
-        $category = Category::where('seo_id' , $seo_id )->first(); 
-        $products = $category->products; 
-        
-        return view('catalog/category/view', array('products' => $products, 'category' => $category)); 
+        $category = Category::where('seo_id' , $seo_id)->first(); 
+    
+        return view('catalog/category/view', array('category' => $category)); 
     }
 
    

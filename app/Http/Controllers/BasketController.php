@@ -9,7 +9,9 @@ use App\Models\Basket;
 class BasketController extends Controller
 {
     public function index(Request $request){
-
+        /**
+         * Выводит корзину 
+         */
 
         $basket_id = $request->cookie('basket_id');
         if (!empty($basket_id)) {
@@ -22,7 +24,9 @@ class BasketController extends Controller
     }
 
     public function object(Request $request){
-        
+        /**
+         * Получает обьект из корзины 
+         */
         $basket_id = $request->cookie('basket_id');
         if (!empty($basket_id)) {
             $products = Basket::findOrFail($basket_id)->products->toJson();
@@ -35,6 +39,10 @@ class BasketController extends Controller
     }
 
     public function product_delete(Request $request){
+        /**
+         * Удаляем товар из корзины
+         */
+
         if($request->has('product_id'))
         {   
             $basket_id = $request->cookie('basket_id');
@@ -47,6 +55,9 @@ class BasketController extends Controller
         return 'Данного товара нету в корзине '  ; 
     }
     public function modal(Request $request){
+        /**
+         * Выводит модальную форму заказа для ajax 
+         */
 
         $basket_id = $request->cookie('basket_id');
         if (!empty($basket_id)) {
@@ -56,10 +67,14 @@ class BasketController extends Controller
             return view('catalog.basket.modal.index');
         }
         return view('catalog.basket.modal.index');
-    
+        
     }
 
     public function add( Request $request, $id){
+        /** 
+         *  Добавляет товары в корзину $id
+         * */ 
+     
 
         $basket_id = $request->cookie('basket_id');
         $quantity = $request->input('quantity') ?? 1;

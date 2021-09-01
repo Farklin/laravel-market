@@ -25,19 +25,22 @@ class CategoryController extends Controller
     public function form_update($id){
         // создание категории товаров
         
-        $category = Category::find($id)->first() ; 
-        $seo = Category::find($id)->first()->seo;
+        $category = Category::find($id); 
+        $seo = Category::find($id)->seo;
         return view('admin/category/form_category', compact('category', 'seo') ); 
     }
 
 
-    public function update_category(Request $request, $id){
+    public function update(Request $request, $id){
+
+        /* Обновление категории */ 
+
+
         $validation_data = $request->validate([
             'title' => ['required' ],
             'description' => ['required' ],
         ]); 
 
-        
         $category = Category::find($id)->first() ; 
         $category->title = $validation_data['title']; 
         $category->description = $validation_data['description']; 
@@ -73,9 +76,11 @@ class CategoryController extends Controller
         return view('admin.category.all', array('categories'=> $categories)); 
     }
     public function delete($id){
-         
+        /* Удаление категории */ 
         $category = Category::find($id);
         $category->delete();  
+        // Удалить связаную запись seo 
+        $category->seo->delete(); 
         return back(); 
     }
     public function create(Request $request){
@@ -86,14 +91,17 @@ class CategoryController extends Controller
         ]); 
 
         $seo = new SeoController(); 
-        $seo->create($request); 
+        $seo_id = $seo->create($request); 
         
 
 
         $category = new Category();
         $category->title = $validation_data['title']; 
         $category->description = $validation_data['description']; 
-        $category->seo_id = $seo->id; 
+        $category->seo_id = $seo_id; 
+
+
+
         if($request->has('public')){
             $category->public = True; 
         }else{ 

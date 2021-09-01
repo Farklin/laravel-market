@@ -93,7 +93,7 @@
                             <div class="product-topbar d-flex align-items-center justify-content-between">
                                 <!-- Total Products -->
                                 <div class="total-products">
-                                    <p><span>{{ count($products) }}</span> Товаров найдено</p>
+                                    <p><span>{{ count($category->products) }}</span> Товаров найдено</p>
                                 </div>
                                 <!-- Sorting -->
                                 <div class="product-sorting d-flex">
@@ -114,7 +114,7 @@
 
                     <div class="row">
 
-                        @foreach($products as $product)
+                        @foreach($category->products as $product)
                         <!-- Single Product -->
                             @include('catalog.product.card_product')
                         @endforeach 

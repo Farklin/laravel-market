@@ -133,7 +133,7 @@
 @endsection --}}
 
 @extends('layouts/app')
-@section('title', $product->title)
+@section('title', $product->seo->title)
 @section('content')
 
 

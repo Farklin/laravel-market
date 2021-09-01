@@ -8,6 +8,7 @@
             <div class="cart-button">
                 <a href="#" id="rightSideCart"><img src="/theme/img/core-img/bag.svg" alt=""> <span class="basket_count_product"></span></a>
             </div>
+
         
         </div> 
     </div>

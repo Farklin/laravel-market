@@ -11,7 +11,14 @@ class SeoController extends Controller
     public function create(Request $request){
         
         $seo = new Seo();
-        $seo->title = $request->input('title_seo'); 
+        if($request->input('title_seo') == ''){
+            $seo->title = $request->input('title');
+        }else{
+            $seo->title = $request->input('title_seo');
+        }
+         
+
+
         $seo->description = $request->input('description_seo');
         $seo->keywords = $request->input('keywords_seo');
     

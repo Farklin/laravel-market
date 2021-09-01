@@ -46,13 +46,15 @@ Auth::routes();
 
 
 // корзина 
-Route::get('/basket/all', [App\Http\Controllers\BasketController::class, 'index'])->name('basket.index'); 
+Route::get('/basket/all', [App\Http\Controllers\BasketController::class, 'index'])->name('basket.all'); 
 Route::get('/basket/checkout', [App\Http\Controllers\BasketController::class, 'checkout'])->name('basket.checkout'); 
 Route::post('/basket/add/{id}', [App\Http\Controllers\BasketController::class, 'add'])->name('basket.add'); 
 Route::post('/basket/modal', [App\Http\Controllers\BasketController::class, 'modal'])->name('basket.modal'); 
 Route::post('/basket/object', [App\Http\Controllers\BasketController::class, 'object'])->name('basket.object'); 
 
 Route::post('/basket/product/delete/', [App\Http\Controllers\BasketController::class, 'product_delete'])->name('basket.product.delete');  
+Route::post('/basket/product/plus/{id}', [App\Http\Controllers\BasketController::class, 'plus'])->name('basket.product.plus'); 
+Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->name('basket.product.minus'); 
 
 
 
@@ -76,7 +78,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
 
     Route::get('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'form_update'])->name('category.form.update'); 
     Route::post('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
-
+    
     Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('category.delete'); 
 
     Route::get('/category/all', [App\Http\Controllers\Admin\CategoryController::class, 'all'])->name('category.all'); 

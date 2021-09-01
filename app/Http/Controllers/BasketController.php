@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Basket; 
-
+use App\Models\Order; 
+use App\Models\OrderItem; 
 
 class BasketController extends Controller
 {
@@ -18,7 +19,7 @@ class BasketController extends Controller
             $products = Basket::findOrFail($basket_id)->products;
             return view('catalog.basket.index', compact('products'));
         } else {
-            abort(404);
+            return view('catalog.basket.index'); 
         }
       
     }
@@ -27,15 +28,17 @@ class BasketController extends Controller
         /**
          * Получает обьект из корзины 
          */
-        $basket_id = $request->cookie('basket_id');
-        if (!empty($basket_id)) {
-            $products = Basket::findOrFail($basket_id)->products->toJson();
+        $basket = Basket::getBasket(); 
+        return $basket->products->toJson(); 
+        // $basket_id = $request->cookie('basket_id');
+        // if (!empty($basket_id)) {
+        //     $products = Basket::findOrFail($basket_id)->products->toJson();
 
-            return $products;
-        } else {
-            return [];
-        }
-        return []; 
+        //     return $products;
+        // } else {
+        //     return [];
+        // }
+        // return []; 
     }
 
     public function product_delete(Request $request){
@@ -112,7 +115,7 @@ class BasketController extends Controller
             return view('catalog.basket.checkout', array(compact('basket'))); 
             // если корзины не существует возвращам 404 
         }else{
-            abort(404);
+            // abort(404);
         }
 
         
@@ -127,7 +130,7 @@ class BasketController extends Controller
         $this->change($basket_id, $id, 1);
         // выполняем редирект обратно на страницу корзины
         return redirect()
-            ->route('basket.index')
+            ->route('basket.all')
             ->withCookie(cookie('basket_id', $basket_id, 525600));
     }
 
@@ -142,7 +145,7 @@ class BasketController extends Controller
         $this->change($basket_id, $id, -1);
         // выполняем редирект обратно на страницу корзины
         return redirect()
-            ->route('basket.index')
+            ->route('basket.all')
             ->withCookie(cookie('basket_id', $basket_id, 525600));
     }
 
@@ -182,9 +185,55 @@ class BasketController extends Controller
          *   phone
          *   email
          */
-        
-      
-        return ; 
+        $validation_data = $request->validate([
+            'first_name' => ['required' ],
+            'last_name' => ['required' ],
+            'patronymic' => [],
+            'address' => ['required' ],
+            'index' => ['required' ],
+            'phone' => ['required' ],
+            'email' => ['required'], 
+        ]); 
+        $basket = Basket::getBasket(); 
+        $user_id = auth()->check() ? auth()->user()->id : null;
 
+        $order = Order::create(array(
+            'name' => $validation_data['first_name'] . ' ' . $validation_data['last_name'] . ' ' . $validation_data['patronymic'], 
+            'email' => $validation_data['email'],
+            'address' => $validation_data['phone'] . ' ' .  $validation_data['address'] . ' ' .  $validation_data['index'] ,
+            'amount' => $basket->getAmount() ,
+            'user_id' => $user_id ,
+        )); 
+
+        foreach($basket->products as $product){
+            $order->items()->create(array(
+                'product_id' => $product->id,
+                'name' => $product->title,
+                'price' => $product->price,
+                'quantity' => $product->pivot->quantity,
+                'cost' => $product->price * $product->pivot->quantity,
+            )); 
+        }
+        $basket->delete();
+
+
+        return redirect()->route('basket.success')->with('order_id', $order->id);; 
+
+    }
+
+    public function success(Request $request) {
+    /**
+     * Сообщение об успешном оформлении заказа
+     */
+        if ($request->session()->exists('order_id')) {
+            // сюда покупатель попадает сразу после успешного оформления заказа
+            $order_id = $request->session()->pull('order_id');
+            $order = Order::findOrFail($order_id);
+            return view('catalog.basket.success', compact('order'));
+        } else {
+            // если покупатель попал сюда случайно, не после оформления заказа,
+            // ему здесь делать нечего — отправляем на страницу корзины
+            return redirect()->route('basket.all');
+        }
     }
 }

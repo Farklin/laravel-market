@@ -11,4 +11,12 @@ class OrderItem extends Model
     public function product(){
         return $this->belongsTo(Product::class); 
     }
+    public $timestamps = false;
+    protected $fillable = [
+        'product_id',
+        'name',
+        'price',
+        'quantity',
+        'cost',
+    ];
 }

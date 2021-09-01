@@ -35,39 +35,41 @@
                         @endif
 
                         <form action="{{ route('basket.checkout.save') }}" method="post">
+                            @csrf 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="first_name">Имя<span>*</span></label>
-                                    <input type="text" class="form-control" id="first_name" value="" required>
+                                    <input type="text" class="form-control" name="first_name" value="" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="last_name">Фамилия<span>*</span></label>
-                                    <input type="text" class="form-control" id="last_name" value="" required>
+                                    <input type="text" class="form-control" name="last_name" value="" required>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="last_name">Отчество<span>*</span></label>
-                                    <input type="text" class="form-control" id="patronymic" value="" required>
+                                    <input type="text" class="form-control" name="patronymic" value="" required>
                                 </div>
 
                                 <div class="col-12 mb-3">
                                     <label for="street_address">Адрес <span>*</span></label>
                                     <input type="text" class="form-control mb-3" id="street_address" value="">
-                                    <input type="text" class="form-control" id="address" value="">
+                                    <input type="text" class="form-control" name="address" value="">
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="postcode">Индекс <span>*</span></label>
-                                    <input type="text" class="form-control" id="index" value="">
+                                    <input type="text" class="form-control" name="index" value="">
                                 </div>
 
                                 <div class="col-12 mb-3">
                                     <label for="phone_number">Номер телефона<span>*</span></label>
-                                    <input type="number" class="form-control" id="phone" min="0" value="">
+                                    <input type="number" class="form-control" name="phone" min="0" value="">
                                 </div>
                                 <div class="col-12 mb-4">
                                     <label for="email_address">Email адрес <span>*</span></label>
-                                    <input type="email" class="form-control" id="email" value="">
+                                    <input type="email" class="form-control" name="email" value="">
                                 </div>
                             </div>
+                            <input type="submit" id="btnOrderSave" style="display: none;" /> 
                         </form>
                     </div>
                 </div>
@@ -155,7 +157,13 @@
                             </div>
                         </div>
 
-                        <a href="#" class="btn essence-btn">Place Order</a>
+                        <button onclick="saveOrderFormClick() " class="btn essence-btn">Оформить заказ</button>
+                        <script> 
+                            function saveOrderFormClick()
+                            {
+                                $('#btnOrderSave').click(); 
+                            }
+                        </script> 
                     </div>
                 </div>
             </div>

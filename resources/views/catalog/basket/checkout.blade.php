@@ -52,7 +52,6 @@
 
                                 <div class="col-12 mb-3">
                                     <label for="street_address">Адрес <span>*</span></label>
-                                    <input type="text" class="form-control mb-3" id="street_address" value="">
                                     <input type="text" class="form-control" name="address" value="">
                                 </div>
                                 <div class="col-12 mb-3">
@@ -84,7 +83,7 @@
 
                         <ul class="order-details-form mb-4">
                             <li><span>Товары</span> <span>Итого</span></li>
-                            <li><span>Стоимость товаров</span> <span>$59.90</span></li>
+                        <li><span>Стоимость товаров</span> <span>{{ $basket::getBasket() }} </span></li>
                             <li><span>Доставка</span> <span>Free</span></li>
                             <li><span>Итого</span> <span>$59.90</span></li>
                         </ul>

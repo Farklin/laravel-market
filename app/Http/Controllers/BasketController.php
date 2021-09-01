@@ -103,8 +103,19 @@ class BasketController extends Controller
         return back()->withCookie(cookie('basket_id', $basket_id, 525600));
     
     }
-    public function checkout(){
-        return view('catalog.basket.checkout'); 
+    public function checkout(Request $request){
+
+        $basket_id = $request->cookie('basket_id');
+        // если корзина существует то возвращаем ее
+        if(!empty($basket_id)){
+            $basket = Basket::findOrFail($basket_id);
+            return view('catalog.basket.checkout', array(compact('basket'))); 
+            // если корзины не существует возвращам 404 
+        }else{
+            abort(404);
+        }
+
+        
     }
 
 
@@ -135,6 +146,7 @@ class BasketController extends Controller
             ->withCookie(cookie('basket_id', $basket_id, 525600));
     }
 
+    
     /**
      * Изменяет кол-во товара $product_id на величину $count
      */
@@ -157,5 +169,22 @@ class BasketController extends Controller
                 $pivotRow->delete();
             }
         }
+    }
+
+    public function saveOrder(Request $request){
+        /**
+         * Сохранение заказа в базу данных 
+         *  
+         *   last_name
+         *   patronymic
+         *   address
+         *   index
+         *   phone
+         *   email
+         */
+        
+      
+        return ; 
+
     }
 }

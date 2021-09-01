@@ -55,6 +55,7 @@ Route::post('/basket/object', [App\Http\Controllers\BasketController::class, 'ob
 Route::post('/basket/product/delete/', [App\Http\Controllers\BasketController::class, 'product_delete'])->name('basket.product.delete');  
 Route::post('/basket/product/plus/{id}', [App\Http\Controllers\BasketController::class, 'plus'])->name('basket.product.plus'); 
 Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->name('basket.product.minus'); 
+Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::class, 'saveOrder'])->name('basket.checkout.save'); 
 
 
 

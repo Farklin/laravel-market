@@ -48,7 +48,7 @@
                         <li><span>Итого:</span> <span>{{ number_format($basketCost, 2, '.', '') }}</span></li>
                     </ul>
                     <div class="checkout-btn mt-100 d-flex">
-                        <a href="checkout.html" class="btn essence-btn">Заказать</a>
+                        <a href="{{route('basket.checkout')}}" class="btn essence-btn">Заказать</a>
                         <a href="{{ route('basket.all') }}" class="btn essence-btn"> В корзину</a>
                     </div>
                     <div class="cart-button  mt-100">

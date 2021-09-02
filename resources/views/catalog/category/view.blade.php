@@ -114,7 +114,7 @@
 
                     <div class="row">
 
-                        @foreach($category->products as $product)
+                        @foreach($products as $product)
                         <!-- Single Product -->
                             @include('catalog.product.card_product')
                         @endforeach 
@@ -125,6 +125,7 @@
                 <!-- Pagination -->
                 <nav aria-label="navigation">
                     <ul class="pagination mt-50 mb-70">
+                        {{!! $products->render() !!}}
                         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>

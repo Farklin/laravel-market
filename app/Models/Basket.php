@@ -37,4 +37,13 @@ class Basket extends Model
         }
         return $amount;
     }
+    public function getWeight() {
+        $weight = 0.0;
+        foreach ($this->products as $product) {
+            $weight = $weight + $product->weight * $product->pivot->quantity;
+        }
+        return $weight;
+
+    }
+
 }

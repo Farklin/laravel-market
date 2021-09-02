@@ -16,6 +16,10 @@ class Order extends Model
         'address',
         'comment',
         'amount',
+        'delivery',
+        'phone',
+        'index',
+
     ];
     public function items(){
         return $this->hasMany(OrderItem::class); 

@@ -59,7 +59,6 @@ Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::cla
 Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success'); 
 
 
-
 Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(function(){
     //товар админ 
     Route::get('/', [AdminController::class, 'index'])->name('home'); 

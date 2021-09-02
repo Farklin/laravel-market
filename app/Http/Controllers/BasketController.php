@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Basket; 
 use App\Models\Order; 
 use App\Models\OrderItem; 
+use GuzzleHttp\Client;
+
 
 class BasketController extends Controller
 {
@@ -108,9 +110,9 @@ class BasketController extends Controller
     }
     public function checkout(Request $request){
 
-          
-        $basket = Basket::getBasket(); 
-        return view('catalog.basket.checkout', compact('basket')); 
+        $basket = Basket::getBasket();  
+        $delivery = $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $validation_data = '0', $vat = '1');   
+        return view('catalog.basket.checkout', compact('basket', 'delivery')); 
       
         
     }
@@ -190,12 +192,14 @@ class BasketController extends Controller
         ]); 
         $basket = Basket::getBasket(); 
         $user_id = auth()->check() ? auth()->user()->id : null;
-
         $order = Order::create(array(
             'name' => $validation_data['first_name'] . ' ' . $validation_data['last_name'] . ' ' . $validation_data['patronymic'], 
             'email' => $validation_data['email'],
-            'address' => $validation_data['phone'] . ' ' .  $validation_data['address'] . ' ' .  $validation_data['index'] ,
+            'address' => $validation_data['address'],
             'amount' => $basket->getAmount() ,
+            'phone' =>  $validation_data['phone'], 
+            'delivery' => $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'),
+            'index' =>  $validation_data['index'],
             'user_id' => $user_id ,
         )); 
 
@@ -230,4 +234,31 @@ class BasketController extends Controller
             return redirect()->route('basket.all');
         }
     }
+
+    /* Расчет стоимости доставки почтой России */ 
+    static public function pochta_rossii($from = '600022', $to, $mass, $valuation, $vat){
+
+        $client = new Client();
+
+        $res = $client->request('POST', 'https://postprice.ru/engine/russia/api.php', [
+            /* https://postprice.ru/api/ */ 
+
+            'query' => [
+                'from' => $from, 
+                'to' => $to, 
+                'mass' => $mass, 
+                'valuation' => $valuation, 
+                'vat' => $vat, 
+
+            
+            ]
+            
+        ]);
+
+        if ($res->getStatusCode() == 200) { // 200 OK
+            $response_data = $res->getBody()->getContents();
+            return json_decode($response_data)->pkg_1class; 
+        }
+    }
+
 }

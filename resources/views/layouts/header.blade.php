@@ -50,7 +50,7 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="{{ route('home') }}"><img src="/theme/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="{{ route('home') }}"><span>TEISBUBBLE<span></a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>

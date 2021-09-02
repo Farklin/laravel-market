@@ -143,7 +143,7 @@
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
-            <div class="product_thumbnail_slides owl-carousel">
+            <div class="product_thumbnail_slides">
                 @if (isset($product->images))
                     @foreach ($product->images as $image)
                         <img src="{{ $image->image_path }}" alt="">

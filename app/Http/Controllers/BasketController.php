@@ -64,14 +64,20 @@ class BasketController extends Controller
          * Выводит модальную форму заказа для ajax 
          */
 
-        $basket_id = $request->cookie('basket_id');
-        if (!empty($basket_id)) {
-            $products = Basket::findOrFail($basket_id)->products;
-            return view('catalog.basket.modal.index', compact('products'));
-        } else {
-            return view('catalog.basket.modal.index');
-        }
-        return view('catalog.basket.modal.index');
+        // $basket_id = $request->cookie('basket_id');
+        // if (!empty($basket_id)) {
+        //     $products = Basket::findOrFail($basket_id)->products;
+        //     $delivery = Baske
+        //     return view('catalog.basket.modal.index', compact('products', 'delivery'));
+        // } else {
+        //     return view('catalog.basket.modal.index');
+        // }
+        // return view('catalog.basket.modal.index');
+
+        $basket = Basket::getBasket();
+        $products = $basket->products; 
+        $delivery =$this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
+        return view('catalog.basket.modal.index', compact('products', 'delivery'));    
         
     }
 
@@ -111,7 +117,7 @@ class BasketController extends Controller
     public function checkout(Request $request){
 
         $basket = Basket::getBasket();  
-        $delivery = $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $validation_data = '0', $vat = '1');   
+        $delivery =$this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
         return view('catalog.basket.checkout', compact('basket', 'delivery')); 
       
         

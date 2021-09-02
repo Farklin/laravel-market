@@ -1752,3 +1752,10 @@ img {
 /* ##### The End ##### */
 
 /*# sourceMappingURL=core-style.css.map */
+
+/* Дополнительные стили */ 
+.nav-brand span
+{
+  color: #111;
+  font-weight: 900;
+}

@@ -13,7 +13,7 @@
                       <ul>
                           <li><a href="shop.html">Shop</a></li>
                           <li><a href="blog.html">Blog</a></li>
-                          <li><a href="contact.html">Contact</a></li>
+                          <li><a href="contact.html">Контакты</a></li>
                       </ul>
                   </div>
               </div>
@@ -22,12 +22,12 @@
           <div class="col-12 col-md-6">
               <div class="single_widget_area mb-30">
                   <ul class="footer_widget_menu">
-                      <li><a href="#">Order Status</a></li>
-                      <li><a href="#">Payment Options</a></li>
-                      <li><a href="#">Shipping and Delivery</a></li>
-                      <li><a href="#">Guides</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Terms of Use</a></li>
+                      <li><a href="#">Статуст заказа</a></li>
+                      <li><a href="#">Оплата</a></li>
+                      <li><a href="#">Доставка</a></li>
+                      <li><a href="#">Как сделать заказ</a></li>
+                      <li><a href="#">Политика конфиденциальности</a></li>
+ 
                   </ul>
               </div>
           </div>
@@ -38,11 +38,11 @@
           <div class="col-12 col-md-6">
               <div class="single_widget_area">
                   <div class="footer_heading mb-30">
-                      <h6>Subscribe</h6>
+                      <h6>Подписаться на рассылку</h6>
                   </div>
                   <div class="subscribtion_form">
                       <form action="#" method="post">
-                          <input type="email" name="mail" class="mail" placeholder="Your email here">
+                          <input type="email" name="mail" class="mail" placeholder="Ваш email">
                           <button type="submit" class="submit"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                       </form>
                   </div>
@@ -66,7 +66,7 @@
           <div class="col-md-12 text-center">
               <p>
                   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> TeisBubble <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>
           </div>

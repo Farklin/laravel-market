@@ -16,8 +16,8 @@
                                 <div class="cart-item-desc">
                                     <span class="product-remove" onclick="basket_delete_product({{ $product->id }})"><i
                                             class="fa fa-close" aria-hidden="true"></i></span>
-                                    <span class="badge">Mango</span>
-                                    <h6>{{ $product->title }}</h6>
+                                    <span class="badge">Mango </span>
+                                    <h6>{{ $product->title }} <div class="tag tag-info"> {{ $product->pivot->quantity }}</div></h6>
                                     <p class="price">{{ $product->price }}</p>
                                 </div>
                             </a>
@@ -40,12 +40,15 @@
                             $itemQuantity = $product->pivot->quantity;
                             $itemCost = $itemPrice * $itemQuantity;
                             $basketCost = $basketCost + $itemCost;
+                            $basketTotal = $basketCost + $delivery; 
                         @endphp
                     @endforeach
 
                     <h2>Корзина</h2>
                     <ul class="summary-table">
-                        <li><span>Итого:</span> <span>{{ number_format($basketCost, 2, '.', '') }}</span></li>
+                        <li><span>Товаров на сумму:</span> <span>{{ number_format($basketCost, 2, '.', '') }}</span></li>
+                        <li><span>Доставка:</span> <span>{{ number_format($delivery, 2, '.', '') }}</span></li>
+                        <li><span>Итого:</span> <span>{{ number_format($basketTotal, 2, '.', '') }}</span></li>
                     </ul>
                     <div class="checkout-btn mt-100 d-flex">
                         <a href="{{route('basket.checkout')}}" class="btn essence-btn">Заказать</a>

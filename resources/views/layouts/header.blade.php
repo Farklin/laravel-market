@@ -129,9 +129,12 @@
             <!-- User Login Info -->
             @guest
                 <div class="user-login-info">
-                    <a href="{{ route('register') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
+                    <a href="{{ route('login') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
                 </div>
                 @else
+                <div class="user-login-info">
+                    <a href="{{ route('user.orders') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
+                </div>
 
             @endauth
             <!-- Cart Area -->

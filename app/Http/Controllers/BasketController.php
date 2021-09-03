@@ -199,7 +199,7 @@ class BasketController extends Controller
         $basket = Basket::getBasket(); 
         $user_id = auth()->check() ? auth()->user()->id : null;
         $order = Order::create(array(
-            'name' => $validation_data['first_name'] . ' ' . $validation_data['last_name'] . ' ' . $validation_data['patronymic'], 
+            'name' => $validation_data['patronymic'] . ' ' . $validation_data['first_name'] . ' ' . $validation_data['last_name']  , 
             'email' => $validation_data['email'],
             'address' => $validation_data['address'],
             'amount' => $basket->getAmount() ,

@@ -58,6 +58,10 @@ Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController
 Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::class, 'saveOrder'])->name('basket.checkout.save'); 
 Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success'); 
 
+Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
+    Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
+    Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order'); 
+}); 
 
 Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(function(){
     //товар админ 

@@ -24,4 +24,7 @@ class Order extends Model
     public function items(){
         return $this->hasMany(OrderItem::class); 
     }
+    public function total(){
+        return $this->delivery + $this->amount; 
+    }
 }

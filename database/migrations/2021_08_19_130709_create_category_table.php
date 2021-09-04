@@ -20,7 +20,9 @@ class CreateCategoryTable extends Migration
             $table->string('public'); 
             $table->boolean('display_main_page'); 
             $table->boolean('display_sidebar');
+            $table->unsignedBigInteger('category_id')->nullable(); 
 
+            $table->foreign('category_id')->references('id')->on('category'); 
 
             $table->timestamps();
         });

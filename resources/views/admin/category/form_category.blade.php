@@ -44,7 +44,12 @@
 
             </div>
 
-
+            <select name='category_id' class = 'form-control'>
+                <option value="0">Не выбрана</option>
+                @foreach($categories as $cat)
+                    <option value="{{ $cat->id }}">{{$cat->title}}</option>
+                @endforeach
+            </select> 
 
 
             {{ Form::submit('Создать', ['class' => 'btn btn-primary']) }}
@@ -79,6 +84,17 @@
 
             </div>
 
+           
+            <select name='category_id' class = 'form-control'>
+                <option value="0">Не выбрана</option>
+                @foreach($categories as $cat)
+                    <option value="{{ $cat->id }}" 
+                    @if($cat->id == $category->category_id)
+                        selected
+                    @endif
+                    >{{$cat->title}}</option>
+                @endforeach
+            </select> 
 
 
 

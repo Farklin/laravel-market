@@ -18,4 +18,11 @@ class Category extends Model
     public function seo(){
         return $this->belongsTo(Seo::class, 'seo_id');
     }
+    public function category(){
+        return $this->hasMany(Category::class); 
+    }
+    public function categoryChildren(){
+        return $this->hasMany(Category::class)->with('category');; 
+    }
+
 }

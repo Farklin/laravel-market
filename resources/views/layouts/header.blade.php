@@ -66,12 +66,17 @@
                     <ul>
                         <li><a href="{{ route('all_product') }}">Категории</a>
                             <div class="megamenu">
-                                <ul class="single-mega cn-col-4">
-                                    <li class="title">Мыло</li>
-                                    @foreach($header_category as $category)
-                                    <li><a href="{{ route('category', $category->seo->slug)}}">{{ $category->title }}</a></li>
-                                    @endforeach
-                                </ul>
+                                @foreach($header_category as $title_category)
+                                    @if($title_category->category_id == 0)
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">{{ $title_category->title }} </li>
+                                            @foreach($title_category->category as $category)
+                                                <li><a href="{{ route('category', $category->seo->slug)}}">{{ $category->title }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                @endforeach
+
                                 <!-- <ul class="single-mega cn-col-4">
                                     <li class="title">Men's Collection</li>
                                     <li><a href="shop.html">T-Shirts</a></li>

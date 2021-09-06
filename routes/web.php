@@ -39,10 +39,8 @@ Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('cate
 
 Auth::routes();
 
+Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index'])->name('page'); 
 
-
-
-//Административаная часть
 
 
 // корзина 
@@ -62,6 +60,11 @@ Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
     Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order'); 
 }); 
+
+
+
+//Административаная часть
+
 
 Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(function(){
     //товар админ 
@@ -87,6 +90,13 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete'])->name('category.delete'); 
 
     Route::get('/category/all', [App\Http\Controllers\Admin\CategoryController::class, 'all'])->name('category.all'); 
+
+    Route::get('/page/all', [App\Http\Controllers\Admin\PageController::class, 'all'])->name('page.all'); 
+    Route::get('/page/create', [App\Http\Controllers\Admin\PageController::class, 'create'])->name('page.create'); 
+    Route::post ('/page/create', [App\Http\Controllers\Admin\PageController::class, 'create'])->name('page.create'); 
+    Route::get('/page/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('page.update'); 
+    Route::post('/page/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('page.update'); 
+    Route::get('/page/delete/{id}', [App\Http\Controllers\Admin\PageController::class, 'delete'])->name('page.delete'); 
 
 }); 
 

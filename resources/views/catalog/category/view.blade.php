@@ -3,17 +3,8 @@
 @section('title', 'Все товары магазина')
 @section('content')
 
-<div class="breadcumb_area bg-img" style="background-image: url(/theme/img/bg-img/breadcumb.jpg);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12">
-                <div class="page-title text-center">
-                    <h2>{{ $category->title }}</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+@include('layouts.breadcumb', array('h1' =>  $category->title))
 
 <section class="shop_grid_area section-padding-80">
     <div class="container">

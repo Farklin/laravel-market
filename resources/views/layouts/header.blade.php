@@ -70,9 +70,12 @@
                                     @if($title_category->category_id == 0)
                                         <ul class="single-mega cn-col-4">
                                             <li class="title">{{ $title_category->title }} </li>
-                                            @foreach($title_category->category as $category)
-                                                <li><a href="{{ route('category', $category->seo->slug)}}">{{ $category->title }}</a></li>
-                                            @endforeach
+                                            @if(isset($title_category->category))
+                                                @foreach($title_category->category as $category)
+                                                    <li><a href="{{ route('category', $category->seo->slug)}}">{{ $category->title }}</a></li>
+                                                @endforeach
+                                            @endif 
+
                                         </ul>
                                     @endif
                                 @endforeach
@@ -111,7 +114,7 @@
                             </ul>
                         </li>
                         <li><a href="blog.html">Блог</a></li>
-                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="/page/contact">Контакты</a></li>
                     </ul>
                 </div>
                 <!-- Nav End -->

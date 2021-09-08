@@ -5,6 +5,7 @@
    
     @include('layouts.breadcumb', array('h1' => $page-> title))
     <div class="container">    
+        {{ $page->description }} 
     </div>
     
 

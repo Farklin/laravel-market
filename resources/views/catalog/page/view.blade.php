@@ -3,9 +3,9 @@
 @section('content')
 
    
-    @include('layouts.breadcumb', array('h1' => $page-> title))
+    @include('layouts.breadcumb', array('h1' => $page->title))
     <div class="container">    
-        {{ $page->description }} 
+        {{ $page->content }} 
     </div>
     
 

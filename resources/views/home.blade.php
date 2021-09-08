@@ -57,12 +57,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="cta-content bg-img background-overlay" style="background-image: url(/theme/img/bg-img/bg-5.jpg);">
+                    <div class="cta-content bg-img background-overlay" style="background-image: url(/images/category/тарталетка.jpg);">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="cta--text">
-                                <h6>-60%</h6>
-                                <h2>Global Sale</h2>
-                                <a href="#" class="btn essence-btn">Buy Now</a>
+                                <h6>140 </h6>
+                                <h2>Новинка недели</h2>
+                                <a href="#" class="btn essence-btn">Купить сейчас</a>
                             </div>
                         </div>
                     </div>

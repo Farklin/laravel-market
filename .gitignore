@@ -12,5 +12,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-*.jpg
 *.env
+/public/images/product

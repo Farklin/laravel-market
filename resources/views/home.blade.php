@@ -27,7 +27,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/1.jpg);">
                         <div class="catagory-content">
-                            <a href="#">В форме еды</a>
+                            <a href="/category/v-forme-edy">В форме еды</a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/2.jpg);">
                         <div class="catagory-content">
-                            <a href="#">В форме шайбы</a>
+                            <a href="/category/v-forme-saiby">В форме шайбы</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/3.jpg);">
                         <div class="catagory-content">
-                            <a href="#">Квадратное мыло </a>
+                            <a href="/category/kvadratnoe-mylo">Квадратное мыло </a>
                         </div>
                     </div>
                 </div>

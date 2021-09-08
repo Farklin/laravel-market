@@ -13,6 +13,9 @@ use App\Models\Seo;
 use App\Http\Controllers\ImageProductController; 
 
 
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class ProductController extends Controller
 {
     //  
@@ -21,6 +24,11 @@ class ProductController extends Controller
         // Вывод всех товаров в административной части
         $products = Product::all(); 
         return view('admin.product.all', array('products' => $products) );
+    }
+
+    public function import(){ 
+        Excel::import(new ProductImport, 'Product.xlsx');
+
     }
 
 

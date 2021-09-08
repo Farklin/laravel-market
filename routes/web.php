@@ -78,7 +78,8 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::post('/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('product.update'); 
 
     Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('product.delete'); 
-
+    // Экспорт товаров 
+    Route::get('product/import', [App\Http\Controllers\Admin\ProductController::class, 'import'])->name('product.import');
 
 
     Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'form_create'])->name('category.form.create'); 
@@ -97,6 +98,8 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/page/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('page.update'); 
     Route::post('/page/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('page.update'); 
     Route::get('/page/delete/{id}', [App\Http\Controllers\Admin\PageController::class, 'delete'])->name('page.delete'); 
+
+   
 
 }); 
 

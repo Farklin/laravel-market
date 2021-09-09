@@ -31,10 +31,5 @@ class AppServiceProvider extends ServiceProvider
         $category = Category::where('display_main_page', True)->get(); 
 
         view()->share('header_category', $category);   
-
-       
-
-    
-
     }
 }

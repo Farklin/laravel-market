@@ -93,19 +93,19 @@
                         
 
                         @foreach($popular_products as $product)
-                        <!-- Single Product -->
+                      
                         <div class="single-product-wrapper">
-                            <!-- Product Image -->
+                            @if(empty($product->images))
                             <div class="product-img">
-                                <img src="/theme/img/product-img/product-1.jpg" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="/theme/img/product-img/product-2.jpg" alt="">
-                                <!-- Favourite -->
+                                <img src="{{$product->images[0]->thambnail() }}" alt="">
+
+                                <img class="hover-img" src="{{$product->images[1]->thambnail()}}" alt="">
+
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>
                                 </div>
                             </div>
-                            <!-- Product Description -->
+                            @endif 
                             <div class="product-description">
                                 <span></span>
                                 <a href="single-product-details.html">
@@ -113,7 +113,6 @@
                                 </a>
                                 <p class="product-price">{{$product->price}}</p>
 
-                                <!-- Hover Content -->
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">

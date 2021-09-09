@@ -5,13 +5,13 @@
         <div class="product-img">
 
             @if(isset($product->images[0])) 
-                <img src="{{ $product->images[0]->image_path }}" alt="">
+                <img src="{{ $product->images[0]->thumbnail() }}" alt="">
             @endif
             
             <!-- Hover Thumb -->
 
             @if(isset($product->images[1])) 
-                <img class="hover-img" src="{{ $product->images[1]->image_path }}" alt="">
+                <img class="hover-img" src="{{ $product->images[1]->thumbnail() }}" alt="">
             @endif
 
         </div>

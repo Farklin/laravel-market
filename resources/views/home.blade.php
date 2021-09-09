@@ -108,13 +108,12 @@
                             @endif 
                             <div class="product-description">
                                 <span></span>
-                                <a href="single-product-details.html">
+                                <a href="{{ route('product.show' , $product->seo->slug) }} ">
                                     <h6>{{$product->title}}</h6>
                                 </a>
                                 <p class="product-price">{{$product->price}}</p>
 
                                 <div class="hover-content">
-                                    <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
                                         <form class="cart-form clearfix" action="{{ route('basket.add', ['id' => $product->id]) }}" method="post">  
                                             @csrf 

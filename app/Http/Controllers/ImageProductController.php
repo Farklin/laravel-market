@@ -20,7 +20,7 @@ class ImageProductController extends Controller
 
             //  Создание папки для хранения картинок к товару 
             $path = public_path() . '/images/products/' . $product->id; 
-            $path_thumbnail =$path . '/thumbnail'; 
+            $path_thumbnail = $path . '/thumbnail'; 
 
             File::makeDirectory($path, $mode = 0777, true, true);
             File::makeDirectory($path_thumbnail, $mode = 0777, true, true);

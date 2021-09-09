@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class ImageProduct extends Model
 {
@@ -13,7 +15,18 @@ class ImageProduct extends Model
     protected $table = 'image_product';
 
     public function thumbnail(){
-        $path = str_replace('products/' . $this->product_id, 'products/' . $this->product_id . '/thumbnail/', $this->image_path);
+        
+        
+        $path = str_replace('products/' . $this->product_id, 'products/' . $this->product_id . '/thumbnail', $this->image_path);
+        if(!file_exists($path)){
+            $path_thumbnail = public_path() . '/images/products/' . $this->product_id . '/thumbnail'; 
+            if(!file_exists($path_thumbnail)){
+                File::makeDirectory($path_thumbnail);
+            }
+            $thumbnail = Image::make(public_path()  . $this->image_path);
+            $thumbnail->fit(300, 300);
+            $thumbnail->save(public_path() . $path);
+    }
         return $path; 
     }
 }

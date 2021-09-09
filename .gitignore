@@ -13,4 +13,5 @@ yarn-error.log
 /.idea
 /.vscode
 .env
-/public/images/products
+/public/images/products/
+*.jpg

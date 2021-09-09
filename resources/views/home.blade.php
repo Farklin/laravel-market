@@ -97,9 +97,9 @@
                         <div class="single-product-wrapper">
                             @if(count($product->images) > 2))
                             <div class="product-img">
-                                <img src="{{$product->images[0]->thambnail() }}" alt="">
+                                <img src="{{$product->images[0]->thumbnail() }}" alt="">
 
-                                <img class="hover-img" src="{{$product->images[1]->thambnail()}}" alt="">
+                                <img class="hover-img" src="{{$product->images[1]->thumbnail()}}" alt="">
 
                                 <div class="product-favourite">
                                     <a href="#" class="favme fa fa-heart"></a>

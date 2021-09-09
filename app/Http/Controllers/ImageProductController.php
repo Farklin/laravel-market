@@ -25,8 +25,9 @@ class ImageProductController extends Controller
             File::makeDirectory($path, $mode = 0777, true, true);
             File::makeDirectory($path_thumbnail, $mode = 0777, true, true);
             // конец создания папки для хранения картинок к товару 
-
-            foreach($request->file('image') as $image){
+            $images = $request->file('image'); 
+            $images = array_reverse($images); 
+            foreach($images as $image){
                 $file_name = time().'_'. $image->getClientOriginalName(); 
                 $image->move($path, $file_name); 
 

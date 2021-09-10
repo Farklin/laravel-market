@@ -43,7 +43,7 @@ class Product extends Model
    
     public function scopeSearch($query, $search) {
         // обрезаем поисковый запрос
-        $search = iconv_substr(utf8_encode($search), 0, 64);
+        $search = iconv_substr($search, 0, 64, 'utf-8');
         // удаляем все, кроме букв и цифр
         $search = preg_replace('#[^0-9a-zA-ZА-Яа-яёЁ]#u', ' ', $search);
         // сжимаем двойные пробелы

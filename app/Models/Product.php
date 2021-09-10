@@ -57,7 +57,7 @@ class Product extends Model
         $words = [];
         $stemmer = new LinguaStemRu();
         foreach ($temp as $item) {
-            if (iconv_strlen($item) > 3) {
+            if (iconv_strlen($item, 'utf-8') > 3) {
                 // получаем корень слова
                 $words[] = $stemmer->stem_word($item);
             } else {

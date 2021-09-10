@@ -40,6 +40,7 @@ Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('cate
 Auth::routes();
 
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index'])->name('page'); 
+Route::get('search', [App\Http\Controllers\CatalogController::class, 'search'])->name('search');
 
 
 

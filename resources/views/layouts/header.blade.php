@@ -46,8 +46,8 @@
 
         <div class="header-meta d-flex clearfix justify-content-end">
             <div class="search-area">
-                <form action="#" method="post">
-                    <input type="search" name="search" id="headerSearch" placeholder="Поиск товаров">
+                <form action="{{ route('search') }}" method="get">
+                    <input type="search" name="query" id="headerSearch" placeholder="Поиск товаров">
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>

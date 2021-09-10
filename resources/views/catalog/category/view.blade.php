@@ -107,7 +107,7 @@
 
                         @foreach($products as $product)
                         <!-- Single Product -->
-                            @include('catalog.product.card_product')
+                           @include('catalog.product.card_product')
                         @endforeach 
 
 

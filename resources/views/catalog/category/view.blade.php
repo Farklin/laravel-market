@@ -1,6 +1,7 @@
 
 @extends('layouts/app')
-@section('title', 'Все товары магазина')
+@section('title', $category->seo->title)
+@section('description', $category->seo->description)
 @section('content')
 
 

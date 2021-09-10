@@ -13,6 +13,7 @@
     <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
     <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
     <link href="{{ asset('theme/css/core-style.css') }}" rel="stylesheet">
+    <meta name="description" content="@yield('description')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>

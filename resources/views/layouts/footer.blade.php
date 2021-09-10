@@ -29,6 +29,7 @@
       </div>
 
       <div class="row align-items-end">
+
           <div class="col-12 col-md-6">
               <div class="single_widget_area">
                   <div class="footer_heading mb-30">

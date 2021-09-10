@@ -19,7 +19,7 @@
 
 <body>
     <nav class="navbar ">
-    <a class="navbar-brand" href="#">Административаная часть</a>
+    <a class="navbar-brand" href="#">Административная часть</a>
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">

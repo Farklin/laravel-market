@@ -1,5 +1,6 @@
 @extends('admin.layouts.home')
 @section('title', 'Создание новой категории')
+
 @section('content')
 
     <div class="container">

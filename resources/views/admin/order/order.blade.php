@@ -1,6 +1,6 @@
 
 @extends('admin.layouts.home')
-@section('title', 'Администратор: Заказ №' + $order->id )
+@section('title', 'Администратор: Заказ №' . $order->id )
 @section('content')
 
 <div class="checkout_area section-padding-80">

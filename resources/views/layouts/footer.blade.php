@@ -1,32 +1,27 @@
 <footer class="footer_area clearfix">
   <div class="container">
       <div class="row">
-          <!-- Single Widget Area -->
           <div class="col-12 col-md-6">
               <div class="single_widget_area d-flex mb-30">
-                  <!-- Logo -->
                   <div class="footer-logo mr-50">
-                      <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
+                      <a href="{{ route('home')}}"><img src="img/core-img/logo2.png" alt=""></a>
                   </div>
-                  <!-- Footer Menu -->
                   <div class="footer_menu">
                       <ul>
-                          <li><a href="shop.html">Shop</a></li>
-                          <li><a href="blog.html">Blog</a></li>
-                          <li><a href="contact.html">Контакты</a></li>
+                          <li><a href="{{ route('all_product')}} ">Магазин</a></li>
+                          <li><a href="page/kontakty">Контакты</a></li>
                       </ul>
                   </div>
               </div>
           </div>
-          <!-- Single Widget Area -->
           <div class="col-12 col-md-6">
               <div class="single_widget_area mb-30">
                   <ul class="footer_widget_menu">
-                      <li><a href="#">Статуст заказа</a></li>
-                      <li><a href="#">Оплата</a></li>
-                      <li><a href="#">Доставка</a></li>
-                      <li><a href="#">Как сделать заказ</a></li>
-                      <li><a href="#">Политика конфиденциальности</a></li>
+                      <li><a href="{{ route('user.orders') }}">Статуст заказа</a></li>
+                      <li><a href="/page/oplata">Оплата</a></li>
+                      <li><a href="/page/dostavka">Доставка</a></li>
+                      <li><a href="/page/kak-sdelat-zakaz">Как сделать заказ</a></li>
+                      <li><a href="/page/politika-konfidencialnosti">Политика конфиденциальности</a></li>
  
                   </ul>
               </div>
@@ -34,7 +29,6 @@
       </div>
 
       <div class="row align-items-end">
-          <!-- Single Widget Area -->
           <div class="col-12 col-md-6">
               <div class="single_widget_area">
                   <div class="footer_heading mb-30">
@@ -66,7 +60,7 @@
           <div class="col-md-12 text-center">
               <p>
                   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> TeisBubble <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> TeisBubble <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="{{ route('home') }}" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>
           </div>

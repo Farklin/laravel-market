@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>@yield('title') </title>
-    
+    <link rel="icon" href="/theme/img/core-img/favicon.ico">
     <link rel="stylesheet" href="{{ asset('static/font_awesome/css/all.css') }}">
     <link href="{{ asset('static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('static/bootstrap/css/mdb.css') }}" rel="stylesheet">

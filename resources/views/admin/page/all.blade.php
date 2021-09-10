@@ -22,6 +22,9 @@
                         <a href = "{{route('admin.page.update', $page->id)}}">Изменить</a> 
                     </td>
                     <td>
+                        <a href = "{{route('page', $page->seo->slug)}}">Просмотреть</a> 
+                    </td>
+                    <td>
                         <a class="text-danger" href = "{{route('admin.page.delete', $page->id)}}">Удалить</a> 
                     </td>
                 </tr> 

@@ -1,6 +1,6 @@
 
 @extends('layouts/app')
-@section('title', 'Все товары магазина')
+@section('title', 'Поиск товаров')
 @section('content')
 
 

@@ -40,7 +40,7 @@ Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('cate
 Auth::routes();
 
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index'])->name('page'); 
-Route::get('search', [App\Http\Controllers\CatalogController::class, 'search'])->name('search');
+Route::get('/search', [App\Http\Controllers\CatalogController::class, 'search'])->name('search');
 
 
 
@@ -56,6 +56,10 @@ Route::post('/basket/product/plus/{id}', [App\Http\Controllers\BasketController:
 Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController::class, 'minus'])->name('basket.product.minus'); 
 Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::class, 'saveOrder'])->name('basket.checkout.save'); 
 Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success'); 
+
+
+
+
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
@@ -100,7 +104,9 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::post('/page/update/{id}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('page.update'); 
     Route::get('/page/delete/{id}', [App\Http\Controllers\Admin\PageController::class, 'delete'])->name('page.delete'); 
 
-   
+
+    Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'all'])->name('order.all'); 
+    Route::get('/order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.view'); 
 
 }); 
 

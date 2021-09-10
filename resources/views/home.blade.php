@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Каталог товаров интернет магазина TeisBubble')
 @section('content')
 
 

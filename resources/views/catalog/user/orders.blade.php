@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Информация о всех заказах пользователя TeisBubble')
 @section('content')
 
 @include('layouts.breadcumb', array('h1' => 'Ваши заказы'))

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Информация о оформлении заказа')
 @section('content')
 
     @include('layouts.breadcumb', array('h1' => 'Заказ размещен'))

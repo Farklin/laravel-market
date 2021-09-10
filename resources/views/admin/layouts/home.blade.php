@@ -34,7 +34,9 @@
                     <li class="list-group-item">
                         <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.page.all')}}">Страницы </a> 
                     </li>
-         
+                    <li class="list-group-item">
+                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.order.all')}}">Заказы </a> 
+                    </li>
                     <li class="list-group-item">
                         <div class="md-v-line" disabled></div><i class="fas fa-cogs mr-5"></i>Настройки
                     </li>

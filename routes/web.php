@@ -57,7 +57,7 @@ Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController
 Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::class, 'saveOrder'])->name('basket.checkout.save'); 
 Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success'); 
 
-
+Route::get('/basket/delivery-status', [App\Http\Controllers\BasketController::class, 'delivery_status'])->name('delivery.status'); 
 
 
 

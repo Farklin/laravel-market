@@ -267,4 +267,18 @@ class BasketController extends Controller
         }
     }
 
+    /**
+     * Изменение статуса доставки 
+     */
+    public function delivery_status(Request $request){
+        $delivery_status = $request->cookie('delivery_status');
+        if(empty($delivery_status)){
+            $delivery_status = !$delivery_status; 
+        }else{
+            $delivery_status = false; 
+        }
+
+        return back()->withCookie(cookie('delivery_status', $delivery_status , 525600)); 
+    }
+
 }

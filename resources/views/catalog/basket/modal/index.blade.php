@@ -56,8 +56,14 @@
                         <a href="{{route('basket.checkout')}}" class="btn essence-btn">Заказать</a>
                         <a href="{{ route('basket.all') }}" class="btn essence-btn"> В корзину</a>
                     </div>
+                    <a href="{{route('delivery.status')}}"> <input type="checkbox" class=""/> Требуется доставка </a>
+                    @if (Cookie::get('delivery_status') == false ) True   @endif
                     <div class="cart-button  mt-100">
                         *** Самовывоз осуществляется по городу Владимиру 
+                        
+                    </div>
+                    <div class="cart-button  mt-100">
+                       
                     </div>
 
                 @else

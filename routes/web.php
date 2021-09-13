@@ -108,6 +108,11 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'all'])->name('order.all'); 
     Route::get('/order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.view'); 
 
+
+    // постинг вк
+
+    Route::get('/vk/post', [App\Http\Controllers\SocialApi\VkApiController::class, 'post'])->name('vk.post');
+
 }); 
 
     

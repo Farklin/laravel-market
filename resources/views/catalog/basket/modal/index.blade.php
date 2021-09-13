@@ -11,8 +11,10 @@
                         <!-- Single Cart Item -->
                         <div class="single-cart-item">
                             <a href="" class="product-image">
+                                @if(empty($product->images))
                                 <img src="{{ $product->images->first()->image_path }}" class="cart-thumb" alt="">
                                 <!-- Cart Item Desc -->
+                                @endif 
                                 <div class="cart-item-desc">
                                     <span class="product-remove" onclick="basket_delete_product({{ $product->id }})"><i
                                             class="fa fa-close" aria-hidden="true"></i></span>
@@ -55,7 +57,7 @@
                         <a href="{{ route('basket.all') }}" class="btn essence-btn"> В корзину</a>
                     </div>
                     <div class="cart-button  mt-100">
-
+                        *** Самовывоз осуществляется по городу Владимиру 
                     </div>
 
                 @else

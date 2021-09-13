@@ -23,9 +23,9 @@
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix">
             <span>mango</span>
-            <a href="cart.html">
+            <span> 
                 <h2>{{ $product->title }}</h2>
-            </a>
+            </span>
             <p class="product-price">
                 @if ($product->old_price != 0 and $product->new_price < $product->price)
                     <span class="old-price">{{ $product->old_price }} </span>

@@ -30,9 +30,9 @@ class VkApiController extends Controller
     public function post(){
 
             $array = array(
-                'v' => '5.131', // версия вк апи
+                'v' => '5.74', // версия вк апи
             'scope' => 'wall,photos,video', // доступ к стене,фото,видео
-            'access_token' => 'ff2953281ad49430293d5bbff9ee95d3d5f2d7088c50b451688391ad599a52945ae459809997878449474', // тут ваш access_token
+            'access_token' => 'e595f7977b025a318447163e5ead8f73013a08a1e97b046e7c5780c182b11ce56774b0c966ffc08f212bd', // тут ваш access_token
             'owner_id' => '672366606', // ID ГРУППЫ С ОБЯЗАТЕЛЬНЫМ ЗНАКОМ "-" ПЕРЕД ЧИСЛОМ!
             'attachments' => 'https://teisbubble.ru/', // ссылка на вашу страницу, которая будет расшарена на вашей стене группы
             'message' => 'Любой ваш текст' // тут текст который будет в карточке расшаривания, если оставить пустым то будет дублировать title со страницы в параметре attachments

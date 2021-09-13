@@ -11,7 +11,7 @@
                     <div class="hero-content">
                         <h6>Мыло ручной работы</h6>
                         <h2>Новинки</h2>
-                        <a href="#" class="btn essence-btn">Все товары </a>
+                        <a href="{{route('all_product')}}" class="btn essence-btn"> Все товары </a>
                     </div>
                 </div>
             </div>

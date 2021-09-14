@@ -73,8 +73,10 @@
                         <ul class="order-details-form mb-4">
                             <li><span>Товары</span> <span>Итого</span></li>
                         <li><span>Стоимость товаров</span> <span>{{ $basket->getAmount(); }} </span></li>
+                        @if (Cookie::get('delivery_status') == True )   
                             <li><span>Доставка</span> <span>{{ $delivery; }} </span></li>
                             <li><span>Итого</span> <span> @php $total = $basket->getAmount() + $delivery   @endphp {{ $total; }} </span></li>
+                        @endif
                         </ul>
 
                         <div id="accordion" role="tablist" class="mb-4">

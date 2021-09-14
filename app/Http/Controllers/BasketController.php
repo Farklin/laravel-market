@@ -198,13 +198,20 @@ class BasketController extends Controller
         ]); 
         $basket = Basket::getBasket(); 
         $user_id = auth()->check() ? auth()->user()->id : null;
+
+        if($request->cookie('delivery_status')){
+            $delivery = $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
+        }else{
+            $delivery = 0; 
+        }
+
         $order = Order::create(array(
             'name' => $validation_data['patronymic'] . ' ' . $validation_data['first_name'] . ' ' . $validation_data['last_name']  , 
             'email' => $validation_data['email'],
             'address' => $validation_data['address'],
             'amount' => $basket->getAmount() ,
             'phone' =>  $validation_data['phone'], 
-            'delivery' => $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'),
+            'delivery' => $delivery,
             'index' =>  $validation_data['index'],
             'user_id' => $user_id ,
         )); 

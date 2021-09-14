@@ -228,7 +228,7 @@ class BasketController extends Controller
         }
         $basket->delete();
 
-        Mail::to($validation_data['email'])->send(new OrderMail());
+        //Mail::to($validation_data['email'])->send(new OrderMail());
 
         return redirect()->route('basket.success')->with('order_id', $order->id);; 
 

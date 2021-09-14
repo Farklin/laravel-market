@@ -60,6 +60,9 @@ Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'su
 Route::get('/basket/delivery-status', [App\Http\Controllers\BasketController::class, 'delivery_status'])->name('delivery.status'); 
 
 
+// Sitemap 
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.xml');
+
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 

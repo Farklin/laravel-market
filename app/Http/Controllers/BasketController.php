@@ -7,7 +7,8 @@ use App\Models\Basket;
 use App\Models\Order; 
 use App\Models\OrderItem; 
 use GuzzleHttp\Client;
-
+use App\Mail\OrderMail; 
+use Illuminate\Support\Facades\Mail; 
 
 class BasketController extends Controller
 {
@@ -227,6 +228,7 @@ class BasketController extends Controller
         }
         $basket->delete();
 
+        Mail::to($validation_data['email'])->send(new OrderMail());
 
         return redirect()->route('basket.success')->with('order_id', $order->id);; 
 

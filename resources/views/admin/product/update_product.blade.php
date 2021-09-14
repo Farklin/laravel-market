@@ -75,7 +75,7 @@
                 {{ Form::file('image[]', ['id' => '', 'class' => '', 'multiple' => '']) }}
             </div>
 
-            {{ Form::submit('Сохранить', ['class' => 'btn btn-primary']) }}
+            {{ Form::submit('Сохранить', ['class' => 'btn-sm btn-primary']) }}
 
             {{ Form::close() }}
 

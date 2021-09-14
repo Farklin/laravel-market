@@ -20,6 +20,11 @@
 <body>
     <nav class="navbar ">
     <a class="navbar-brand" href="#">Административная часть</a>
+        <div class="header-meta d-flex clearfix justify-content-end">
+            <div class="favourite-area">
+                <a href="{{route('home')}}"><i class="fa fa-eye"></i> Сайт</a>
+            </div>
+        </div>
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">

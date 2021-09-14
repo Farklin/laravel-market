@@ -53,7 +53,7 @@
             </select> 
 
 
-            {{ Form::submit('Создать', ['class' => 'btn btn-primary']) }}
+            {{ Form::submit('Создать', ['class' => 'btn-sm btn-primary']) }}
             {{ Form::close() }}
         @else
 
@@ -99,7 +99,7 @@
 
 
 
-            {{ Form::submit('Обновить', ['class' => 'btn btn-primary']) }}
+            {{ Form::submit('Обновить', ['class' => 'btn-sm btn-primary']) }}
             {{ Form::close() }}
 
         @endif

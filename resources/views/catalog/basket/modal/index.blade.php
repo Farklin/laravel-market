@@ -11,7 +11,7 @@
                         <!-- Single Cart Item -->
                         <div class="single-cart-item">
                             <a href="" class="product-image">
-                                @if(empty($product->images))
+                                @if(count($product->images)>0)
                                 <img src="{{ $product->images->first()->image_path }}" class="cart-thumb" alt="">
                                 <!-- Cart Item Desc -->
                                 @endif 

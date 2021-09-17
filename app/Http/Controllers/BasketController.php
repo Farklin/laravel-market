@@ -227,9 +227,16 @@ class BasketController extends Controller
             )); 
         }
         $basket->delete();
+    
 
+        $data = array('order' => $order);
+
+        Mail::send('mail.order_create', $data, function($message){
+            global $validation_data; 
+            $message->from('ivannewyou@gmail.com','Test'); 
+            $message->to('XXXlinkoln@yandex.ru')->subject('123');
+       });
         //Mail::to($validation_data['email'])->send(new OrderMail());
-
         return redirect()->route('basket.success')->with('order_id', $order->id);; 
 
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Product; 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,4 +19,8 @@ class OrderItem extends Model
         'quantity',
         'cost',
     ];
+    public function thumbnail(){ 
+        $product = Product::findOrFail($this->product_id); 
+        return $product->images[0]->thumbnail();
+    }
 }

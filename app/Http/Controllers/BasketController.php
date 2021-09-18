@@ -8,6 +8,9 @@ use App\Models\Order;
 use App\Models\OrderItem; 
 use GuzzleHttp\Client;
 use App\Mail\OrderMail; 
+use Illuminate\Support\Facades\Input;
+
+
 use Illuminate\Support\Facades\Mail; 
 
 class BasketController extends Controller
@@ -20,7 +23,10 @@ class BasketController extends Controller
         $basket_id = $request->cookie('basket_id');
         if (!empty($basket_id)) {
             $products = Basket::findOrFail($basket_id)->products;
-            return view('catalog.basket.index', compact('products'));
+            $basket = Basket::getBasket();
+            $delivery =$this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
+
+            return view('catalog.basket.index', compact('products', 'delivery'));
         } else {
             return view('catalog.basket.index'); 
         }
@@ -229,13 +235,18 @@ class BasketController extends Controller
         $basket->delete();
     
 
-        $data = array('order' => $order);
+        $data = array(
+            'order' => $order, 
+            'email' => $validation_data['email'], 
+        );
 
-        Mail::send('mail.order_create', $data, function($message){
-            global $validation_data; 
-            $message->from('ivannewyou@gmail.com','Test'); 
-            $message->to('XXXlinkoln@yandex.ru')->subject('123');
+        Mail::send('mail.order_create', $data,function ($message) use ($order){
+            
+            $message->from('ivannewyou@gmail.com','Спасибо что оформили заказ TeisBubble'); 
+            $message->to($order->email)->subject('Спасибо что оформили заказ TeisBubble');
+            $message->to('teisbubble@yandex.ru')->subject('Спасибо что оформили заказ TeisBubble');
        });
+
         //Mail::to($validation_data['email'])->send(new OrderMail());
         return redirect()->route('basket.success')->with('order_id', $order->id);; 
 

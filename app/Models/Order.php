@@ -21,10 +21,32 @@ class Order extends Model
         'index',
 
     ];
+
+    public function firstName(){
+       return explode(' ', $this->name )[1]; 
+    }
+    public function lastName(){
+        return explode(' ', $this->name )[0]; 
+    }
+    public function patronymic(){
+        return explode(' ', $this->name )[2]; 
+    }
+
     public function items(){
         return $this->hasMany(OrderItem::class); 
     }
     public function total(){
         return $this->delivery + $this->amount; 
+    }
+
+
+    /**
+     * Получить последний заказ пользователя
+     */
+    public function lastOrderUser($user_id){
+
+        $order = Order::where('user_id', $user_id)->orderBy('id', 'desc')->first(); 
+        return $order; 
+        
     }
 }

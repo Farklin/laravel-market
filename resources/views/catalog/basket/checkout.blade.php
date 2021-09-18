@@ -28,33 +28,33 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="first_name">Имя<span>*</span></label>
-                                    <input type="text" class="form-control" name="first_name" value="" required>
+                                    <input type="text" class="form-control" name="first_name" value="@if(!empty($form)){{$form->firstName()}} @endif" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="last_name">Фамилия<span>*</span></label>
-                                    <input type="text" class="form-control" name="last_name" value="" required>
+                                    <input type="text" class="form-control" name="last_name" value="@if(!empty($form)){{$form->lastName()}} @endif" required>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="last_name">Отчество<span>*</span></label>
-                                    <input type="text" class="form-control" name="patronymic" value="" required>
+                                    <input type="text" class="form-control" name="patronymic" value="@if(!empty($form)){{$form->patronymic()}} @endif" required>
                                 </div>
 
                                 <div class="col-12 mb-3">
                                     <label for="street_address">Адрес <span>*</span></label>
-                                    <input type="text" class="form-control" name="address" value="">
+                                    <input type="text" class="form-control" name="address" value="@if(!empty($form)){{$form->address}}@endif">
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="postcode">Индекс <span>*</span></label>
-                                    <input type="text" class="form-control" name="index" value="">
+                                    <input type="text" class="form-control" name="index" value="@if(!empty($form)){{$form->index}}@endif">
                                 </div>
 
                                 <div class="col-12 mb-3">
                                     <label for="phone_number">Номер телефона<span>*</span></label>
-                                    <input type="number" class="form-control" name="phone" min="0" value="">
+                                    <input type="number" class="form-control" name="phone" min="0" value="@if(!empty($form)){{$form->phone}}@endif">
                                 </div>
                                 <div class="col-12 mb-4">
                                     <label for="email_address">Email адрес <span>*</span></label>
-                                    <input type="email" class="form-control" name="email" value="">
+                                    <input type="email" class="form-control" name="email" value="@if(!empty($form)){{$form->email}}@endif">
                                 </div>
                             </div>
                             <input type="submit" id="btnOrderSave" style="display: none;" /> 

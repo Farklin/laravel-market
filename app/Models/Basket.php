@@ -45,5 +45,6 @@ class Basket extends Model
         return $weight;
 
     }
+    
 
 }

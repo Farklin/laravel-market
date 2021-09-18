@@ -130,7 +130,7 @@
                                         <div align="center">
                                             <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 28px; line-height: 38px; color: #191919;">Спасибо что оформили заказ</span>
                                             <div style="height: 20px; line-height: 20px; font-size: 18px">&nbsp;</div>
-                                            <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 20px; line-height: 30px; color: #999999;">Знайте, он&nbsp;по&nbsp;вам скучает и&nbsp;просится домой. Заберите его, ведь он&nbsp;вам тоже понравился.</span>
+                                            <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 20px; line-height: 30px; color: #999999;">Ожидайте, скоро ваш заказ обработают </span>
                                         </div>
                                         <div style="height: 35px; line-height: 35px; font-size: 33px">&nbsp;</div>
                                         <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 100%; min-width: 100%;">
@@ -170,7 +170,7 @@
                                                     <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;"></span>
                                                 </td>
                                                 <td style="padding-right: 10px;">
-                                                    <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;">&nbsp;шт.</span>
+                                                    <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;">&nbsp;ИТОГО</span>
                                                 </td>
                                                 <td style="white-space: nowrap;">
                                                     <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;">@php
@@ -225,20 +225,20 @@
                                         <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;">
                                             <tr>
                                                 <td width="27">
-                                                    <a href="" target="_blank"><img src="https://imgems.ru/ems/templates/vk.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
+                                                    <a href="https://vk.com/teisbubble" target="_blank"><img src="https://imgems.ru/ems/templates/vk.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
                                                 </td>
                                                 <td width="50">&nbsp;</td>
                                                 <td width="27">
-                                                    <a href="" target="_blank"><img src="https://imgems.ru/ems/templates/ig.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
+                                                    <a href="https://www.instagram.com/teisbubble/" target="_blank"><img src="https://imgems.ru/ems/templates/ig.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
                                                 </td>
                                                 <td width="50">&nbsp;</td>
                                                 <td width="27">
-                                                    <a href="" target="_blank"><img src="https://imgems.ru/ems/templates/fb.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
+                                                    <a href="https://www.facebook.com/profile.php?id=100072265003978" target="_blank"><img src="https://imgems.ru/ems/templates/fb.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
                                                 </td>
                                                 <td width="50">&nbsp;</td>
-                                                <td width="27">
+                                                {{-- <td width="27">
                                                     <a href="" target="_blank"><img src="https://imgems.ru/ems/templates/ok.png" width="27" height="19" border="0" alt="" style="display: block" /></a>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         </table>
                                         <div style="height: 35px; line-height: 35px; font-size: 33px">&nbsp;</div>

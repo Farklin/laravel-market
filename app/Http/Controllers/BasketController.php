@@ -125,7 +125,20 @@ class BasketController extends Controller
 
         $basket = Basket::getBasket();  
         $delivery =$this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
-        return view('catalog.basket.checkout', compact('basket', 'delivery')); 
+        
+
+        $user_id = auth()->check() ? auth()->user()->id : null;
+        if($user_id == null){
+            return view('catalog.basket.checkout', compact('basket', 'delivery')); 
+        }else{
+            $form = new Order(); 
+            $form = $form->lastOrderUser($user_id); 
+            
+            return view('catalog.basket.checkout', compact('basket', 'delivery', 'form')); 
+           
+        }
+
+        
       
         
     }
@@ -213,7 +226,7 @@ class BasketController extends Controller
         }
 
         $order = Order::create(array(
-            'name' => $validation_data['patronymic'] . ' ' . $validation_data['first_name'] . ' ' . $validation_data['last_name']  , 
+            'name' => $validation_data['last_name'] . ' ' . $validation_data['first_name'] . ' ' . $validation_data['patronymic']  , 
             'email' => $validation_data['email'],
             'address' => $validation_data['address'],
             'amount' => $basket->getAmount() ,

@@ -7,7 +7,8 @@ use App\Models\Basket;
 use App\Models\Order; 
 use App\Models\OrderItem; 
 use GuzzleHttp\Client;
-
+use App\Mail\OrderMail; 
+use Illuminate\Support\Facades\Mail; 
 
 class BasketController extends Controller
 {
@@ -198,13 +199,20 @@ class BasketController extends Controller
         ]); 
         $basket = Basket::getBasket(); 
         $user_id = auth()->check() ? auth()->user()->id : null;
+
+        if($request->cookie('delivery_status')){
+            $delivery = $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'); 
+        }else{
+            $delivery = 0; 
+        }
+
         $order = Order::create(array(
             'name' => $validation_data['patronymic'] . ' ' . $validation_data['first_name'] . ' ' . $validation_data['last_name']  , 
             'email' => $validation_data['email'],
             'address' => $validation_data['address'],
             'amount' => $basket->getAmount() ,
             'phone' =>  $validation_data['phone'], 
-            'delivery' => $this->pochta_rossii($form = '600022', $to='115280', $mass = $basket->getWeight(), $valuation = '0', $vat = '1'),
+            'delivery' => $delivery,
             'index' =>  $validation_data['index'],
             'user_id' => $user_id ,
         )); 
@@ -220,6 +228,7 @@ class BasketController extends Controller
         }
         $basket->delete();
 
+        //Mail::to($validation_data['email'])->send(new OrderMail());
 
         return redirect()->route('basket.success')->with('order_id', $order->id);; 
 
@@ -265,6 +274,20 @@ class BasketController extends Controller
             $response_data = $res->getBody()->getContents();
             return json_decode($response_data)->pkg_1class; 
         }
+    }
+
+    /**
+     * Изменение статуса доставки 
+     */
+    public function delivery_status(Request $request){
+        $delivery_status = $request->cookie('delivery_status');
+        if(empty($delivery_status)){
+            $delivery_status = !$delivery_status; 
+        }else{
+            $delivery_status = false; 
+        }
+
+        return back()->withCookie(cookie('delivery_status', $delivery_status , 525600)); 
     }
 
 }

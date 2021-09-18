@@ -6,7 +6,17 @@
     <div class="container">
         <h4> Товары </h4>
 
-        <a class="btn btn-primary" href ="{{ route('admin.product.form.create') }}"> Создать новый товар </a> 
+        <div class="row m-3">
+            <div class="col-md-4">
+                <a class="btn-sm btn-primary" href ="{{ route('admin.product.form.create') }}"> <i class="fa fa-plus"></i> Создать </a> 
+            </div>
+            <div class="col-md-4">
+                <a class="btn-sm btn-primary" href ="{{ route('admin.product.import') }}"> <i class="fa fa-download"></i> Импорт товаров</a> 
+            </div>
+         
+        
+        </div>
+    
         <table>
 
             @foreach($products as $product)
@@ -32,6 +42,7 @@
 
         </table>
     </div>
+    
 
 @endsection
 

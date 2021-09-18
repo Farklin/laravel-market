@@ -9,6 +9,7 @@
         <div class="container">
             <div class="row">
 
+                @if(count($orders)>0)
                 <table class="table table-bordered">
                     <tr>
                         <th>№</th>
@@ -25,6 +26,12 @@
                     @endforeach
                    
                 </table>
+                @else
+                <div> 
+                    <h2 > Нету заказов </h2> 
+                </div>
+                
+                @endif
             
              
 

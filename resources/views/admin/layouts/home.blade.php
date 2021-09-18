@@ -20,6 +20,11 @@
 <body>
     <nav class="navbar ">
     <a class="navbar-brand" href="#">Административная часть</a>
+        <div class="header-meta d-flex clearfix justify-content-end">
+            <div class="favourite-area">
+                <a href="{{route('home')}}"><i class="fa fa-eye"></i> Сайт</a>
+            </div>
+        </div>
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">
@@ -37,6 +42,7 @@
                     <li class="list-group-item">
                         <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.order.all')}}">Заказы </a> 
                     </li>
+                
                     <li class="list-group-item">
                         <div class="md-v-line" disabled></div><i class="fas fa-cogs mr-5"></i>Настройки
                     </li>

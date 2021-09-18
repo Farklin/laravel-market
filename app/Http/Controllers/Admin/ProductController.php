@@ -87,7 +87,12 @@ class ProductController extends Controller
         $product = Product::where('id', $id)->first();
         $category = Category::all();  
         $seo = $product->seo()->first();  
-        return view('admin/product/update_product', array('product'=>$product, 'category' => $category, 'seo'=> $seo)); 
+        $select_index_category = []; 
+        $select_category = CategoryProduct::where('product_id', $product->id)->get(); 
+        foreach ($select_category as $cat){
+            array_push($select_index_category, $cat->category_id); 
+        }
+        return view('admin/product/update_product', compact('product', 'category', 'seo', 'select_index_category')); 
     }
 
     public function update(Request $request, $id){
@@ -114,15 +119,17 @@ class ProductController extends Controller
 
         // обновление привязки к категориям 
         if($request->has('category')){
-
-
-            $categories = Category::find($request->category);
-            CategoryProduct::where('product_id' , $product->id)->delete();
-            foreach($categories as $category){
-                $product->categories()->attach($category); 
+           
+            $category_delete = CategoryProduct::where('product_id', $product->id)->get(); 
+            foreach ($category_delete as $cat_delete){
+                $cat_delete->delete();        
             }
-                
-            
+            foreach ($request->category as $cat) {
+                $category_product = new CategoryProduct(); 
+                $category_product->product_id = $product->id; 
+                $category_product->category_id = $cat; 
+                $category_product->save();  
+            }
         }
 
 

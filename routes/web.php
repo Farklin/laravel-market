@@ -57,8 +57,11 @@ Route::post('/basket/product/minus/{id}', [App\Http\Controllers\BasketController
 Route::post('/basket/checkout/save', [App\Http\Controllers\BasketController::class, 'saveOrder'])->name('basket.checkout.save'); 
 Route::get('/basket/success', [App\Http\Controllers\BasketController::class, 'success'])->name('basket.success'); 
 
+Route::get('/basket/delivery-status', [App\Http\Controllers\BasketController::class, 'delivery_status'])->name('delivery.status'); 
 
 
+// Sitemap 
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.xml');
 
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
@@ -107,6 +110,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
 
     Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'all'])->name('order.all'); 
     Route::get('/order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.view'); 
+
 
 }); 
 

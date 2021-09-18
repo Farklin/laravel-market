@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        <a href="">{{ $product->title }}</a>
+                        <a href="{{ route('product.show', $product->seo->slug) }}">{{ $product->title }}</a>
                     </td>
                     <td>{{ number_format($itemPrice, 2, '.', '') }}</td>
                     <td>

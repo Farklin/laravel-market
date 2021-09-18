@@ -10,7 +10,8 @@
                     @foreach ($products as $product)
                         <!-- Single Cart Item -->
                         <div class="single-cart-item">
-                            <a href="" class="product-image">
+                
+                            <a href="{{ route('product.show', $product->seo->slug) }} " class="product-image">
                                 @if(count($product->images)>0)
                                 <img src="{{ $product->images->first()->image_path }}" class="cart-thumb" alt="">
                                 <!-- Cart Item Desc -->
@@ -18,11 +19,13 @@
                                 <div class="cart-item-desc">
                                     <span class="product-remove" onclick="basket_delete_product({{ $product->id }})"><i
                                             class="fa fa-close" aria-hidden="true"></i></span>
-                                    <span class="badge">Mango </span>
-                                    <h6>{{ $product->title }} <div class="tag tag-info"> {{ $product->pivot->quantity }}</div></h6>
-                                    <p class="price">{{ $product->price }}</p>
+                                    <span class="badge"> </span>
+                                    <h6>{{ $product->title }} <div class="tag tag-info">Количество( {{ $product->pivot->quantity }} )</div></h6>
+                                    <p class="price">{{ $product->price }} ₽</p>
                                 </div>
                             </a>
+                            
+                  
                         </div>
                     @endforeach
                 @endif

@@ -23,7 +23,7 @@
 
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix">
-            <span>mango</span>
+            <span></span>
             <span> 
                 <h2>{{ $product->title }}</h2>
             </span>
@@ -31,7 +31,7 @@
                 @if ($product->old_price != 0 and $product->new_price < $product->price)
                     <span class="old-price">{{ $product->old_price }} </span>
                 @endif
-                {{ $product->price }}
+                <div class="h2 text-danger">{{ $product->price }} ₽</div>
             </p>
             <p class="product-desc">{{ $product->description }}</p>
 
@@ -63,16 +63,23 @@
                     <span for="input-quantity">Количество</span>
                     <input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 w-25">
                     <button type="submit" name="addtocart" value="5" class="btn essence-btn">Добавить в корзину</button>
-
-
-
+     
                     <!-- Favourite -->
                     <div class="product-favourite ml-4">
                         <a href="#" class="favme fa fa-heart"></a>
                     </div>
                 </div>
             </form>
-        </div>
+
+            <script src="https://yastatic.net/share2/share.js"></script>
+            <div> 
+            
+
+
+            <span class="h3 mt-5"> Поделится в социальных сетях </span> 
+            <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
+            </div>
+            <div> 
     </section>
     <!-- ##### Single Product Details Area End ##### -->
 

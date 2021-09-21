@@ -14,6 +14,7 @@ use App\Http\Controllers\ImageProductController;
 
 
 use App\Imports\ProductImport;
+use App\Exports\ProductsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
@@ -26,11 +27,15 @@ class ProductController extends Controller
         return view('admin.product.all', array('products' => $products) );
     }
 
+    // импорт товаров 
     public function import(){ 
         Excel::import(new ProductImport, 'Product.xlsx');
-
     }
 
+
+    public function export(){
+        return Excel::download(new ProductsExport, 'products-collection.xlsx');
+    }
 
     public function form_create()
     {

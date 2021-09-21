@@ -88,6 +88,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('product.delete'); 
     // Экспорт товаров 
     Route::get('product/import', [App\Http\Controllers\Admin\ProductController::class, 'import'])->name('product.import');
+    Route::get('product/export', [App\Http\Controllers\Admin\ProductController::class, 'export'])->name('product.export');
 
 
     Route::get('/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'form_create'])->name('category.form.create'); 

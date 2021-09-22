@@ -63,6 +63,9 @@ Route::get('/basket/delivery-status', [App\Http\Controllers\BasketController::cl
 // Sitemap 
 Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.xml');
 
+//подписка 
+Route::post('/subscribe/new', [App\Http\Controllers\SubscribersController::class, 'subscribe'])->name('subscribe');
+
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 

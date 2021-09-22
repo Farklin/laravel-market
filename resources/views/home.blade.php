@@ -95,7 +95,7 @@
                         @foreach($popular_products as $product)
                       
                         <div class="single-product-wrapper">
-                            @if(count($product->images) > 2)
+                            @if(count($product->images) >= 2)
                             <div class="product-img">
                                 <img src="{{$product->images[0]->thumbnail() }}" alt="">
 

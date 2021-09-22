@@ -27,9 +27,9 @@ class ImageProduct extends Model
                 $thumbnail = Image::make(public_path()  . $this->image_path);
                 $thumbnail->fit(300, 300);
                 $thumbnail->save(public_path() . $path);
-                $this->thumbnail = $path; 
-                $this->save(); 
             } 
+            $this->thumbnail = $path; 
+            $this->save(); 
         }
       
         return $path; 

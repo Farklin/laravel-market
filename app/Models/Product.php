@@ -84,4 +84,20 @@ class Product extends Model
         $query->orderBy('relevance', 'desc');
         return $query;
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes');
+    }
+
+    /**
+     * Проверка есть ли у данного пользователя лайк к данному товару
+     */
+
+    public function likeUser(){
+        if(Like::where('product_id', '=', $this->id)->where('user_id', '=', $user_id)->exists()){
+
+        }
+    }
+
 }

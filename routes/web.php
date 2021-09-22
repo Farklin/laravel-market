@@ -70,6 +70,10 @@ Route::post('/subscribe/new', [App\Http\Controllers\SubscribersController::class
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
     Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order'); 
+
+
+    // поставить лайк товару 
+    Route::get('/like/product/{product_id}', [App\Http\Controllers\LikeController::class, 'likeProduct'])->name('likeProduct'); 
 }); 
 
 

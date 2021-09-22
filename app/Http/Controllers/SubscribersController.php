@@ -49,5 +49,5 @@ class SubscribersController extends Controller
         return view('catalog.subscribe.newsubscribe');
         
     }
-  
+
 }

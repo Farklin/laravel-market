@@ -253,6 +253,8 @@ class BasketController extends Controller
             'email' => $validation_data['email'], 
         );
 
+
+        // Отправка почты 
         Mail::send('mail.order_create', $data,function ($message) use ($order){
             
             $message->from('ivannewyou@gmail.com','Спасибо что оформили заказ TeisBubble'); 

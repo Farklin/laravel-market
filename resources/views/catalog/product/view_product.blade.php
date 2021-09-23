@@ -111,7 +111,7 @@
 
                 $.ajax({
                     method: "GET", 
-                    url: "{{ route('user.likeProduct', $product->id) }} " , 
+                    url: "{{ route('user.like.product', $product->id) }} " , 
                   
                     success: function(data){
                         if(data){

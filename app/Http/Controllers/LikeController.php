@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Like; 
 class LikeController extends Controller
 {
-    public function likeProduct($product_id){
+    public function likeProduct ($product_id){
         /**
          * Поставить лайк товару 
          */
@@ -34,6 +34,12 @@ class LikeController extends Controller
             return Null;  
         }
     }   
+
+    public function likesProducts(){
+        $user = auth()->user(); 
+        $products = $user->likes; 
+        return view('catalog.like.products', compact('products')); 
+    }
 
 
 

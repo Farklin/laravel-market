@@ -52,7 +52,7 @@
                 </form>
             </div>
             <div class="favourite-area">
-                <a href="#"><img src="/theme/img/core-img/heart.svg" alt=""></a>
+                <a href="{{route('user.likes.products')}}"><img src="/theme/img/core-img/heart.svg" alt=""></a>
             </div>
             @guest
                 <div class="user-login-info">

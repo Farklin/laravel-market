@@ -73,7 +73,8 @@ Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
 
 
     // поставить лайк товару 
-    Route::get('/like/product/{product_id}', [App\Http\Controllers\LikeController::class, 'likeProduct'])->name('likeProduct'); 
+    Route::get('/like/product/{product_id}', [App\Http\Controllers\LikeController::class, 'likeProduct'])->name('like.product'); 
+    Route::get('/likes/products/', [App\Http\Controllers\LikeController::class, 'likesProducts'])->name('likes.products'); 
 }); 
 
 

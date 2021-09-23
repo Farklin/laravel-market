@@ -87,7 +87,7 @@ class Product extends Model
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes');
+        return $this->belongsToMany(User::class, 'likes')->wherePivot('like', 1);
     }
 
     /**
@@ -95,9 +95,13 @@ class Product extends Model
      */
 
     public function likeUser(){
-        if(Like::where('product_id', '=', $this->id)->where('user_id', '=', $user_id)->exists()){
-
+        if(auth()->check()){
+            $user_id = auth()->user()->id; 
+        }else{
+            $user_id = 0; 
         }
+        $like = Like::where('product_id', '=', $this->id)->where('user_id', '=', $user_id)->get();  
+        return $like; 
     }
 
 }

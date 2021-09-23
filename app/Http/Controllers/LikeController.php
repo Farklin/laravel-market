@@ -10,7 +10,7 @@ class LikeController extends Controller
         /**
          * Поставить лайк товару 
          */
-        if($user_id = auth()->check()){
+        if(auth()->check()){
            
            $user_id = auth()->user()->id; 
            // проверяем есть ли у товара уже лайк 

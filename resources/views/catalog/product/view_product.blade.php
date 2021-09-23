@@ -66,7 +66,7 @@
      
                     <!-- Favourite -->
                     <div class="product-favourite ml-4">
-                        <a href="#" class="favme fa fa-heart"></a>
+                        <a href="#" id="like-product" class="favme fa fa-heart @if(count($product->likeUser()) >= 1)@if($product->likeUser()[0]->like == true)active @endif @endif"> <span id="count-like"> {{ count($product->likes)}}</span></a> 
                     </div>
                 </div>
             </form>
@@ -83,5 +83,36 @@
     </section>
     <!-- ##### Single Product Details Area End ##### -->
 
+
+    <script> 
+    // лайк товаров
+    $(document).ready(function(){
+            $('#like-product').click(function(){
+
+                $.ajax({
+                    method: "GET", 
+                    url: "{{ route('user.likeProduct', $product->id) }} " , 
+                  
+                    success: function(data){
+                        if(data){
+                            $('#like-product').addClass('active');
+                            $('#count-like').html(parseInt($('#count-like').text()) + 1); 
+                        }else{
+                            $('#like-product').removeClass('active');
+                            $('#count-like').html(parseInt($('#count-like').text()) -1); 
+                        }
+                        
+                }, 
+            
+            }).error(function(httpObj, textStatus) {       
+                if(httpObj.status==401)
+                    window.location.href = '{{route("login")}}';    
+            });; 
+
+            })
+ 
+          
+        }); 
+    </script> 
 
 @endsection

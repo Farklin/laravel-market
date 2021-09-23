@@ -25,7 +25,24 @@
         <div class="single_product_desc clearfix">
             <span></span>
             <span> 
-                <h2>{{ $product->title }}</h2>
+                <div class="row">
+                    <div class="col-10 col-md-5">
+
+                        <h2>{{ $product->title }}</h2> 
+
+                    </div>
+                    <div class="col-2 col-md-2">
+
+                        <div class="cart-fav-box">
+                            <div class="product-favourite">
+                                <a href="#" id="like-product" class="favme fa fa-heart @if(count($product->likeUser()) >= 1)@if($product->likeUser()[0]->like == true)active @endif @endif"> <span id="count-like"> {{ count($product->likes)}}</span></a> 
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+               
             </span>
             <p class="product-price">
                 @if ($product->old_price != 0 and $product->new_price < $product->price)
@@ -33,7 +50,7 @@
                 @endif
                 <div class="h2 text-danger">{{ $product->price }} ₽</div>
             </p>
-            <p class="product-desc">{{ $product->description }}</p>
+          
 
             <!-- Form -->
             <form class="cart-form clearfix" action="{{ route('basket.add', ['id' => $product->id]) }}" method="post">
@@ -54,22 +71,24 @@
                     </select>
                 </div> --}}
                 <!-- Cart & Favourite Box -->
-                <div class="cart-fav-box d-flex align-items-center">
+                <div class="cart-fav-box align-items-center">
                     <!-- Cart -->
 
                     <!-- Форма для добавления товара в корзину -->
 
-
-                    <span for="input-quantity">Количество</span>
-                    <input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 w-25">
-                    <button type="submit" name="addtocart" value="5" class="btn essence-btn">Добавить в корзину</button>
-     
-                    <!-- Favourite -->
-                    <div class="product-favourite ml-4">
-                        <a href="#" id="like-product" class="favme fa fa-heart @if(count($product->likeUser()) >= 1)@if($product->likeUser()[0]->like == true)active @endif @endif"> <span id="count-like"> {{ count($product->likes)}}</span></a> 
+                    <div class="row">
+                
+                        <div class="col-5 col-md-2"><span for="input-quantity">Количество</span><input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 "></div> 
+                        <div class="col-5"> <button type="submit" name="addtocart" value="5" class="btn sm-btn essence-btn">Добавить в корзину</button></div>
                     </div>
+                    
+                   
+               
+                    <!-- Favourite -->
+                    
                 </div>
             </form>
+            <p class="product-desc mt-5">{{ $product->description }}</p>
 
             <script src="https://yastatic.net/share2/share.js"></script>
             <div> 
@@ -79,6 +98,7 @@
             <span class="h3 mt-5"> Поделится в социальных сетях </span> 
             <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
             </div>
+        
             <div> 
     </section>
     <!-- ##### Single Product Details Area End ##### -->

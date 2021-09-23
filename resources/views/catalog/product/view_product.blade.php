@@ -79,7 +79,7 @@
                     <div class="row">
                 
                         <div class="col-5 col-md-2"><span for="input-quantity">Количество</span><input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 "></div> 
-                        <div class="col-5"> <button type="submit" name="addtocart" value="5" class="btn sm-btn essence-btn">Добавить в корзину</button></div>
+                        <div class="col-5"> <button type="submit" name="addtocart" value="5" class="btn sm-btn essence-btn">В корзину</button></div>
                     </div>
                     
                    

@@ -48,6 +48,7 @@
                             $basketTotal = $basketCost + $delivery; 
                         @endphp
                     @endforeach
+                    
 
                     <h2>Корзина</h2>
                     <ul class="summary-table">
@@ -56,19 +57,18 @@
                         <li><span>Доставка:</span> <span>{{ number_format($delivery, 2, '.', '') }}</span></li>
                         <li><span>Итого:</span> <span>{{ number_format($basketTotal, 2, '.', '') }}</span></li>
                         @endif 
+                        <label><input type="checkbox"  @if (Cookie::get('delivery_status') == True ) checked   @endif onclick="location.href = '{{route('delivery.status')}}'" class=""/> Требуется доставка</label>
+                   
+                     
                     </ul>
-                    <div class="checkout-btn mt-100 d-flex">
+                    <div class="checkout-btn mt-50 d-flex flex-column ">
                         <a href="{{route('basket.checkout')}}" class="btn essence-btn">Заказать</a>
                         <a href="{{ route('basket.all') }}" class="btn essence-btn"> В корзину</a>
                     </div>
-                    <label><input type="checkbox"  @if (Cookie::get('delivery_status') == True ) checked   @endif onclick="location.href = '{{route('delivery.status')}}'" class=""/> Требуется доставка</label>
-                   
-                    <div class="cart-button  mt-100">
+                
+                    <div class="cart-button mt-50">
                         *** Самовывоз осуществляется по городу Владимиру 
                         
-                    </div>
-                    <div class="cart-button  mt-100">
-                       
                     </div>
 
                 @else

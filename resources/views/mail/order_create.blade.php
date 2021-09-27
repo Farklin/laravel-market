@@ -158,6 +158,29 @@
                                                 </td>
                                             </tr>
                                             @endforeach
+                                            @if($order->delivery > 0)
+                                            <tr>
+                                                <td style="padding-right: 20px;" width="112" class="mob-pic">
+                                                    
+                                                </td>
+                                                <td style="padding-right: 10px;">
+                                                    <a href="" target="_blank" style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 17px; line-height: 26px; color: #000000; font-weight: bold; text-decoration: none;">
+                                                    
+                                                    </a>
+                                                    <div style="height: 5px; line-height: 5px; font-size: 3px">&nbsp;</div>
+                                                    <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;"></span>
+                                                </td>
+                                                <td style="padding-right: 10px;">
+                                                    <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;">&nbsp;Доставка</span>
+                                                </td>
+                                                <td style="white-space: nowrap;">
+                                                    <span style="font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-size: 16px; line-height: 26px; color: #000000;">
+                                                        {{ $order->delivery }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            @endif
+
                                             <tr>
                                                 <td style="padding-right: 20px;" width="112" class="mob-pic">
                                                     

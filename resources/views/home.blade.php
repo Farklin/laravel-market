@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 col-6">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/1.jpg);">
                         <div class="catagory-content">
                             <a href="/category/v-forme-edy">В форме еды</a>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-6 col-sm-6 col-md-4 ">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/2.jpg);">
                         <div class="catagory-content">
                             <a href="/category/v-forme-saiby">В форме шайбы</a>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <!-- Single Catagory -->
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class=" col-6 col-sm-6 col-md-4">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/3.jpg);">
                         <div class="catagory-content">
                             <a href="/category/kvadratnoe-mylo">Квадратное мыло </a>
@@ -62,7 +62,7 @@
                             <div class="cta--text">
                                 <h6>140 </h6>
                                 <h2>Новинка недели</h2>
-                                <a href="#" class="btn essence-btn">Купить сейчас</a>
+                                <a href="https://teisbubble.ru/product/mylo-yagodnoe-piroznoe" class="btn essence-btn">Купить сейчас</a>
                             </div>
                         </div>
                     </div>

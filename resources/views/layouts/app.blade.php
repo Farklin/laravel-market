@@ -16,6 +16,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="yandex-verification" content="67dd06b83d5149d7" />
+    <script src="//code-ya.jivosite.com/widget/R80LXmTcNu" async></script>
 </head>
 <body>
     <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>
@@ -31,6 +32,6 @@
     <script src="{{ asset('theme/js/plugins.js') }}"></script>
     <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
     <script src="{{ asset('theme/js/active.js') }}"></script>
-  
+    
 </body>
 </html>

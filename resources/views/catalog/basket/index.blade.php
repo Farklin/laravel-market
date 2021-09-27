@@ -124,12 +124,12 @@
         </div> 
 @endforeach
 
-        <div class="row">
+        <div class="row border">
             <div class="text-right col-6">Товаров на сумму</div>
             <div class="col-6">{{ number_format($basketCost, 2, '.', '') }}</div>
         </div>
         @if (Cookie::get('delivery_status') == True )
-        <div class="row">
+        <div class="row border">
             <div  class="text-right col-6">Доставка</div>
             <div class="col-6"> {{ number_format($delivery, 2, '.', '') }}</div>
         </div>
@@ -143,10 +143,10 @@
      
         @endphp
         
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="text-right col-6"><strong> ИТОГО </strong></div>
             <div class="col-6"><strong>{{ number_format($total, 2, '.', '') }}</div> 
-            <div class="col-12"><label><input type="checkbox"  @if (Cookie::get('delivery_status') == True ) checked   @endif onclick="location.href = '{{route('delivery.status')}}'" class=""/> Требуется доставка</label>
+            <div class="col-12 mt-3"><label><input type="checkbox"  @if (Cookie::get('delivery_status') == True ) checked   @endif onclick="location.href = '{{route('delivery.status')}}'" class=""/> Требуется доставка</label>
             </div>
             <div class="col-12">
                 <a href="{{route('basket.checkout')}}" class="btn essence-btn">Заказать</a>

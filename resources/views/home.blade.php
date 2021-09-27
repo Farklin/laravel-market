@@ -95,6 +95,7 @@
                         @foreach($popular_products as $product)
                       
                         <div class="single-product-wrapper">
+                            <a href="{{route('product.show', $product->seo->slug)}}">
                             @if(count($product->images) >= 2)
                             <div class="product-img">
                                 <img src="{{$product->images[0]->thumbnail() }}" alt="">
@@ -106,6 +107,7 @@
                                 </div>
                             </div>
                             @endif 
+                            </a> 
                             <div class="product-description">
                                 <span></span>
                                 <a href="{{ route('product.show' , $product->seo->slug) }} ">

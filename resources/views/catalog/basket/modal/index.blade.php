@@ -13,7 +13,7 @@
                 
                             <a href="{{ route('product.show', $product->seo->slug) }} " class="product-image">
                                 @if(count($product->images)>0)
-                                <img src="{{ $product->images->first()->image_path }}" class="cart-thumb" alt="">
+                                <img src="{{ $product->images[0]->thumbnail() }}" class="cart-thumb" alt="">
                                 <!-- Cart Item Desc -->
                                 @endif 
                                 <div class="cart-item-desc">

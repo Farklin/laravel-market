@@ -28,7 +28,7 @@
                     <td>
                         <a href = "{{route('admin.product.form.update', $product->id)}}">
                             @if($product->images->first() != null)
-                                <img src="{{$product->images->first()->thuliban() }}" width='100' alt="">
+                                <img src="{{$product->images->first()->thumbnail() }}" width='100' alt="">
                             @endif 
                         </a> 
                     </td>

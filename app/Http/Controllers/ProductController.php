@@ -41,7 +41,7 @@ class ProductController extends Controller
 
     public function all_product(){
         // Отображает всех товаров 
-        $products = Product::paginate(20); 
+        $products = Product::latest()->paginate(20); 
         return view('catalog/product/all_product', compact('products')) ; 
     }
 

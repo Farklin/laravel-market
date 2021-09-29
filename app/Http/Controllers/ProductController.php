@@ -39,10 +39,37 @@ class ProductController extends Controller
    
     
 
-    public function all_product(){
+    public function all_product(Request $request){
         // Отображает всех товаров 
-        $products = Product::latest()->paginate(20); 
-        return view('catalog/product/all_product', compact('products')) ; 
+
+        
+        switch($request->input('sort')){
+            case 'upprice':
+                $products = Product::orderBy('price', 'desc')->paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+
+            case 'downprice':
+                $products = Product::orderBy('price', 'asc')->paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+            
+            case 'new':
+                $products =Product::latest()->paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+
+
+            case 'upname':
+                $products = Product::orderBy('title', 'asc')->paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+
+            case 'downname':
+                $products = Product::orderBy('title', 'desc')->paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+
+            default: 
+                $products = Product::paginate(20);
+                return view('catalog/product/all_product', compact('products')); 
+        }
+
     }
 
     

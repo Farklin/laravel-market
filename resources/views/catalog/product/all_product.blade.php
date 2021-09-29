@@ -85,19 +85,7 @@
                                 <div class="total-products">
                                     <p><span>{{ count($products) }} </span> Товаров найдено</p>
                                 </div>
-                                <!-- Sorting -->
-                                <div class="product-sorting d-flex">
-                                    <p>Сортировать по:</p>
-                                    <form action="#" method="get">
-                                        <select name="select" id="sortByselect">
-                                            <option value="value">Цене</option>
-                                            <option value="value">Newest</option>
-                                            <option value="value">Price: $$ - $</option>
-                                            <option value="value">Price: $ - $$</option>
-                                        </select>
-                                        <input type="submit" class="d-none" value="">
-                                    </form>
-                                </div>
+                                @include('layouts.sorting')
                             </div>
                         </div>
                     </div>

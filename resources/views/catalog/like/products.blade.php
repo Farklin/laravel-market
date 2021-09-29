@@ -4,7 +4,7 @@
 @section('description', 'На данной странице собраны все товары которые понравились пользователю. ')
 @section('content')
 
-@include('layouts.breadcumb', array('h1' => 'Все товары '))
+@include('layouts.breadcumb', array('h1' => 'Понравившиеся товары'))
 
 <section class="shop_grid_area section-padding-80">
     <div class="container">

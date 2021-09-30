@@ -62,5 +62,21 @@ class ImageProductController extends Controller
         }
     }
 
+    /**
+     * Изменение сортировки картинок
+     */
+
+    public function sorting(Request $request){
+        if($request->has('sortimage')){
+           foreach($request->input('sortimage') as $sort){
+               $image =  ImageProduct::find($sort['image_id']); 
+               $image->sort = (int)$sort['image_sort'] + 1 ;  
+               $image->save(); 
+           }
+           return true;  
+
+        }
+    }
+
   
 }

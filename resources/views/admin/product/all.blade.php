@@ -32,8 +32,13 @@
                             @endif 
                         </a> 
                     </td>
+                   
+
                     <td>
                         {{$product->title}}
+                    </td>
+                    <td>
+                        {{$product->price}}
                     </td>
                     <td>
                         <a href = '{{route('admin.product.form.update', $product->id)}}'>Изменить</a> 

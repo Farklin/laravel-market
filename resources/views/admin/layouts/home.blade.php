@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>@yield('title') </title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('static/font_awesome/css/all.css') }}">
     <link href="{{ asset('static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('static/bootstrap/css/mdb.css') }}" rel="stylesheet">
     <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
+    
     <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
 
 
@@ -37,11 +38,15 @@
                         <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.product.all')}}">Товары </a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.page.all')}}">Страницы </a> 
+                        <div class="md-v-line"></div><i class="fas fa-book mr-5"></i><a href="{{route('admin.page.all')}}">Страницы </a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.order.all')}}">Заказы </a> 
+                        <div class="md-v-line"></div><i class="fas fa-shopping-cart mr-5"></i><a href="{{route('admin.order.all')}}">Заказы </a> 
                     </li>
+                    <li class="list-group-item">
+                        <div class="md-v-line"></div><i class="fas fa-users mr-5"></i><a href="{{route('admin.subscribers.all')}}">Подписчики</a> 
+                    </li>
+                
                 
                     <li class="list-group-item">
                         <div class="md-v-line" disabled></div><i class="fas fa-cogs mr-5"></i>Настройки
@@ -54,5 +59,60 @@
         </div>
        
     </div>
+
+
+    <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('theme/js/popper.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery/jquery-ui.js') }}"></script>
+    <script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/js/plugins.js') }}"></script>
+    <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
+    <script src="{{ asset('theme/js/active.js') }}"></script>
+   
+    <script> 
+
+    // Изменение последовательности картинок 
+        $('#images-product').sortable({
+            revert: 100, 
+            cursor: "move",
+            update: function() {
+                
+                sorting = [] 
+                $('#images-product .image-value').each(function(index, item) {
+                    sorting.push({'image_id': item.value, 'image_sort': index })
+                }); 
+                console.log(sorting); 
+                ajaxSortingImage(sorting); 
+                
+            } 
+        });
+
+        function ajaxSortingImage(sorting){
+            $.ajax({
+            method: "POST", 
+            url: "{{ route('admin.image.sorting') }}", 
+            data:{
+                sortimage: sorting, 
+            }, 
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+            success: function(data){
+                console.log(data); 
+               
+            }, 
+            
+        }); 
+        }
+       
+
+
+        
+
+
     
+
+    </script> 
+
+
 </body>

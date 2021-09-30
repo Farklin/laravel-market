@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 class ImageProduct extends Model
 {
     use HasFactory;
-
+    
 
     protected $table = 'image_product';
 

@@ -120,7 +120,9 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'all'])->name('order.all'); 
     Route::get('/order/{id}', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('order.view'); 
 
+    Route::get('/subscribers', [App\Http\Controllers\Admin\SubscribersController::class, 'all'])->name('subscribers.all'); 
 
+    Route::post('/image/product/sort', [App\Http\Controllers\ImageProductController::class, 'sorting'])->name('image.sorting'); 
 }); 
 
     

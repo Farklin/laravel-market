@@ -94,10 +94,12 @@ class ProductController extends Controller
         $seo = $product->seo()->first();  
         $select_index_category = []; 
         $select_category = CategoryProduct::where('product_id', $product->id)->get(); 
+        
+        $images = $product->images;
         foreach ($select_category as $cat){
             array_push($select_index_category, $cat->category_id); 
         }
-        return view('admin/product/update_product', compact('product', 'category', 'seo', 'select_index_category')); 
+        return view('admin/product/update_product', compact('product', 'category', 'seo', 'select_index_category', 'images')); 
     }
 
     public function update(Request $request, $id){

@@ -41,9 +41,7 @@
                 <h4> Выбор категории </h4>
 
                 <div class="row">
-                    @foreach($select_index_category as $cat)
-                        {{$cat}}
-                    @endforeach 
+                 
                     @foreach ($category as $cat)
                         
                         @if(in_array($cat->id, $select_index_category))
@@ -81,14 +79,14 @@
 
             @if (isset($product->images))
                 <h2 class="mt-5"> Изображения товара </h2>
-                <div class="row">
+                <div class="row" id="images-product">
 
-                    @foreach ($product->images as $image)
+                    @foreach ($images as $image)
                         <div class="col-md-2">
                             <img height="100" src="{{ $image->image_path }}" alt="" srcset="">
                             <form action="{{ route('image_product_delete') }}" method="post">
                                 @csrf
-                                <input type="hidden" name='image_product_id' value={{ $image->id }}>
+                                <input type="hidden" name='image_product_id' class="image-value" value={{ $image->id }}>
                                 <button type="submit" class="btn-sm btn-danger">Удалить</button>
                             </form>
                         </div>
@@ -98,5 +96,7 @@
 
         </div>
     </div>
+
+
 
 @endsection

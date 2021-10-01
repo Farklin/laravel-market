@@ -15,6 +15,7 @@ class UpdateImageProductTable extends Migration
     {
         Schema::table('image_product', function (Blueprint $table) {
             $table->string('thumbnail')->nullable(); 
+            $table->integer('sort')->nullable()->default(0); 
         });
     }
 

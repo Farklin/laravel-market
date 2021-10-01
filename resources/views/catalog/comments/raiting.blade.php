@@ -1,21 +1,5 @@
 
-
-
-<style type="text/css">
- .star-rating span{
-     display: inline-block !important;
-     color: yellow !important;
-     font-size: 19px !important; 
-    
-    }
-
-    .star-rating {
-      line-height:40px;
-      font-size:1.25em;
-      
-    }
-    </style>
-    <div class="container">
+<div class="container">
 
 <div class="row">
     <div class="col-lg-12">
@@ -25,7 +9,7 @@
         <span class="fa fa-star-o" data-rating="3"></span>
         <span class="fa fa-star-o" data-rating="4"></span>
         <span class="fa fa-star-o" data-rating="5"></span>
-        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+        <input type="hidden" name="whatever1" class="rating-value" value="4">
     </div>
     </div>
 </div>

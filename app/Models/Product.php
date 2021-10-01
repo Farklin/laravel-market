@@ -9,7 +9,7 @@ use App\Models\ImageProduct;
 use App\Models\Seo; 
 use Stem\LinguaStemRu; 
 use Illuminate\Support\Facades\DB;
-
+use App\Models\CommentProduct; 
 
 class Product extends Model
 {
@@ -31,7 +31,9 @@ class Product extends Model
         
         return $this->hasMany(ImageProduct::class)->orderBy('sort', 'asc')->take(5); 
     }
-
+    public function comments(){
+        return $this->hasMany(CommentProduct::class);  
+    }
 
     
     public function baskets() {

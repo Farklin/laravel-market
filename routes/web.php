@@ -66,6 +66,10 @@ Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'inde
 //подписка 
 Route::post('/subscribe/new', [App\Http\Controllers\SubscribersController::class, 'subscribe'])->name('subscribe');
 
+//Добавить коментарий к товару
+Route::post('/comment/product/{id}', [App\Http\Controllers\CommentProductController::class, 'add'])->name('comment.product.add'); 
+
+
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 

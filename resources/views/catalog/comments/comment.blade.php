@@ -1,15 +1,16 @@
 <div class="comment-product row">
     <div class="comment-product-name col-md-12 mt-4">
-        <span> Имя фамиля пользователя </span>
+        <span> {{ $comment->name }} </span>
     </div>  
     <div class="comment-product-description col-md-12">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, soluta velit. Aliquid deleniti, quas at animi odit corporis repellendus fugiat, laudantium earum nemo explicabo! Nam incidunt officia sunt quos libero!
+        {{ $comment->description }}
     </div>  
     
     <div class="comment-product-image col-md-12">
         <div class="row my-2">
-            <img src="http://127.0.0.1:8000/images/products/1/1631108139_zV3qg1AbdH0.jpg" width="100" alt="" class="mx-2 border image-thumbnail">
-            <img src="http://127.0.0.1:8000/images/products/1/1631108139_zV3qg1AbdH0.jpg" width="100" alt="" class="mx-2 border image-thumbnail">
+            @foreach($comment->images as $image)
+            <img src="{{$image->thumbnail}}" width="50" alt="" class="mx-2 border image-thumbnail">
+            @endforeach
         </div>
     </div>
 
@@ -22,7 +23,7 @@
                     <span class="fa fa-star-o" data-rating="3"></span>
                     <span class="fa fa-star-o" data-rating="4"></span>
                     <span class="fa fa-star-o" data-rating="5"></span>
-                    <input type="hidden" name="whatever1" class="rating-value" value="5">
+                    <input type="hidden" name="whatever1" class="rating-value" value=" {{ $comment->raiting }}">
                 </div>
             </div>
 
@@ -30,7 +31,7 @@
                
             </div>
             <div class="comment-product-date col-md-4 text-right">
-                12.02.2019
+                {{ $comment->created_at }} 
             </div>
 
         </div>

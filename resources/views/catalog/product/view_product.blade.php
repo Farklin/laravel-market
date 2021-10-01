@@ -84,30 +84,7 @@
                     </div>
 
 
-                    <div class="tab my-5">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Отзывы</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
-                            </li>
-                        </ul>
-
-                        <!-- Вкладка панели -->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="home" role="tabpanel">
-                                @include('catalog.comments.form_comment_product')</div>
-                            <div class="tab-pane" id="profile" role="tabpanel">{{ $product->description }}</div>
-                        </div>
-
-                        <script type="text/javascript">
-                            $('#myTab a').click(function(e) {
-                                e.preventDefault()
-                                $(this).tab('show')
-                            })
-                        </script>
-                    </div>
+                    
 
 
 
@@ -117,6 +94,36 @@
 
                 </div>
             </form>
+
+            <div class="tab my-5">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
+                    </li>
+                </ul>
+
+                <!-- Вкладка панели -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+
+                        @foreach ($product->comments as $comment) 
+                            @include('catalog.comments.comment', $comment)
+                        @endforeach 
+
+                        @include('catalog.comments.form_comment_product')</div>
+                    <div class="tab-pane" id="profile" role="tabpanel">{{ $product->description }}</div>
+                </div>
+
+                <script type="text/javascript">
+                    $('#myTab a').click(function(e) {
+                        e.preventDefault()
+                        $(this).tab('show')
+                    })
+                </script>
+            </div>
 
             <script src="https://yastatic.net/share2/share.js"></script>
             <div>

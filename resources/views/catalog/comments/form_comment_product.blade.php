@@ -1,4 +1,5 @@
 @include('catalog.comments.comment')
+
 <div class="comment my-3">
     <form action="">
         <div class="row">
@@ -8,7 +9,13 @@
                         <label>Оставить коментарий</label>
                     </div>
                     <div class="col-md-5 my-2">
-                        <input class="form-control" type="text" placeholder="Ваше имя" name="first_name">
+                        @if(!Auth::check())
+                        
+                        <input class="form-control" type="text" placeholder="Ваше имя" name="name">
+                        @else
+                        <span> {{Auth::user()->name}}<span>
+                        <input type="hidden" class="form-control" value="{{Auth::user()->name}}" name="name">
+                        @endif 
                     </div>
 
                     <div class="col-md-7 my-2">

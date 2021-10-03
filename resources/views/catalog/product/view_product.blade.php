@@ -6,7 +6,7 @@
 
     <!-- ##### Single Product Details Area Start ##### -->
 
-    <section class="single_product_details_area d-flex align-items-center">
+    <section class="container single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Single Product Description -->
-        <div class="single_product_desc clearfix">
+        <div class=" single_product_desc clearfix">
             <span></span>
             <span>
                 <div class="row">
@@ -77,12 +77,25 @@
 
                     <div class="row">
 
-                        <div class="col-5 col-md-2"><span for="input-quantity">Количество</span><input type="text"
-                                name="quantity" id="input-quantity" value="1" class="form-control mx-2 "></div>
-                        <div class="col-5"> <button type="submit" name="addtocart" value="5"
-                                class="btn sm-btn essence-btn">В корзину</button></div>
+                        <div class="col-5 col-md-6"><span for="input-quantity">Количество</span>
+                        
+                        </div>
+                        <div class="col-5 col-md-6"> 
+                            <input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 ">
+                        </div>
+                        <div class="col-5 col-md-12"> <button type="submit" name="addtocart" value="5"
+                                class="btn sm-btn essence-btn">Добавить в корзину</button></div>
                     </div>
 
+                    <script src="https://yastatic.net/share2/share.js"></script>
+                    <div>
+        
+        
+        
+                        <span class="h3 mt-5"> Поделится в социальных сетях </span>
+                        <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5"
+                            data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
+                    </div>
 
                     
 
@@ -95,6 +108,10 @@
                 </div>
             </form>
 
+
+        </section>
+
+        <section class="container">
             <div class="tab my-5">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
@@ -125,21 +142,13 @@
                 </script>
             </div>
 
-            <script src="https://yastatic.net/share2/share.js"></script>
-            <div>
-
-
-
-                <span class="h3 mt-5"> Поделится в социальных сетях </span>
-                <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5"
-                    data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
-            </div>
+         
 
             <div>
 
+        </section>
 
 
-    </section>
     <!-- ##### Single Product Details Area End ##### -->
 
     <script>

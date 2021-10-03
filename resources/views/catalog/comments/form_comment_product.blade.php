@@ -21,7 +21,7 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
-                        <label>Оставить коментарий</label>
+                        <h2>Написать отзыв</h2>
                     </div>
                     <div class="col-md-5 my-2">
                         @if(!Auth::check())

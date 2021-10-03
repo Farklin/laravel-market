@@ -32,7 +32,7 @@ class Product extends Model
         return $this->hasMany(ImageProduct::class)->orderBy('sort', 'asc')->take(5); 
     }
     public function comments(){
-        return $this->hasMany(CommentProduct::class);  
+        return $this->hasMany(CommentProduct::class)->where('status', 1)->take(100);  
     }
 
     

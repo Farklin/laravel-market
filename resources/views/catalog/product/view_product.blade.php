@@ -120,6 +120,10 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#delivery" role="tab">Доставка и оплата</a>
+                    </li>
+
                 </ul>
 
                 <!-- Вкладка панели -->
@@ -131,7 +135,37 @@
                         @endforeach 
 
                         @include('catalog.comments.form_comment_product')</div>
-                    <div class="tab-pane" id="profile" role="tabpanel">{{ $product->description }}</div>
+                    <div class="tab-pane" id="profile" role="tabpanel">
+                        <div class="my-5">
+                        {{ $product->description }}
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="delivery" role="tabpanel">
+                        <div class="row my-5">
+                            <div class="col-md-6">
+                                <h5>Способы доставки</h5>
+                                <ul>
+                                    <li>Доставка Почтой России</li>
+                                    <li>Доставка CDEK</li>
+                                    <li>Доставка курьером CDEK</li>
+                                    <li>Самовывоз в Владимире</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Способы оплаты</h5>
+                                <ul>
+                                    <li>Оплата наличными</li>
+                                    <li>Оплата наложенным платежам Почта России</li>
+                                    <li>Оплата банковской картой через реквизиты</li>
+                                    <li>Оплата наличными или картой в пункте самовывоза</li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                      
+                    
+                    </div>
+
                 </div>
 
                 <script type="text/javascript">

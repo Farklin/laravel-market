@@ -127,6 +127,13 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/subscribers', [App\Http\Controllers\Admin\SubscribersController::class, 'all'])->name('subscribers.all'); 
 
     Route::post('/image/product/sort', [App\Http\Controllers\ImageProductController::class, 'sorting'])->name('image.sorting'); 
+
+    //Отзвызы 
+    Route::get('/comments', [App\Http\Controllers\Admin\CommentProductController::class, 'all'])->name('comment.all'); 
+    Route::get('/comment/delete/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'delete'])->name('comment.delete'); 
+    Route::get('/comment/edit-status/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'editStatus'])->name('comment.editstatus'); 
+
+
 }); 
 
     

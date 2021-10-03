@@ -66,6 +66,10 @@ Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'inde
 //подписка 
 Route::post('/subscribe/new', [App\Http\Controllers\SubscribersController::class, 'subscribe'])->name('subscribe');
 
+//Добавить коментарий к товару
+Route::post('/comment/product/{id}', [App\Http\Controllers\CommentProductController::class, 'add'])->name('comment.product.add'); 
+
+
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
@@ -123,6 +127,13 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/subscribers', [App\Http\Controllers\Admin\SubscribersController::class, 'all'])->name('subscribers.all'); 
 
     Route::post('/image/product/sort', [App\Http\Controllers\ImageProductController::class, 'sorting'])->name('image.sorting'); 
+
+    //Отзвызы 
+    Route::get('/comments', [App\Http\Controllers\Admin\CommentProductController::class, 'all'])->name('comment.all'); 
+    Route::get('/comment/delete/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'delete'])->name('comment.delete'); 
+    Route::get('/comment/edit-status/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'editStatus'])->name('comment.editstatus'); 
+
+
 }); 
 
     

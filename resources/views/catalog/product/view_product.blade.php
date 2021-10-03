@@ -6,7 +6,7 @@
 
     <!-- ##### Single Product Details Area Start ##### -->
 
-    <section class="single_product_details_area d-flex align-items-center">
+    <section class="container single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Single Product Description -->
-        <div class="single_product_desc clearfix">
+        <div class=" single_product_desc clearfix">
             <span></span>
             <span>
                 <div class="row">
@@ -77,37 +77,27 @@
 
                     <div class="row">
 
-                        <div class="col-5 col-md-2"><span for="input-quantity">Количество</span><input type="text"
-                                name="quantity" id="input-quantity" value="1" class="form-control mx-2 "></div>
-                        <div class="col-5"> <button type="submit" name="addtocart" value="5"
-                                class="btn sm-btn essence-btn">В корзину</button></div>
-                    </div>
-
-
-                    <div class="tab my-5">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Отзывы</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
-                            </li>
-                        </ul>
-
-                        <!-- Вкладка панели -->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="home" role="tabpanel">
-                                @include('catalog.comments.form_comment_product')</div>
-                            <div class="tab-pane" id="profile" role="tabpanel">{{ $product->description }}</div>
+                        <div class="col-5 col-md-6"><span for="input-quantity">Количество</span>
+                        
                         </div>
-
-                        <script type="text/javascript">
-                            $('#myTab a').click(function(e) {
-                                e.preventDefault()
-                                $(this).tab('show')
-                            })
-                        </script>
+                        <div class="col-5 col-md-6"> 
+                            <input type="text" name="quantity" id="input-quantity" value="1" class="form-control mx-2 ">
+                        </div>
+                        <div class="col-5 col-md-12"> <button type="submit" name="addtocart" value="5"
+                                class="btn sm-btn essence-btn">Добавить в корзину</button></div>
                     </div>
+
+                    <script src="https://yastatic.net/share2/share.js"></script>
+                    <div>
+        
+        
+        
+                        <span class="h3 mt-5"> Поделится в социальных сетях </span>
+                        <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5"
+                            data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
+                    </div>
+
+                    
 
 
 
@@ -118,21 +108,81 @@
                 </div>
             </form>
 
-            <script src="https://yastatic.net/share2/share.js"></script>
-            <div>
 
+        </section>
 
+        <section class="container">
+            <div class="tab my-5">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#delivery" role="tab">Доставка и оплата</a>
+                    </li>
 
-                <span class="h3 mt-5"> Поделится в социальных сетях </span>
-                <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack" data-limit="5"
-                    data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp"></div>
+                </ul>
+
+                <!-- Вкладка панели -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+
+                        @foreach ($product->comments as $comment) 
+                            @include('catalog.comments.comment', $comment)
+                        @endforeach 
+
+                        @include('catalog.comments.form_comment_product')</div>
+                    <div class="tab-pane" id="profile" role="tabpanel">
+                        <div class="my-5">
+                        {{ $product->description }}
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="delivery" role="tabpanel">
+                        <div class="row my-5">
+                            <div class="col-md-6">
+                                <h5>Способы доставки</h5>
+                                <ul>
+                                    <li>Доставка Почтой России</li>
+                                    <li>Доставка CDEK</li>
+                                    <li>Доставка курьером CDEK</li>
+                                    <li>Самовывоз в Владимире</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Способы оплаты</h5>
+                                <ul>
+                                    <li>Оплата наличными</li>
+                                    <li>Оплата наложенным платежам Почта России</li>
+                                    <li>Оплата банковской картой через реквизиты</li>
+                                    <li>Оплата наличными или картой в пункте самовывоза</li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                      
+                    
+                    </div>
+
+                </div>
+
+                <script type="text/javascript">
+                    $('#myTab a').click(function(e) {
+                        e.preventDefault()
+                        $(this).tab('show')
+                    })
+                </script>
             </div>
 
+         
+
             <div>
 
+        </section>
 
 
-    </section>
     <!-- ##### Single Product Details Area End ##### -->
 
     <script>

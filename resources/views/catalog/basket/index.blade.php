@@ -94,7 +94,7 @@
         <div class="col-6 col-md-4 image-poduct"><img src="{{ $product->images[0]->thumbnail()}}" alt=""></div>
         <div class="col-6 col-md-4 description-product">
             <div class="row"><a href="{{ route('product.show', $product->seo->slug) }}">{{ $product->title }}</a></div>
-            <div class="row">Склад отгрузки: Владимир</div> 
+            <div class="row">Расположение: Владимир</div> 
             <div class="row">{{ number_format($itemCost, 2, '.', '') }}      </div>
         </div>
 

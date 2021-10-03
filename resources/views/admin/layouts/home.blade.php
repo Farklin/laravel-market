@@ -46,6 +46,9 @@
                     <li class="list-group-item">
                         <div class="md-v-line"></div><i class="fas fa-users mr-5"></i><a href="{{route('admin.subscribers.all')}}">Подписчики</a> 
                     </li>
+                    <li class="list-group-item">
+                        <div class="md-v-line"></div><i class="fa fa-comments mr-5"></i><a href="{{route('admin.comment.all')}}">Отзывы</a> 
+                    </li>
                 
                 
                     <li class="list-group-item">
@@ -61,58 +64,14 @@
     </div>
 
 
-    <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}" async></script>
     <script src="{{ asset('theme/js/popper.min.js') }}"></script>
     <script src="{{ asset('theme/js/jquery/jquery-ui.js') }}"></script>
     <script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('theme/js/plugins.js') }}"></script>
     <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
     <script src="{{ asset('theme/js/active.js') }}"></script>
-   
-    <script> 
-
-    // Изменение последовательности картинок 
-        $('#images-product').sortable({
-            revert: 100, 
-            cursor: "move",
-            update: function() {
-                
-                sorting = [] 
-                $('#images-product .image-value').each(function(index, item) {
-                    sorting.push({'image_id': item.value, 'image_sort': index })
-                }); 
-                console.log(sorting); 
-                ajaxSortingImage(sorting); 
-                
-            } 
-        });
-
-        function ajaxSortingImage(sorting){
-            $.ajax({
-            method: "POST", 
-            url: "{{ route('admin.image.sorting') }}", 
-            data:{
-                sortimage: sorting, 
-            }, 
-            headers: {
-                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                },
-            success: function(data){
-                console.log(data); 
-               
-            }, 
-            
-        }); 
-        }
-       
-
-
-        
-
-
-    
-
-    </script> 
+    <script src="{{ asset('theme/js/global.js') }}"></script>
 
 
 </body>

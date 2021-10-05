@@ -26,7 +26,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
-                <div class="col-sm-6 col-md-4 col-6">
+                <div class="col-sm-6 col-md-3 col-6">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/1.jpg);">
                         <div class="catagory-content">
                             <a href="/category/v-forme-edy">В форме еды</a>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <!-- Single Catagory -->
-                <div class="col-6 col-sm-6 col-md-4 ">
+                <div class="col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/2.jpg);">
                         <div class="catagory-content">
                             <a href="/category/v-forme-saiby">В форме шайбы</a>
@@ -42,13 +42,22 @@
                     </div>
                 </div>
                 <!-- Single Catagory -->
-                <div class=" col-6 col-sm-6 col-md-4">
+                <div class=" col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/3.jpg);">
                         <div class="catagory-content">
                             <a href="/category/kvadratnoe-mylo">Квадратное мыло </a>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-6 col-md-3 col-6">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/products/33/1633426305_IMG_20210927_132934jpg.jpg);">
+                        <div class="catagory-content">
+                            <a href="/category/nabory">Мыльные наборы</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

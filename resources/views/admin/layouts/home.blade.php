@@ -29,7 +29,7 @@
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-md-4 col-3">
+            <div class="col-md-4 col-3 position-fixed">
                 <ul class="list-group">
                     <li class="list-group-item">
                         <a  href="{{route('admin.category.all')}}"> <i class="fas fa-laptop mr-4 pr-3"></i><span class="d-none d-md-inline-block">Категории</span></a> 
@@ -55,6 +55,7 @@
                     </li>
                 </ul>
             </div>
+            <div class="col-md-4 col-3"> </div>
             <div class="col-md-8 col-9">
                 @yield('content')
             </div>

@@ -3,10 +3,10 @@
     <h4> SEO атрибуты </h4> 
     @if(!isset($seo))
         {{ Form::label('title_seo','SEO Title',array('id'=>'','class'=>'')) }}
-        {{ Form::text('title_seo','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::text('title_seo','',array('id'=>'seo_title','class'=>'form-control')) }}
 
         {{ Form::label('description_seo','SEO Description',array('id'=>'','class'=>'')) }}
-        {{ Form::text('description_seo','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::text('description_seo','',array('id'=>'seo_description','class'=>'form-control')) }}
 
         {{ Form::label('keywords_seo','SEO Keywords',array('id'=>'','class'=>'')) }}
         {{ Form::text('keywords_seo','',array('id'=>'','class'=>'form-control')) }}

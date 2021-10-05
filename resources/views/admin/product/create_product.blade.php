@@ -3,7 +3,7 @@
 @section('title', 'Создание нового товара')
 @section('content')
 
-    <div class="container">
+    <div class="">
 
     
         @if ($errors->any())
@@ -17,7 +17,7 @@
             </div>
         @endif
 
-        <div class="card p-5">
+        <div class="card">
         <h4> Создание нового товара </h4>
         
         
@@ -28,11 +28,11 @@
         <div class="card p-3 mt-3">
             <h4>Описание товара </h4>
         {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
-        {{ Form::text('title','',array('id'=>'','class'=>'form-control')) }}
+        {{ Form::text('title','',array('id'=>'title','class'=>'form-control')) }}
 
 
         {{ Form::label('description','Описание',array('id'=>'','class'=>'')) }}
-        {{ Form::textarea('description','',array('id'=>'','class'=>'form-control' )) }}
+        {{ Form::textarea('description','',array('id'=>'description','class'=>'form-control' )) }}
 
 
         {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}

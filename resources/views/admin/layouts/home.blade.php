@@ -29,34 +29,33 @@
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-3">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-laptop mr-4 pr-3"></i><a href="{{route('admin.category.all')}}">Категории</a> 
+                        <a  href="{{route('admin.category.all')}}"> <i class="fas fa-laptop mr-4 pr-3"></i><span class="d-none d-md-inline-block">Категории</span></a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-bomb mr-5"></i><a href="{{route('admin.product.all')}}">Товары </a> 
+                       <a  href="{{route('admin.product.all')}}"> <i class="fas fa-bomb mr-5"></i><span class="d-none d-md-inline-block">Товары</span> </a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-book mr-5"></i><a href="{{route('admin.page.all')}}">Страницы </a> 
+                       <a  href="{{route('admin.page.all')}}"> <i class="fas fa-book mr-5"></i><span class="d-none d-md-inline-block">Страницы</span> </a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-shopping-cart mr-5"></i><a href="{{route('admin.order.all')}}">Заказы </a> 
+                       <a  href="{{route('admin.order.all')}}"><i class="fas fa-shopping-cart mr-5"></i><span class="d-none d-md-inline-block">Заказы </span></a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fas fa-users mr-5"></i><a href="{{route('admin.subscribers.all')}}">Подписчики</a> 
+                       <a  href="{{route('admin.subscribers.all')}}"><i class="fas fa-users mr-5"></i><span class="d-none d-md-inline-block">Подписчики</span></a> 
                     </li>
                     <li class="list-group-item">
-                        <div class="md-v-line"></div><i class="fa fa-comments mr-5"></i><a href="{{route('admin.comment.all')}}">Отзывы</a> 
+                       <a  href="{{route('admin.comment.all')}}"><i class="fa fa-comments mr-5"></i><span class="d-none d-md-inline-block">Отзывы</span></a> 
                     </li>
-                
-                
+
                     <li class="list-group-item">
-                        <div class="md-v-line" disabled></div><i class="fas fa-cogs mr-5"></i>Настройки
+                        <div class="md-v-line" disabled></div><i class="fas fa-cogs mr-5"></i><a ><span class="d-none d-md-inline-block"> Настройки</span> </a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-8 p-5">
+            <div class="col-md-8 col-9">
                 @yield('content')
             </div>
         </div>

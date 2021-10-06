@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xml:lang="ru" >
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="ru">
 
     <title>@yield('title') </title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -73,5 +74,41 @@
     <script src="{{ asset('theme/js/active.js') }}"></script>
     <script src="{{ asset('theme/js/global.js') }}"></script>
 
+    <script>
+        // Изменение последовательности картинок в товарах
+$('#images-product').sortable({
+    revert: 100,
+    cursor: "move",
+    update: function() {
 
+        sorting = []
+        $('#images-product .image-value').each(function(index, item) {
+            sorting.push({ 'image_id': item.value, 'image_sort': index })
+        });
+        console.log(sorting);
+        ajaxSortingImage(sorting);
+
+    }
+});
+
+function ajaxSortingImage(sorting) {
+    $.ajax({
+        method: "POST",
+        url: "{{ route('admin.image.sorting') }}",
+        data: {
+            sortimage: sorting,
+        },
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(data) {
+            console.log(data);
+
+        },
+
+    });
+}
+
+
+    </script> 
 </body>

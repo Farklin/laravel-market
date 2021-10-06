@@ -13,7 +13,10 @@
     <link href="{{ asset('static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('static/bootstrap/css/mdb.css') }}" rel="stylesheet">
     <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('theme/css/shards.css') }}" rel="stylesheet">
+
+
     <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
 
 
@@ -72,6 +75,7 @@
     <script src="{{ asset('theme/js/plugins.js') }}"></script>
     <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
     <script src="{{ asset('theme/js/active.js') }}"></script>
+    <script src="{{ asset('theme/js/shards.min.js')}}"></script>
     <script src="{{ asset('theme/js/global.js') }}"></script>
 
     <script>
@@ -111,4 +115,7 @@ function ajaxSortingImage(sorting) {
 
 
     </script> 
+
+
+
 </body>

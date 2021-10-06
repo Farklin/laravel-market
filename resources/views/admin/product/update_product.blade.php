@@ -68,12 +68,12 @@
 
 
 
-            <div class="form-group mt-5 d-flex">
-                {{ Form::label('image', 'Изображение', ['id' => '', 'class' => '']) }}
-                {{ Form::file('image[]', ['id' => '', 'class' => '', 'multiple' => '']) }}
+            <div class="form-group custom-file mt-5 d-flex">
+                {{ Form::label('image', 'Изображение', ['id' => '', 'class' => 'custom-file-label']) }}
+                {{ Form::file('image[]', ['id' => '', 'class' => 'custom-file-input', 'multiple' => '']) }}
             </div>
 
-            {{ Form::submit('Сохранить', ['class' => 'btn-sm btn-primary']) }}
+            {{ Form::submit('Сохранить', ['class' => 'btn btn-sm btn-primary']) }}
 
             {{ Form::close() }}
 
@@ -99,4 +99,8 @@
 
 
 
+
+
+
+    
 @endsection

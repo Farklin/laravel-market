@@ -8,14 +8,14 @@
 
         <div class="row">
             <div class="col-md-4">
-                <a class="btn-sm btn-primary" href ="{{ route('admin.product.form.create') }}"> <i class="fa fa-plus"></i> Создать </a> 
+                <a class="btn btn-sm btn-primary btn-pill" href ="{{ route('admin.product.form.create') }}"> <i class="fa fa-plus"></i> Создать </a> 
             </div>
             <div class="col-md-4 d-none d-md-block">
-                <a class="btn-sm btn-primary" href ="{{ route('admin.product.export') }}"> <i class="fa fa-download"></i> Экспорт товаров</a> 
+                <a class="btn btn-sm btn-primary btn-pill" href ="{{ route('admin.product.export') }}"> <i class="fa fa-download"></i> Экспорт товаров</a> 
             </div>
          
             <div class="col-md-4 d-none d-md-block">
-                <a class="btn-sm btn-primary" href ="{{ route('admin.product.import') }}"> <i class="fa fa-download"></i> Импорт товаров</a> 
+                <a class="btn btn-sm btn-primary btn-pill" href ="{{ route('admin.product.import') }}"> <i class="fa fa-download"></i> Импорт товаров</a> 
             </div>
          
         

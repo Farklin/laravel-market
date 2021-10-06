@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index(){
 
-        $comments = CommentProduct::all();
+        $comments = CommentProduct::where('status', false)->limit(3)->get();
 
         return view('admin.layouts.home', compact(
             'comments'

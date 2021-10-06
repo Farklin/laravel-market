@@ -322,18 +322,18 @@
                                             <p class="m-0 my-1 mb-2 text-muted">{{ $comment->description}} </p>
                                             <div class="blog-comments__actions">
                                                 <div class="btn-group btn-group-sm row">
-                                                    <button type="button" class="btn btn-white">
+                                                    <a type="button" href="{{ route('admin.comment.editstatus', $comment->id)}}" class="btn btn-white">
                                                         <span class="text-success">
                                                             <i class="fa fa-check"> </i>
-                                                        </span> Опубликовать </button>
-                                                    <button type="button" class="btn btn-white">
+                                                        </span> Опубликовать </a>
+                                                    <a type="button" href="{{ route('admin.comment.delete', $comment->id)}}" class="btn btn-white">
                                                         <span class="text-danger">
                                                             <i class="fa fa-trash"> </i>
-                                                        </span> Удалить </button>
-                                                    <button type="button" class="btn btn-white">
+                                                        </span> Удалить </a>
+                                                    <a type="button" class="btn btn-white text-dark">
                                                         <span class="text-light">
                                                             <i class="fa fa-edit"> </i>
-                                                        </span> Изменить </button>
+                                                        </span> Изменить </a>
                                                 </div>
                                             </div>
 

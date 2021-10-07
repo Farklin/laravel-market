@@ -16,7 +16,7 @@
     <link href="{{ asset('static/bootstrap/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/css/shards.css') }}" rel="stylesheet">
     <link href="{{ asset('theme/css/shards-dashboards.1.1.0.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.css"> </head>
 
 
     <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
@@ -452,12 +452,14 @@
     <script src="{{ asset('theme/js/popper.min.js') }}"></script>
     <script src="{{ asset('theme/js/jquery/jquery-ui.js') }}"></script>
     <script src="{{ asset('theme/js/bootstrap.min.js') }}"></script>
+    
     <script src="{{ asset('theme/js/plugins.js') }}"></script>
     <script src="{{ asset('theme/js/classy-nav.min.js') }}"></script>
     <script src="{{ asset('theme/js/active.js') }}"></script>
     <script src="{{ asset('theme/js/shards.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
     <script src="{{ asset('theme/js/global.js') }}"></script>
-
+    <script src="{{ asset('theme/app/app-blog-new-post.1.1.0.js') }}"></script>
     <script>
         // Изменение последовательности картинок в товарах
         $('#images-product').sortable({

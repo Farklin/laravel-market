@@ -84,7 +84,7 @@
                         <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
                             <div class="d-table m-auto">
                                 {{-- <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="images/shards-dashboards-logo.svg" alt="Shards Dashboard"> --}}
-                                <span class="d-none d-md-inline ml-1">TeisBubble</span>
+                               <span class="d-none d-md-inline ml-1"> TeisBubble </span>
                             </div>
                         </a>
                         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -106,7 +106,12 @@
                 <div class="nav-wrapper">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('admin.category.all') }}">
+                            <a class="nav-link active" href="{{ route('admin.home') }}">
+                                <i class="fa fa-home"></i>
+                                <span>Главная страница</span>
+                            </a>
+
+                            <a class="nav-link" href="{{ route('admin.category.all') }}">
                                 <i class="fa fa-edit"></i>
                                 <span>Категории</span>
                             </a>
@@ -221,7 +226,10 @@
                             <div class="dropdown-menu dropdown-menu-small">
                                 <a class="dropdown-item" href="#">
                                     <i class="fa fa-user"></i> Профиль</a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('home')}}">
+                                        <i class="fa fa-eye"></i> Перейти на сайт</a>
+
+                                <a class="dropdown-item" href="{{ route('admin.product.form.create')}}">
                                     <i class="fa fa-plus"></i> Создать товар</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="#">
@@ -246,12 +254,23 @@
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                         <span class="text-uppercase page-subtitle">Dashboard</span>
-                        <h3 class="page-title">Интернет магазин TEISBubble</h3>
+                        <h3 class="page-title"> 
+                            @if(View::hasSection('h1'))
+                                @yield('h1')
+                            @else
+                                Интернет магазин TeisBubble
+                            @endif 
+                    </h3>
                     </div>
                 </div>
                 <!-- End Page Header -->
 
                 <div class="row">
+
+                    @if(View::hasSection('content'))
+                        @yield('content')
+                    @else
+
 
                     <!-- New Draft Component -->
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -414,7 +433,11 @@
                         </div>
                     </div>
                     <!-- End Top Referrals Component -->
+                    @endif
                 </div>
+            
+                    
+            
             </div>
 
 

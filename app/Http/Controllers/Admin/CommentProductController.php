@@ -15,10 +15,10 @@ class CommentProductController extends Controller
         
     switch($request->input('status')){
         case 'on':
-            $comments = CommentProduct::where('status', 1); 
+            $comments = CommentProduct::where('status', 1)->get(); 
             return view('admin.comment.all', compact('comments'));
         case 'off':
-            $comments = CommentProduct::where('status', 0); 
+            $comments = CommentProduct::where('status', 0)->get(); 
             return view('admin.comment.all', compact('comments'));
         default: 
             $comments = CommentProduct::all(); 

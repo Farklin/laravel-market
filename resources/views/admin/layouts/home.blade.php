@@ -459,26 +459,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
     <script src="{{ asset('theme/js/global.js') }}"></script>
     <script src="{{ asset('theme/app/app-blog-new-post.1.1.0.js') }}"></script>
-    
+    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+
     <script>
         // Изменение последовательности картинок в товарах
-        $('#images-product').sortable({
-            revert: 100,
-            cursor: "move",
-            update: function() {
-
-                sorting = []
-                $('#images-product .image-value').each(function(index, item) {
+        var images_product = document.getElementById('images-product');
+        Sortable.create( images_product , { 
+        animation : 300 , 
+        ghostClass : 'blue-background-class',
+        onUpdate: function(){
+            sorting = []; 
+            $('#images-product .image-value').each(function(index, item) {
                     sorting.push({
                         'image_id': item.value,
                         'image_sort': index
                     })
                 });
-                console.log(sorting);
-                ajaxSortingImage(sorting);
+            ajaxSortingImage(sorting);    
 
-            }
-        });
+        }, 
+            
+    });    
+
+        // $('#images-product').sortable({
+        //     revert: 100,
+        //     cursor: "move",
+        //     update: function() {
+
+        //         sorting = []
+        //         $('#images-product .image-value').each(function(index, item) {
+        //             sorting.push({
+        //                 'image_id': item.value,
+        //                 'image_sort': index
+        //             })
+        //         });
+        //         console.log(sorting);
+        //         ajaxSortingImage(sorting);
+
+        //     }
+        // });
 
         function ajaxSortingImage(sorting) {
             $.ajax({

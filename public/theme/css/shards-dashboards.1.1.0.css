@@ -6475,7 +6475,7 @@ a.text-accent:focus {
 }
 
 .add-new-post__editor {
-    min-height: 400px;
+    min-height: 200px;
 }
 
 html .ql-container.ql-snow,

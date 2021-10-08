@@ -76,7 +76,7 @@
                 <h5 class="card-title">
                     <a class="text-fiord-blue" href="{{ route('admin.product.form.update', $product->id) }}">{{ $product->title }}</a>
                 </h5>
-                <p class="card-text d-inline-block mb-3">{{ $product->description }}</p>
+                <p class="card-text d-inline-block mb-3">{!! $product->description !!}</p>
                 <span class="text-muted">{{ $product->updated_at }}</span>
                 <div class="blog-comments__actions">
                     <div class="btn-group btn-group-sm row">

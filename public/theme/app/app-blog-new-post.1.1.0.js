@@ -27,6 +27,8 @@
             placeholder: 'Описание товара',
             theme: 'snow'
         });
-
+        var text = $('#description').val(); 
+        alert(  quill.getText() ); 
+        quill.setText(text); 
     });
 })(jQuery);

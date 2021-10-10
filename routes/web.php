@@ -31,7 +31,7 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 
 //картинки товара
-Route::post('/image_product/delete', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
+Route::get('/image_product/delete/{id}', [ImageProductController::class, 'delete'])->name('image_product_delete'); 
 
 //категория 
 Route::get('/category/{slug}', [CategoryController::class, 'index'])->name('category'); 

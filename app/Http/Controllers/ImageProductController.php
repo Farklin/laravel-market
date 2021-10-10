@@ -52,14 +52,13 @@ class ImageProductController extends Controller
         }
     }
 
-    public function delete(Request $request){
-        if($request->has('image_product_id')){
-            $id = $request->input('image_product_id'); 
-            $image_product = ImageProduct::find($id); 
-            File::delete(public_path() . $image_product->image_path); 
-            $image_product->delete();  
-            return redirect()->back();  
-        }
+    public function delete(Request $request, $id){
+
+        $image_product = ImageProduct::find($id); 
+        File::delete(public_path() . $image_product->image_path); 
+        $image_product->delete();  
+        return back();  
+    
     }
 
     /**

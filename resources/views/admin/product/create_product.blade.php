@@ -1,7 +1,28 @@
+
+@php 
+if($status == 'create'){
+    $request = 'admin.product.create'; 
+    $h1 = 'Создание нового товара'; 
+    $title = 'Создание нового товара'; 
+}
+elseif ($status == 'update') {
+    $request = ['admin.product.update' , $product->id]; 
+    $h1 = 'Изменение товара'; 
+    $title = 'Изменение товара'; 
+
+}      
+
+@endphp
+
+
 @extends('admin.layouts.home')
-@section('title', 'Создание нового товара')
-@section('h1', 'Создание товара')
+@section('title', $title)
+@section('h1', $h1)
 @section('content')
+
+
+
+
 
     {{-- <div class="">
 
@@ -71,7 +92,8 @@
 
     </div>
 
-    {{ Form::open(['route' => 'admin.product.create', 'class' => 'row', 'enctype' => 'multipart/form-data']) }}
+
+    {{ Form::open(['route' => $request, 'class' => 'row', 'enctype' => 'multipart/form-data']) }}
     <div class="col-lg-9 col-md-12">
 
 
@@ -98,16 +120,16 @@
                 
 
 
-                {{ Form::text('title', '', ['id' => 'title', 'class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Название товара']) }}
+                {{ Form::text('title', $product->title, ['id' => 'title', 'class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Название товара']) }}
 
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>
-                {{ Form::hidden('description', '', ['id' => 'description']) }}
+                {{ Form::hidden('description', $product->description, ['id' => 'description']) }}
 
-                {{ Form::number('price', '', ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Цена товара']) }}
+                {{ Form::number('price', $product->price, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Цена товара']) }}
 
-                {{ Form::number('old_price', '', ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Старая цена товара']) }}
+                {{ Form::number('old_price', $product->old_price, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Старая цена товара']) }}
 
-                {{ Form::number('weight', '', ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Вес']) }}
+                {{ Form::number('weight', $product->weight, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Вес']) }}
 
                 <div class="custom-file d-flex ">
                     {{ Form::label('image', 'Изображения', ['id' => '', 'class' => 'form-control-lg custom-file-label']) }}
@@ -116,7 +138,21 @@
 
              
 
+                @if (isset($product->images))
+                <div class="card-header border-bottom">
+                    <h6 class="mt-5"> Изображения товара</h6>
+                </div>
+                   
+                    <div class="row" id="images-product">
 
+                        @foreach ($images as $image)
+                            <div class="col-md-2">
+                                <img height="100" name="images" src="{{ $image->image_path }}" alt="" srcset="">
+                                <a type="submit" href="{{ route('image_product_delete', $image->id) }}" class="btn-sm btn-danger">Удалить</a>                            
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
 
 
 
@@ -197,10 +233,16 @@
                     <li class="list-group-item px-3 pb-2">
                         @foreach ($category as $cat)
                         <div class="custom-control custom-checkbox mb-1">
-                            {{ Form::checkbox('category[]', $cat->id, false, array('class' =>'custom-control-input', 'id'=>'category' . $cat->id)) }}
-                            {{ Form::label('category' . $cat->id, $cat->title, array('for' => 'category'.$cat->id, 'class' => 'custom-control-label')) }}
-                            
-    
+                            @php
+                                if(empty($select_index_category)){
+                                    $select_index_category = []; 
+                                }
+                                
+                                $flag = in_array($cat->id, $select_index_category); 
+
+                            @endphp 
+                            {{ Form::checkbox('category[]', $cat->id, $flag, ['class' => 'custom-control-input', 'id' => 'category' . $cat->id]) }}
+                            {{ Form::label('category' . $cat->id, $cat->title, ['for' => 'category' . $cat->id, 'class' => 'custom-control-label']) }}
                         </div>
                         @endforeach
                     </li>

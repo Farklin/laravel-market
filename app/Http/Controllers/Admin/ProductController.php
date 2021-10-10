@@ -38,14 +38,17 @@ class ProductController extends Controller
     }
 
     public function form_create()
-    {
+    {   
+        $status = 'create'; 
+       $product = new Product(); 
         // Вывод формы создания товара
        $category = Category::all(); 
-       return view('admin/product/create_product', array('category' => $category));
+       return view('admin/product/create_product', compact('category', 'product', 'status'));
     }
 
     public function create(Request $request)
-    {
+    {   
+      
         //обработчик создания товара 
         
         $validation_data = $request->validate([
@@ -87,7 +90,7 @@ class ProductController extends Controller
     
 
     public function form_update($id)
-    {   
+    {   $status = 'update'; 
         // Вывод формы обновления товара 
         $product = Product::where('id', $id)->first();
         $category = Category::all();  
@@ -99,7 +102,7 @@ class ProductController extends Controller
         foreach ($select_category as $cat){
             array_push($select_index_category, $cat->category_id); 
         }
-        return view('admin/product/update_product', compact('product', 'category', 'seo', 'select_index_category', 'images')); 
+        return view('admin/product/create_product', compact('product', 'category', 'seo', 'select_index_category', 'images', 'status')); 
     }
 
     public function update(Request $request, $id){

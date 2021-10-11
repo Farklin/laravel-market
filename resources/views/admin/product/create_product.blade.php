@@ -156,7 +156,7 @@ elseif ($status == 'update') {
 
 
 
-                {{ Form::submit('Создать', ['onclick' => 'myFunction()', 'class' => 'btn btn-primary']) }}
+              
 
                 <script>
                  
@@ -180,46 +180,7 @@ elseif ($status == 'update') {
             </div>
         </div>
 
-        <!-- Post Overview -->
-        <div class='card card-small mb-3'>
-            <div class="card-header border-bottom">
-                <h6 class="m-0">Actions</h6>
-            </div>
-            <div class='card-body p-0'>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-3">
-                        <span class="d-flex mb-2">
-                            <i class="material-icons mr-1">flag</i>
-                            <strong class="mr-1">Status:</strong> Draft
-                            <a class="ml-auto" href="#">Edit</a>
-                        </span>
-                        <span class="d-flex mb-2">
-                            <i class="material-icons mr-1">visibility</i>
-                            <strong class="mr-1">Visibility:</strong>
-                            <strong class="text-success">Public</strong>
-                            <a class="ml-auto" href="#">Edit</a>
-                        </span>
-                        <span class="d-flex mb-2">
-                            <i class="material-icons mr-1">calendar_today</i>
-                            <strong class="mr-1">Schedule:</strong> Now
-                            <a class="ml-auto" href="#">Edit</a>
-                        </span>
-                        <span class="d-flex">
-                            <i class="material-icons mr-1">score</i>
-                            <strong class="mr-1">Readability:</strong>
-                            <strong class="text-warning">Ok</strong>
-                        </span>
-                    </li>
-                    <li class="list-group-item d-flex px-3">
-                        <button class="btn btn-sm btn-outline-accent">
-                            <i class="material-icons">save</i> Save Draft</button>
-                        <button class="btn btn-sm btn-accent ml-auto">
-                            <i class="material-icons">file_copy</i> Publish</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- / Post Overview -->
+        
         <!-- Post Overview -->
         <div class='card card-small mb-3'>
             <div class="card-header border-bottom">
@@ -258,6 +219,45 @@ elseif ($status == 'update') {
             </div>
         </div>
         <!-- / Post Overview -->
+
+        <!-- Post Overview -->
+        <div class='card card-small mb-3'>
+            <div class="card-header border-bottom">
+                <h6 class="m-0">Действие</h6>
+            </div>
+            <div class='card-body p-0'>
+                <ul class="list-group list-group-flush">
+                    {{--  <li class="list-group-item p-3">
+                       <span class="d-flex mb-2">
+                            <i class="material-icons mr-1">flag</i>
+                            <strong class="mr-1">Status:</strong> Draft
+                            <a class="ml-auto" href="#">Edit</a>
+                        </span>
+                        <span class="d-flex mb-2">
+                            <i class="material-icons mr-1">visibility</i>
+                            <strong class="mr-1">Visibility:</strong>
+                            <strong class="text-success">Public</strong>
+                            <a class="ml-auto" href="#">Edit</a>
+                        </span>
+                        <span class="d-flex mb-2">
+                            <i class="material-icons mr-1">calendar_today</i>
+                            <strong class="mr-1">Schedule:</strong> Now
+                            <a class="ml-auto" href="#">Edit</a>
+                        </span>
+                        <span class="d-flex">
+                            <i class="material-icons mr-1">score</i>
+                            <strong class="mr-1">Readability:</strong>
+                            <strong class="text-warning">Ok</strong>
+                        </span> 
+                    </li>--}}
+                    <li class="list-group-item d-flex px-3">
+                        {{ Form::submit('Сохранить', ['onclick' => 'myFunction()', 'class' => 'btn btn-sm btn-outline-accent']) }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- / Post Overview -->
+
     </div>
     {{ Form::close() }}
 

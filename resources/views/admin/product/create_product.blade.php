@@ -93,7 +93,7 @@ elseif ($status == 'update') {
     </div>
 
 
-    {{ Form::open(['route' => $request, 'class' => 'row', 'enctype' => 'multipart/form-data']) }}
+    {{ Form::open(['route' => $request, 'class' => 'row', 'id'=>'productForm', 'enctype' => 'multipart/form-data']) }}
     <div class="col-lg-9 col-md-12">
 
 
@@ -159,10 +159,7 @@ elseif ($status == 'update') {
                 {{ Form::submit('Создать', ['onclick' => 'myFunction()', 'class' => 'btn btn-primary']) }}
 
                 <script>
-                    function myFunction() {
-                        document.getElementById('description').value = document.getElementById('editor-container').innerHTML;
-                        document.getElementById('editor-container').innerHTML = '';
-                    }
+                 
                 </script>
             
 
@@ -263,5 +260,7 @@ elseif ($status == 'update') {
         <!-- / Post Overview -->
     </div>
     {{ Form::close() }}
+
+
 
 @endsection

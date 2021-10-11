@@ -27,8 +27,21 @@
             placeholder: 'Описание товара',
             theme: 'snow'
         });
-        var text = $('#description').val(); 
-        alert(  quill.getText() ); 
-        quill.setText(text); 
+
+        var text = $('#description').val();
+        //quill.setText(text);
+        quill.clipboard.dangerouslyPasteHTML(text)
+
+
     });
+
+    var form = document.getElementById("productForm"); // get form by ID
+
+    form.onsubmit = function() { // onsubmit do this first
+
+        $("#description").val($('#editor-container').html());
+        return true; // submit form
+    }
+
+
 })(jQuery);

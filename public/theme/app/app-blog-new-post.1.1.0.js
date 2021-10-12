@@ -24,7 +24,7 @@
             modules: {
                 toolbar: toolbarOptions
             },
-            placeholder: 'Описание товара',
+            placeholder: 'Описание',
             theme: 'snow'
         });
 

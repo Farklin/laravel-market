@@ -25,17 +25,46 @@ class ProductController extends Controller
         // Вывод всех товаров в административной части
         $products = Product::all(); 
         return view('admin.product.all', array('products' => $products) );
-    }
+    }  
+   
+    /**
+     * Поис товаров в административной части
+     *
+     * @param Request $request
+     * @return void
+     */
 
-    // импорт товаров 
+    public function search(Request $request){
+        $search = $request->input('query');
+        $query = Product::search($search);
+        $products = $query->paginate(6)->withQueryString();
+        return view('admin.product.all', compact('products', 'search'));
+    }  
+
+    /**
+     * Импорт товаров
+     *
+     * @return void
+     */
+
     public function import(){ 
         Excel::import(new ProductImport, 'Product.xlsx');
     }
 
-
+    /**
+     * Экспорт товаров 
+     *
+     * @return void
+     */
     public function export(){
         return Excel::download(new ProductsExport, 'products-collection.xlsx');
     }
+
+    /**
+     * Функция вызова формы создания товара 
+     *
+     * @return void
+     */
 
     public function form_create()
     {   

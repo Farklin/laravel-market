@@ -13,4 +13,11 @@ $(document).ready(function() {
 
     });
 
+    $('#title_page').keyup(function() {
+        $('#seo_title').val($(this).val() + ' Teisbubble ');
+        $('#seo_description').val($(this).val() + '. Информационная страница. Интернет магазин Teisbubble - мыло ручной работы Пн-Вс (9:00 - 19:00). ');
+
+    });
+
+
 })

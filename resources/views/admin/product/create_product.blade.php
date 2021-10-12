@@ -72,11 +72,22 @@ elseif ($status == 'update') {
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>
                 {{ Form::hidden('description', $product->description, ['id' => 'description']) }}
 
-                {{ Form::number('price', $product->price, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Цена товара']) }}
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="price">Цена</label>
+                        {{ Form::number('price', $product->price, ['class' => 'form-control form-control-lg',  'placeholder' => 'Цена товара']) }}
+                    </div>
+                
+                    <div class="form-group col-md-4">
+                        <label for="old_price">Старая цена</label>
+                        {{ Form::number('old_price', $product->old_price, ['class' => 'form-control form-control-lg', 'placeholder' => 'Старая цена товара']) }}
+                    </div>
 
-                {{ Form::number('old_price', $product->old_price, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Старая цена товара']) }}
-
-                {{ Form::number('weight', $product->weight, ['class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Вес']) }}
+                    <div class="form-group col-md-4">
+                        <label for="old_price">Вес в граммах </label>
+                        {{ Form::number('weight', $product->weight, ['class' => 'form-control form-control-lg', 'placeholder' => 'Вес']) }}
+                    </div>
+                </div>
 
                 <div class="custom-file d-flex ">
                     {{ Form::label('image', 'Изображения', ['id' => '', 'class' => 'form-control-lg custom-file-label']) }}
@@ -85,7 +96,7 @@ elseif ($status == 'update') {
 
              
 
-                @if (empty($product->images))
+                @if (!empty($product->images))
                 <div class="card-header border-bottom">
                     <h6 class="mt-5"> Изображения товара</h6>
                 </div>

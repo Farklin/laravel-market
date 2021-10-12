@@ -5,23 +5,25 @@
 @section('content')
 
   
-        <div class=" row">
-        <div class="col-md-4">
-            <a class="btn btn-sm btn-primary btn-pill" href="{{ route('admin.product.form.create') }}"> <i
-                    class="fa fa-plus"></i> Создать </a>
+        <div class="col-12 mb-5 card p-2 card card-small">
+            <div class="row card-body">
+                <div class="col-md-4">
+                    <a class="btn btn-primary btn-pill" href="{{ route('admin.product.form.create') }}"> <i
+                            class="fa fa-plus"></i> Создать </a>
+                </div>
+                <div class="col-md-4 d-none d-md-block">
+                    <a class="btn btn-sm btn-primary btn-pill" href="{{ route('admin.product.export') }}"> <i
+                            class="fa fa-download"></i> Экспорт товаров</a>
+                </div>
+        
+                <div class="col-md-4 d-none d-md-block">
+                    <a class="btn btn-sm btn-primary btn-pill" href="{{ route('admin.product.import') }}"> <i
+                            class="fa fa-download"></i> Импорт товаров</a>
+                </div>
+        
+            </div>
+      
         </div>
-        <div class="col-md-4 d-none d-md-block">
-            <a class="btn btn-sm btn-primary btn-pill" href="{{ route('admin.product.export') }}"> <i
-                    class="fa fa-download"></i> Экспорт товаров</a>
-        </div>
-
-        <div class="col-md-4 d-none d-md-block">
-            <a class="btn btn-sm btn-primary btn-pill" href="{{ route('admin.product.import') }}"> <i
-                    class="fa fa-download"></i> Импорт товаров</a>
-        </div>
-
-
-    </div>
 
     {{-- <table class="table table-bordered">
         <tbody>
@@ -57,8 +59,10 @@
     </table> --}}
 
 
-    <div class="row my-5">
+    <div class="col-12">
+        <div class="row">
 
+        
   
     @foreach($products as $product)
     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
@@ -96,6 +100,8 @@
        
     </div>
     @endforeach
+</div>
+
 </div>
 
 @endsection

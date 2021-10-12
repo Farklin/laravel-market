@@ -32,7 +32,9 @@ class PageController extends Controller
             return back(); 
 
         }else{
-            return view('admin.page.form_page'); 
+            $page = new Page();  
+            $status = 'create'; 
+            return view('admin.page.form_page', compact('page', 'status')); 
         }
     }
     public function update(Request $request, $id){
@@ -57,7 +59,8 @@ class PageController extends Controller
         }else{
             $page = Page::findOrFail($id); 
             $seo = $page->seo; 
-            return view('admin.page.form_page', compact('page', 'seo')); 
+            $status = 'update'; 
+            return view('admin.page.form_page', compact('page', 'seo', 'status')); 
         }
     }
     public function delete(Request $request, $id){

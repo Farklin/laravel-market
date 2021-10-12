@@ -133,8 +133,13 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/comment/delete/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'delete'])->name('comment.delete'); 
     Route::get('/comment/edit-status/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'editStatus'])->name('comment.editstatus'); 
 
+    // Поиск 
+    Route::post('/product/search', [App\Http\Controllers\Admin\ProductController::class, 'search'])->name('product.search');  
 
 }); 
+
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
     
 

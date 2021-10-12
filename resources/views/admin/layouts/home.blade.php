@@ -112,17 +112,21 @@
             <div class="main-navbar sticky-top bg-white">
                 <!-- Main Navbar -->
                 <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-                    <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                    <form action="{{route('admin.product.search')}}" method="post" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                        @csrf
                         <div class="input-group input-group-seamless ml-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <i class="fas fa-search"></i>
+                                    <i id='btn-search' class="fas fa-search"></i>
                                 </div>
                             </div>
-                            <input class="navbar-search form-control" type="text" placeholder="Поиск по товарам"
-                                aria-label="Search">
+                            <input class="navbar-search form-control" type="text" name="query" placeholder="Поиск по товарам"
+                                aria-label="Найти">
                         </div>
+                        
                     </form>
+
+
                     <ul class="navbar-nav border-left flex-row ">
                         <li class="nav-item border-right dropdown notifications">
                             <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink"
@@ -180,7 +184,7 @@
                                 <a class="dropdown-item" href="{{ route('admin.product.form.create')}}">
                                     <i class="fa fa-plus"></i> Создать товар</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" href="#">
+                                <a class="dropdown-item text-danger" href="{{ route('logout')}}"> 
                                     <i class="fas fa-sign-out text-danger">&#xE879;</i> Выйти </a>
                             </div>
                         </li>
@@ -266,9 +270,10 @@
                     <div class="col-lg-5 col-md-12 col-sm-12 mb-4">
                         <div class="card card-small blog-comments">
                             <div class="card-header border-bottom">
-                                <h6 class="m-0">Отзывы</h6>
+                                <h6 class="m-0">Новые отзывы</h6>
                             </div>
                             <div class="card-body p-0">
+                                @if(!empty($comments))
                                 @foreach($comments as $comment)
                                     <div class="blog-comments__item d-flex p-3">
                                         <div class="blog-comments__avatar mr-3">
@@ -310,11 +315,12 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @endif 
                             </div>
                             <div class="card-footer border-top">
                                 <div class="row">
                                     <div class="col text-center view-report">
-                                        <a type="submit" href="{{route('admin.comment.all')}}" class="btn btn-white">Смотреть все коментарии</a>
+                                        <a type="submit" href="{{route('admin.comment.all')}}" class="btn btn-white">Смотреть все отзывы</a>
                                     </div>
                                 </div>
                             </div>

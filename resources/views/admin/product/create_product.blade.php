@@ -104,11 +104,17 @@ elseif ($status == 'update') {
                     <div class="row" id="images-product">
 
                         @foreach ($images as $image)
-                            <div class="col-md-2">
-                                <input type="hidden" class="image-value" value="{{ $image->id }}">
-                                <img height="100"  src="{{ $image->image_path }}" alt="" srcset="">
-                                <a type="submit" href="{{ route('image_product_delete', $image->id) }}" class="btn-sm btn-danger">Удалить</a>                            
+                        <div class="col-4 col-md-2">
+                            <div class="card card-small">
+                                <div class="">
+                                    <input type="hidden" class="image-value" value="{{ $image->id }}">
+                                    <img height="100"  src="{{ $image->image_path }}" alt="" srcset="">
+                                    <a type="submit" href="{{ route('image_product_delete', $image->id) }}" class="btn-sm btn-danger">Удалить</a>                            
+                                </div>
                             </div>
+                        </div>
+                        
+                            
                         @endforeach
                     </div>
                 @endif

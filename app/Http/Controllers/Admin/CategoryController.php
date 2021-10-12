@@ -19,19 +19,21 @@ class CategoryController extends Controller
 {
     public function form_create()
     {
+        $status = 'create'; 
+        $category = new Category(); 
         // создание категории товаров
         $categories = Category::all();
-        return view('admin/category/form_category', compact('categories'));
+        return view('admin/category/form_category', compact('category', 'categories', 'status'));
     }
 
     public function form_update($id)
     {
         // создание категории товаров
-
+        $status = 'update'; 
         $category = Category::find($id);
         $seo = Category::find($id)->seo;
         $categories = Category::all();
-        return view('admin/category/form_category', compact('category', 'seo', 'categories'));
+        return view('admin/category/form_category', compact('category', 'seo', 'categories', 'status'));
     }
 
 
@@ -40,6 +42,7 @@ class CategoryController extends Controller
 
         /* Обновление категории */
 
+       
 
         $validation_data = $request->validate([
             'title' => ['required'],
@@ -80,7 +83,7 @@ class CategoryController extends Controller
         $seo->update($request, $category->seo->id);
 
 
-        return $request->input('category_id');
+        return back(); 
     }
     public function all()
     {

@@ -35,7 +35,15 @@
 
     });
 
-    var form = document.getElementById("productForm"); // get form by ID
+    var form = document.getElementById("Form"); // get form by ID
+
+    form.onsubmit = function() { // onsubmit do this first
+
+        $("#description").val($('#editor-container').html());
+        return true; // submit form
+    }
+
+    var form = document.getElementById("Form"); // get form by ID
 
     form.onsubmit = function() { // onsubmit do this first
 

@@ -24,76 +24,23 @@ elseif ($status == 'update') {
 
 
 
-    {{-- <div class="">
 
     
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    
-                    @foreach ($errors->all() as $error)
-                        <li class="alert alert-danger">{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    </div>
 
-        <div class="card">
-        <h4> Создание нового товара </h4>
-        
-        
-        
-        {{ Form::open(array('route'=>'admin.product.create', 'class'=>'', 'enctype'=> "multipart/form-data")) }}
-        @include('admin.seo.form')
-
-        <div class="card p-3 mt-3">
-            <h4>Описание товара </h4>
-        {{ Form::label('title','Название товара',array('id'=>'','class'=>'')) }}
-        {{ Form::text('title','',array('id'=>'title','class'=>'form-control')) }}
-
-
-        {{ Form::label('description','Описание',array('id'=>'','class'=>'')) }}
-        {{ Form::textarea('description','',array('id'=>'description','class'=>'form-control' )) }}
-
-
-        {{ Form::label('price','Цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('price','',array('id'=>'','class'=>'form-control')) }}
-
-        
-        {{ Form::label('old_price','Старая цена товара',array('id'=>'','class'=>'')) }}
-        {{ Form::number('old_price','',array('id'=>'','class'=>'form-control')) }}
-
-        {{ Form::label('weight','Вес',array('id'=>'','class'=>'')) }}
-        {{ Form::number('weight','',array('id'=>'','class'=>'form-control' )) }}
-        
-        <div class="form-group d-flex mt-5">
-            {{ Form::label('image','Изображение',array('id'=>'','class'=>'col-form-label')) }}
-            {{ Form::file('image[]',array('id'=>'','class'=>'', 'multiple' => '')) }}
+    
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            
+            @foreach ($errors->all() as $error)
+                <li class="alert alert-danger">{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-       
+    @endif
 
-       
-        
-
-        <div class='mt-2'> 
-            <h4> Выбор категории </h4> 
-            @foreach ($category as $cat)
-                {{ Form::label('category',$cat->title, array('id'=>'','class'=>'')) }}   
-                {{ Form::checkbox('category[]', $cat->id, false) }} 
-            @endforeach
-        </div>  
-
-             
-        {{ Form::submit('Создать', array('class'=>'btn btn-primary')) }}
-       
-    </div>
-    {{ Form::close() }}
-    </div> --}}
-
-    </div>
-
-
-    {{ Form::open(['route' => $request, 'class' => 'row', 'id'=>'productForm', 'enctype' => 'multipart/form-data']) }}
+    {{ Form::open(['route' => $request, 'class' => 'row', 'id'=>'Form', 'enctype' => 'multipart/form-data']) }}
     <div class="col-lg-9 col-md-12">
 
 
@@ -120,7 +67,7 @@ elseif ($status == 'update') {
                 
 
 
-                {{ Form::text('title', $product->title, ['id' => 'title', 'class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Название товара']) }}
+                {{ Form::text('title', $product->title, ['id' => 'title_product', 'class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Название товара']) }}
 
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>
                 {{ Form::hidden('description', $product->description, ['id' => 'description']) }}
@@ -138,7 +85,7 @@ elseif ($status == 'update') {
 
              
 
-                @if (isset($product->images))
+                @if (empty($product->images))
                 <div class="card-header border-bottom">
                     <h6 class="mt-5"> Изображения товара</h6>
                 </div>
@@ -147,7 +94,8 @@ elseif ($status == 'update') {
 
                         @foreach ($images as $image)
                             <div class="col-md-2">
-                                <img height="100" name="images" src="{{ $image->image_path }}" alt="" srcset="">
+                                <input type="hidden" class="image-value" value="{{ $image->id }}">
+                                <img height="100"  src="{{ $image->image_path }}" alt="" srcset="">
                                 <a type="submit" href="{{ route('image_product_delete', $image->id) }}" class="btn-sm btn-danger">Удалить</a>                            
                             </div>
                         @endforeach
@@ -263,4 +211,53 @@ elseif ($status == 'update') {
 
 
 
+    @section('scripts')
+
+           
+    <script src="{{ asset('theme/app/app-blog-new-post.1.1.0.js') }}"></script>
+    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+
+    <script>
+        // Изменение последовательности картинок в товарах
+        var images_product = document.getElementById('images-product');
+        Sortable.create( images_product , { 
+        animation : 300 , 
+        ghostClass : 'blue-background-class',
+        onUpdate: function(){
+            sorting = []; 
+            $('#images-product .image-value').each(function(index, item) {
+                    sorting.push({
+                        'image_id': item.value,
+                        'image_sort': index
+                    })
+                });
+            console.log(sorting)
+            ajaxSortingImage(sorting);    
+
+        }, 
+            
+    });    
+
+    function ajaxSortingImage(sorting) {
+            $.ajax({
+                method: "POST",
+                url: "{{ route('admin.image.sorting') }}",
+                data: {
+                    sortimage: sorting,
+                },
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    console.log(data);
+
+                },
+
+            });
+        }
+    </script>
+  
+
+
+    @endsection 
 @endsection

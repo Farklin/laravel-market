@@ -48,7 +48,7 @@
                                 <i class="fas fa-search"></i>
                             </div>
                         </div>
-                        <input class="navbar-search form-control" type="text" placeholder="Поиск по товарам"
+                        <input class="navbar-search form-control" name="query" type="text" placeholder="Поиск по товарам"
                             aria-label="Поиск">
                     </div>
                 </form>

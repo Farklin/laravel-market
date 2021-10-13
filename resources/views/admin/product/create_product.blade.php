@@ -96,7 +96,7 @@ elseif ($status == 'update') {
 
              
 
-                @if (!empty($product->images))
+                @if (!empty($product->images) and !isset($product->images))
                 <div class="card-header border-bottom">
                     <h6 class="mt-5"> Изображения товара</h6>
                 </div>

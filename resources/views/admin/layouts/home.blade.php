@@ -41,6 +41,7 @@
                     </nav>
                 </div>
                 <form action="{{route('admin.product.search')}}" method="post" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+                    @csrf
                     <div class="input-group input-group-seamless ml-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">

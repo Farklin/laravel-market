@@ -1,7 +1,7 @@
 <footer class="footer_area clearfix navbar-fixed-bottom">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <div class="single_widget_area d-flex mb-30">
                     <div class="footer-logo mr-50">
                         <a href="{{ route('home') }}"><img src="img/core-img/logo2.png" alt=""></a>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <div class="single_widget_area mb-30">
                     <ul class="footer_widget_menu">
                         <li><a href="{{ route('user.orders') }}">Статуст заказа</a></li>
@@ -30,7 +30,7 @@
 
         <div class="row align-items-end">
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <div class="single_widget_area">
                     <div class="footer_heading mb-30">
                         <h6>Подписаться на рассылку</h6>
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <!-- Single Widget Area -->
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <div class="single_widget_area">
                     <div class="footer_social_area">
                         <a href="https://www.facebook.com/profile.php?id=100072265003978" data-toggle="tooltip"

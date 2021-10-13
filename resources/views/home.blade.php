@@ -13,7 +13,7 @@
                     <div class="hero-content">
                         <h6>Мыло ручной работы</h6>
                         <h2>Новинки</h2>
-                        <a href="{{route('all_product')}}" class="btn essence-btn"> Все товары </a>
+                        <a href="{{route('all_product')}}" class="btn essence-btn"> Перейти в каталог </a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="col-sm-6 col-md-3 col-6">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/1.jpg);">
                         <div class="catagory-content">
-                            <a href="/category/v-forme-edy">В форме еды</a>
+                            <a class="text-center" href="/category/v-forme-edy">В форме еды</a>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/2.jpg);">
                         <div class="catagory-content">
-                            <a href="/category/v-forme-saiby">В форме шайбы</a>
+                            <a class="text-center" href="/category/v-forme-saiby">В форме шайбы</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class=" col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/3.jpg);">
                         <div class="catagory-content">
-                            <a href="/category/kvadratnoe-mylo">Квадратное мыло </a>
+                            <a class="text-center" href="/category/kvadratnoe-mylo">Квадратное мыло </a>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="col-sm-6 col-md-3 col-6">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/products/33/1633426305_IMG_20210927_132934jpg.jpg);">
                         <div class="catagory-content">
-                            <a href="/category/nabory">Мыльные наборы</a>
+                            <a class="text-center" href="/category/nabory">Мыльные наборы</a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     <div class="cta-content bg-img background-overlay" style="background-image: url(/images/category/тарталетка.jpg);">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="cta--text">
-                                <h6>140 </h6>
+                                <h6>140 ₽</h6>
                                 <h2>Новинка недели</h2>
                                 <a href="https://teisbubble.ru/product/mylo-yagodnoe-piroznoe" class="btn essence-btn">Купить сейчас</a>
                             </div>

@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
 
             default: 
-                $products = $category->products()->paginate(20);
+                $products = $category->products()->latest()->paginate(20);
                 return view('catalog/category/view', compact('category', 'products')); 
         }
     

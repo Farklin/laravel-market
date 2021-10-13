@@ -37,6 +37,8 @@
                             </div>
                         </li>
                         <li><a href="/page/kontakty">Контакты</a></li>
+                        <li><a href="/page/dostavka">Доставка</a></li>
+                        <li><a href="/page/oplata">Оплата</a></li>
                     </ul>
                 </div>
 
@@ -59,8 +61,21 @@
                     <a href="{{ route('login') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
                 </div>
                 @else
-                <div class="user-login-info">
-                    <a href="{{ route('user.orders') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
+                <div class="user-login-info dropdown">
+                    <a class=" dropdown-toggle " data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false" href="{{ route('user.profil') }}"><img src="/theme/img/core-img/user.svg" alt=""></a>
+                    <div class="dropdown-menu">
+                        @if(Auth::user()->isAdmin())
+                        <a class="dropdown-item" href="{{ route('admin.home')}}">
+                            <i class="fa fa-user"></i> Админ</a>    
+                        @endif 
+                        <a class="dropdown-item" href="{{ route('user.profil')}}">
+                            <i class="fa fa-user"></i> Профиль</a>
+                        <a class="dropdown-item" href="{{ route('user.orders')}}">
+                                <i class="fa fa-eye"></i> Заказы</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="{{ route('logout')}}"> 
+                            <i class="fas fa-sign-out text-danger">&#xE879;</i> Выйти </a>
+                    </div>
                 </div>
 
             @endauth

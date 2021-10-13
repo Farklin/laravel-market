@@ -72,6 +72,7 @@ Route::post('/comment/product/{id}', [App\Http\Controllers\CommentProductControl
 
 
 Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
+    Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('profil'); 
     Route::get('/orders', [App\Http\Controllers\OrderController::class, 'orders'])->name('orders'); 
     Route::get('/order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order'); 
 

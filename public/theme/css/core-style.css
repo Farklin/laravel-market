@@ -2604,3 +2604,7 @@ img {
     line-height: 40px;
     font-size: 1.25em;
 }
+
+.user-login-info .dropdown-item {
+    line-height: 20px !important;
+}

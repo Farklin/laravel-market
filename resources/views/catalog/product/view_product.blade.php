@@ -6,7 +6,7 @@
 
     <!-- ##### Single Product Details Area Start ##### -->
 
-    <section itemscope="" itemtype="http://schema.org/Product" class="container single_product_details_area d-flex align-items-center">
+    <section  itemscope itemtype="http://schema.org/Product" class="container single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
@@ -82,7 +82,7 @@
                             <input type="text" name="quantity" id="input-quantity" value="1" class="form-control form-control-sm mx-2 ">
                         </div>
 
-                        <div class="col-md-4 col-4">
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="col-md-4 col-4">
                             <p class="product-price">
                                 @if ($product->old_price != 0 and $product->new_price < $product->price)
                                     <span class="old-price">{{ $product->old_price }} </span>
@@ -149,8 +149,8 @@
 
                     @include('catalog.comments.form_comment_product')
                 </div>
-                <div class="tab-pane" id="profile" role="tabpanel">
-                    <div class="my-5" itemprop="description">
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tab-pane" id="profile" role="tabpanel">
+                    <div itemprop="description" class="my-5" itemprop="description">
                         {{ $product->description }}
                     </div>
                 </div>

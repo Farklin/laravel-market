@@ -18,7 +18,6 @@
 
     <section  itemscope itemtype="http://schema.org/Product" class="container single_product_details_area d-flex align-items-center">
         
-            <meta property="og:description" content="Описание ">
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides">

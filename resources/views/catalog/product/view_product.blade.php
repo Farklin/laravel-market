@@ -3,15 +3,16 @@
 @section('description', $product->seo->description)
 @section('content')
 
+@section('opengraph')
+    <meta property="og:title" content="{{ $product->seo->title}}"/>
+    <meta property="og:description" content="{{$product->seo->description}}"/>
+    @foreach ($product->images as $image) 
+        <meta property="og:image" content="{{request()->root()}}{{$image->image_path}}"/>
 
-<meta property="og:title" content="{{ $product->seo->title}}"/>
-<meta property="og:description" content="{{$product->seo->description}}"/>
-@foreach ($product->images as $image) 
-    <meta property="og:image" content="{{request()->root()}}{{$image->image_path}}"/>
-
-@endforeach
-<meta property="og:type" content="website"/>
-<meta property="og:url" content= "{{url()->current()}}" />
+    @endforeach
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content= "{{url()->current()}}" />
+@endsection
 
     <!-- ##### Single Product Details Area Start ##### -->
 

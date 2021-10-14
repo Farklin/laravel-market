@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html prefix="og: https://ogp.me/ns#" lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="yandex-verification" content="67dd06b83d5149d7" />
     <script src="//code-ya.jivosite.com/widget/R80LXmTcNu" async></script>
+    @yield('opengraph')
+
 </head>
 <body>
     <script src="{{ asset('theme/js/jquery/jquery-2.2.4.min.js') }}"></script>

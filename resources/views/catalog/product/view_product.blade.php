@@ -90,6 +90,7 @@
                             <div class="h2 text-danger text-right">{{ $product->price }} ₽</div>
                             <meta itemprop="price" content="{{ $product->price }}">
                             <meta itemprop="priceCurrency" content="RUB">
+                            <meta itemprop="description" content="{{ $product->description }}"> 
 
                             </p>
                         </div>
@@ -149,8 +150,8 @@
 
                     @include('catalog.comments.form_comment_product')
                 </div>
-                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tab-pane" id="profile" role="tabpanel">
-                    <div itemprop="description" class="my-5" itemprop="description">
+                <div class="tab-pane" id="profile" role="tabpanel">
+                    <div class="my-5">
                         {{ $product->description }}
                     </div>
                 </div>

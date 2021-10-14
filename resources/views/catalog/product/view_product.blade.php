@@ -4,10 +4,20 @@
 @section('content')
 
 
+<meta property="og:title" content="{{ $product->seo->title}}"/>
+<meta property="og:description" content="{{$product->seo->description}}"/>
+@foreach ($product->images as $image) 
+    <meta property="og:image" content="{{request()->root()}}{{$image->image_path}}"/>
+
+@endforeach
+<meta property="og:type" content="website"/>
+<meta property="og:url" content= "{{url()->current()}}" />
+
     <!-- ##### Single Product Details Area Start ##### -->
 
     <section  itemscope itemtype="http://schema.org/Product" class="container single_product_details_area d-flex align-items-center">
-
+        
+            <meta property="og:description" content="Описание ">
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides">

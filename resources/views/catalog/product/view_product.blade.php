@@ -6,14 +6,14 @@
 
     <!-- ##### Single Product Details Area Start ##### -->
 
-    <section class="container single_product_details_area d-flex align-items-center">
+    <section itemscope="" itemtype="http://schema.org/Product" class="container single_product_details_area d-flex align-items-center">
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
             <div class="product_thumbnail_slides">
                 @if (isset($product->images))
                     @foreach ($product->images as $image)
-                        <img src="{{ $image->image_path }}" alt="">
+                        <img  itemprop="image" src="{{ $image->image_path }}" alt="">
                     @endforeach
                 @endif
             </div>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-10 col-md-10">
 
-                        <h2>{{ $product->title }}</h2>
+                        <h2 itemprop="name">{{ $product->title }}</h2>
 
                     </div>
                     <div class="col-2 col-md-2">
@@ -82,12 +82,15 @@
                             <input type="text" name="quantity" id="input-quantity" value="1" class="form-control form-control-sm mx-2 ">
                         </div>
 
-                        <div class="col-md-6 col-4">
+                        <div class="col-md-4 col-4">
                             <p class="product-price">
                                 @if ($product->old_price != 0 and $product->new_price < $product->price)
                                     <span class="old-price">{{ $product->old_price }} </span>
                                 @endif
                             <div class="h2 text-danger text-right">{{ $product->price }} ₽</div>
+                            <meta itemprop="price" content="{{ $product->price }}">
+                            <meta itemprop="priceCurrency" content="RUB">
+
                             </p>
                         </div>
 
@@ -147,7 +150,7 @@
                     @include('catalog.comments.form_comment_product')
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel">
-                    <div class="my-5">
+                    <div class="my-5" itemprop="description">
                         {{ $product->description }}
                     </div>
                 </div>

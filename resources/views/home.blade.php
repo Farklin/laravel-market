@@ -120,11 +120,11 @@
                             @endif 
                             </a> 
                             <div class="product-description">
-                                <span></span>
-                                <a href="{{ route('product.show' , $product->seo->slug) }} ">
-                                    <h6>{{$product->title}}</h6>
+                                <div class="product-price h5">{{ $product->price }} ₽</div>
+                                <a href="{{ route('product.show', $product->seo->slug)}} ">
+                                    <h6>{{ $product->title }}</h6>
                                 </a>
-                                <p class="product-price">{{$product->price}}</p>
+                                <small>Вес: {{$product->weight}} г </small> 
 
                                 <div class="hover-content">
                                     <div class="add-to-cart-btn">

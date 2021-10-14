@@ -21,6 +21,7 @@
             <a href="{{ route('product.show', $product->seo->slug)}} ">
                 <h6>{{ $product->title }}</h6>
             </a>
+            <small>Вес: {{$product->weight}} г </small> 
            
 
             <div class="hover-content">

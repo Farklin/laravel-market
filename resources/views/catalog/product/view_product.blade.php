@@ -37,6 +37,7 @@
                     <div class="col-10 col-md-10">
 
                         <h2 itemprop="name">{{ $product->title }}</h2>
+                        <span>Вес: {{$product->weight}} г </span> 
 
                     </div>
                     <div class="col-2 col-md-2">

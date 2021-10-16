@@ -38,10 +38,11 @@
     var form = document.getElementById("Form"); // get form by ID
 
     form.onsubmit = function() { // onsubmit do this first
-
+        
         $("#description").val($('.ql-editor').html());
         return true; // submit form
     }
+
 
 
 

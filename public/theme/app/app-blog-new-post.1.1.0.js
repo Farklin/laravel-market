@@ -39,7 +39,7 @@
 
     form.onsubmit = function() { // onsubmit do this first
 
-        $("#description").val($('#editor-container').html());
+        $("#description").val($('.ql-editor').html());
         return true; // submit form
     }
 

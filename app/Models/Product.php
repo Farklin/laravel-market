@@ -105,5 +105,9 @@ class Product extends Model
         $like = Like::where('product_id', '=', $this->id)->where('user_id', '=', $user_id)->get();  
         return $like; 
     }
+    
+    public function charecters(){
+        return $this->hasMany(CharecterProduct::class); 
+    }
 
 }

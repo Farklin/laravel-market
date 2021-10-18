@@ -140,10 +140,13 @@
         <div class="tab my-5">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Отзывы</a>
+                    <a class="nav-link active" data-toggle="tab" href="#charecter" role="tab">Характеристики</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#home" role="tab">Отзывы</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#delivery" role="tab">Доставка и оплата</a>
@@ -153,10 +156,23 @@
 
             <!-- Вкладка панели -->
             <div class="tab-content">
-                <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="tab-pane active p-2" id="charecter" role="tabpane0">
+                   
+                    @if(!empty($product->charecters))
+                        <ul class="col-12 col-md-4">
+                            <li class="us-product-attr-item d-flex justify-content-between"> <span> Вес : </span>  <span>  {{$product->weight}} </span> </li>
+                        @foreach ($product->charecters as $item)
+                            <li class="us-product-attr-item d-flex justify-content-between"> <span> {{$item->getCharecter->title}} : </span>  <span>  {{$item->value}}</span> </li>
+                        @endforeach
+                        </ul>
+                    @endif
+                    
+                </div>
+
+                <div class="tab-pane" id="home" role="tabpanel">
 
                     @foreach ($product->comments as $comment)
-                        @include('catalog.comments.comment', $comment)
+                    @include('catalog.comments.comment', $comment)
                     @endforeach
 
                     @include('catalog.comments.form_comment_product')
@@ -164,6 +180,8 @@
                 <div class="tab-pane" id="profile" role="tabpanel">
                     <div class="my-5">
                         {!! $product->description !!}
+                        
+
                     </div>
                 </div>
                 <div class="tab-pane" id="delivery" role="tabpanel">

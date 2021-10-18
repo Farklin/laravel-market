@@ -21,10 +21,10 @@ $(document).ready(function() {
 
 
 
-    var charecter = $('.charecter').html();
+    var charecter = $('.charecter')[0].outerHTML; 
 
     function cloneCharecter() {
-        var charecters = $('.charecter').append(charecter);
+        var charecters = $('.charecters').append(charecter);
     }
     $('.add-charecter').click(function() {
         cloneCharecter();

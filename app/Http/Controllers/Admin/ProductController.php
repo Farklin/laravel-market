@@ -148,6 +148,7 @@ class ProductController extends Controller
             'old_price' => ['required' ],
             'weight' => ['required' ],
         ]); 
+        
 
         $product = Product::find($id); 
         $product->title = $validation_data['title']; 
@@ -156,6 +157,8 @@ class ProductController extends Controller
         $product->old_price = $validation_data['old_price'];  
         $product->weight = $validation_data['weight']; 
         $product->save(); 
+
+
 
         $seo = new SeoController(); 
         $seo_id = $seo->update($request, $product->seo->id); 
@@ -178,7 +181,9 @@ class ProductController extends Controller
 
         // добавление картинок к товару
         ImageProductController::add_image_product($request, $product); 
+        CharecterProductController::add($request, $product->id); 
         
+
         return back(); 
         
     }

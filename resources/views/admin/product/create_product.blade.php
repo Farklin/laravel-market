@@ -22,21 +22,9 @@ elseif ($status == 'update') {
 
 
         
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            
-            @foreach ($errors->all() as $error)
-                <li class="alert alert-danger">{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
+   
     {{ Form::open(['route' => $request, 'class' => 'row', 'id'=>'Form', 'enctype' => 'multipart/form-data']) }}
     <div class="col-lg-9 col-md-12">
-
-
 
         <!-- Add New Post Form -->
         @if ($errors->any())
@@ -87,7 +75,7 @@ elseif ($status == 'update') {
                     {{ Form::file('image[]', ['id' => '', 'class' => 'form-control-lg custom-file-input', 'multiple' => '']) }}
                 </div>
 
-                @include('admin.charecter.form_product', $charecters);
+                @include('admin.charecter.form_product', $charecters)
 
                 @if (count($product->images) > 0)
                 <div class="card-header border-bottom">

@@ -2611,3 +2611,18 @@ img {
 .user-login-info .dropdown-item {
     line-height: 20px !important;
 }
+
+/* характеристики товаров */ 
+.us-product-attr-item::before{
+    content: '';
+    border-bottom: 1px dotted #BABABA;
+    height: 4px;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    right: 0;
+    z-index: 1;
+}
+.us-product-attr-item{
+    color: #787878; 
+}

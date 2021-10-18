@@ -87,7 +87,7 @@ elseif ($status == 'update') {
                     {{ Form::file('image[]', ['id' => '', 'class' => 'form-control-lg custom-file-input', 'multiple' => '']) }}
                 </div>
 
-             
+                @include('admin.charecter.form_product', $charecters);
 
                 @if (count($product->images) > 0)
                 <div class="card-header border-bottom">

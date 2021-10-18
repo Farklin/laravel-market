@@ -68,6 +68,7 @@
     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card card-small card-post card-post--1">
             <a href="{{ route('admin.product.form.update', $product->id) }}"> 
+            @if(count($product->images)> 0 )
             <div class="card-post__image" style="background-image: url('{{ $product->images[0]->thumbnail() }} ');">
                 <a href="#" class="card-post__category badge badge-pill badge-dark">Мыло</a>
                 <div class="card-post__author d-flex">
@@ -75,6 +76,7 @@
                         style="background-image: url('')"></a>
                 </div>
             </div>
+            @endif
             </a>
             <div class="card-body">
                 <h5 class="card-title">

@@ -20,4 +20,17 @@ $(document).ready(function() {
     });
 
 
+
+    var charecter = $('.charecter').html();
+
+    function cloneCharecter() {
+        var charecters = $('.charecter').append(charecter);
+    }
+    $('.add-charecter').click(function() {
+        cloneCharecter();
+    });
+
+
+
+
 })

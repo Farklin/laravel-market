@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Product; 
 use App\Models\Category; 
 use App\Models\CategoryProduct; 
-
+use App\Models\Charecter; 
 use App\Http\Controllers\SeoController; 
 use App\Models\Seo; 
 use App\Http\Controllers\ImageProductController; 
-
+use App\Http\Controllers\Admin\CharecterProductController; 
 
 use App\Imports\ProductImport;
 use App\Exports\ProductsExport;
@@ -68,11 +68,13 @@ class ProductController extends Controller
 
     public function form_create()
     {   
-        $status = 'create'; 
+        
+       $status = 'create'; 
+       $charecters = Charecter::all(); 
        $product = new Product(); 
         // Вывод формы создания товара
        $category = Category::all(); 
-       return view('admin/product/create_product', compact('category', 'product', 'status'));
+       return view('admin/product/create_product', compact('category', 'product', 'status', 'charecters'));
     }
 
     public function create(Request $request)
@@ -110,6 +112,7 @@ class ProductController extends Controller
         // Добавление кртинки
 
         ImageProductController::add_image_product($request, $product); 
+        CharecterProductController::add($request, $product->id); 
 
         //  конец добавления картинок к товару 
 
@@ -120,6 +123,7 @@ class ProductController extends Controller
 
     public function form_update($id)
     {   $status = 'update'; 
+        $charecters = Charecter::all(); 
         // Вывод формы обновления товара 
         $product = Product::where('id', $id)->first();
         $category = Category::all();  
@@ -131,7 +135,7 @@ class ProductController extends Controller
         foreach ($select_category as $cat){
             array_push($select_index_category, $cat->category_id); 
         }
-        return view('admin/product/create_product', compact('product', 'category', 'seo', 'select_index_category', 'images', 'status')); 
+        return view('admin/product/create_product', compact('product', 'category', 'seo', 'select_index_category', 'images', 'status', 'charecters')); 
     }
 
     public function update(Request $request, $id){

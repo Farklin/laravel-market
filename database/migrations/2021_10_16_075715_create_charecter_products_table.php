@@ -17,6 +17,7 @@ class CreateCharecterProductsTable extends Migration
             $table->id();
             $table->foreignId('product_id')->nullable()->on('product')->cascade();
             $table->foreignId('charecter_id')->nullable()->on('charectres')->cascade();
+            $table->string('value')->default('');
             $table->timestamps();
         });
     }

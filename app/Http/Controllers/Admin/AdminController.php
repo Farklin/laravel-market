@@ -17,4 +17,9 @@ class AdminController extends Controller
         
         )); 
     }
+
+    public function additionally(){
+
+        return view('admin.layouts.additionally'); 
+    }
 }

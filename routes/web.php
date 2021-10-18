@@ -88,8 +88,10 @@ Route::middleware(['auth'])->prefix('user')->name('user.')->group(function(){
 
 
 Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(function(){
-    //товар админ 
+
     Route::get('/', [AdminController::class, 'index'])->name('home'); 
+    Route::get('/additionally', [AdminController::class, 'additionally'])->name('additionally'); 
+    //товар админ 
     Route::get('/product/all/', [App\Http\Controllers\Admin\ProductController::class, 'all'])->name('product.all'); 
 
     Route::get('/product/create', [App\Http\Controllers\Admin\ProductController::class, 'form_create'])->name('product.form.create'); 
@@ -135,7 +137,29 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/comment/edit-status/{id}', [App\Http\Controllers\Admin\CommentProductController::class, 'editStatus'])->name('comment.editstatus'); 
 
     // Поиск 
-    Route::post('/product/search', [App\Http\Controllers\Admin\ProductController::class, 'search'])->name('product.search');  
+    Route::post('/product/search', [App\Http\Controllers\Admin\ProductController::class, 'search'])->name('product.search'); 
+    
+    //Характеристики 
+    Route::get('/charecter/create', [App\Http\Controllers\Admin\CharecterControler::class, 'createUpdate'])->name('charecter.create'); 
+    Route::post('/charecter/create', [App\Http\Controllers\Admin\CharecterControler::class, 'createUpdate'])->name('charecter.create'); 
+
+    Route::get('/charecter/update/{id}', [App\Http\Controllers\Admin\CharecterControler::class, 'createUpdate'])->name('charecter.update'); 
+    Route::post('/charecter/update/{id}', [App\Http\Controllers\Admin\CharecterControler::class, 'createUpdate'])->name('charecter.update'); 
+
+    Route::get('/charecter/all', [App\Http\Controllers\Admin\CharecterControler::class, 'all'])->name('charecter.all'); 
+    Route::get('/charecter/delete/{id}', [App\Http\Controllers\Admin\CharecterControler::class, 'delete'])->name('charecter.delete'); 
+
+    // Группы характеристик 
+    Route::get('/charecter/group/create', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.create'); 
+    Route::post('/charecter/group/create', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.create'); 
+
+    Route::get('/charecter/group/update/{id}', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.update'); 
+    Route::post('/charecter/group/update/{id}', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.update');
+
+    Route::get('/charecter/group/all', [App\Http\Controllers\Admin\CharecterGroupController::class, 'all'])->name('charecter.group.all'); 
+    Route::get('/charecter/group/delete/{id}', [App\Http\Controllers\Admin\CharecterGroupController::class, 'delete'])->name('charecter.group.delete'); 
+
+
 
 }); 
 

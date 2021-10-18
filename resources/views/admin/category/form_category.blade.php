@@ -22,12 +22,7 @@ elseif ($status == 'update') {
 @section('content')
 
 
-    </div>
-
-    
  
-
-
     <!-- Форма категории -->
 
     {{ Form::open(['route' => $request, 'class' => 'row',  'id'=>'Form', 'enctype' => 'multipart/form-data']) }}

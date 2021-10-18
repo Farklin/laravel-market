@@ -79,6 +79,9 @@
                             </a>
                         </li>
 
+                        
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.order.all') }}">
                                 <i class="fas fa-shopping-cart "></i>
@@ -97,6 +100,13 @@
                             <a class="nav-link" href="{{ route('admin.comment.all') }}">
                                 <i class="fa fa-comments"></i>
                                 <span>Отзывы</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.additionally') }}">
+                                <i class="fas fa-bars"></i>
+                                <span>Дополнительно</span>
                             </a>
                         </li>
 
@@ -218,12 +228,20 @@
                 </div>
                 <!-- End Page Header -->
 
-                <div class="row">
-
-                    @if(View::hasSection('content'))
+                @if(Session::has('info'))
+                <div class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                    <i class="fa fa-info mx-2"></i>
+                    <strong>{{Session::get('info')}}</strong></div>
+                @endif
+                    
+                @if(View::hasSection('content'))
                         @yield('content')
                     @else
 
+                <div class="row">
 
                     <!-- New Draft Component -->
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">

@@ -16,7 +16,7 @@ class CreateCharectersTable extends Migration
         Schema::create('charecters', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->int('sorting');
+            $table->integer('sorting');
             $table->foreignId('charecter_group_id')->nullable()->references('id')->on('charecter_groups')->onDelete('cascade');
             
             $table->timestamps();

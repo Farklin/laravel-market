@@ -4,12 +4,12 @@
         <div class="product-img">
 
             @if(isset($product->images[0])) 
-                <img src="{{ $product->images[0]->thumbnail() }}" alt="">
+                <img src="{{ $product->images[0]->thumbnail() }}" alt="{{$product->images[0]->alt}}">
             @endif
             
 
             @if(isset($product->images[1])) 
-                <img class="hover-img" src="{{ $product->images[1]->thumbnail() }}" alt="">
+                <img class="hover-img" src="{{ $product->images[1]->thumbnail() }}" alt="{{$product->images[0]->alt}}">
             @endif
 
         </div>

@@ -20,7 +20,7 @@ class Charecter extends Model
      * @return void
      */
     public function group(){
-        return $this->belongsTo(CharecterGroup::class, 'id'); 
+        return $this->belongsTo(CharecterGroup::class, 'charecter_group_id'); 
     }
 
 }

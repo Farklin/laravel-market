@@ -4,17 +4,17 @@
             <select name='charecter_id[]' class='form-control'>
     
                 @foreach ($charecters as $charecter)
-                @php 
-                $selected = ''; 
-                    if(isset($product_char))
-                    {   
-                        if($product_char->id == $charecter->id){
-                            $selected = 'selected'; 
-                        }
-                        $value = $product_char->value; 
-                    }else{ $value = ''; }
-                
-                @endphp 
+                    @php 
+                    $selected = ''; 
+                        if(isset($product_char))
+                        {   
+                            if($product_char->id == $charecter->id){
+                                $selected = 'selected'; 
+                            }
+                            $value = $product_char->value; 
+                        }else{ $value = ''; }
+                    
+                    @endphp 
                 <option {!! $selected !!} value="{{ $charecter->id }}">{{ $charecter->title }}</option>
                 @endforeach
             </select>

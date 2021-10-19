@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\CommentProduct;
 use App\Models\Product; 
 use Illuminate\Http\Request;
 
@@ -12,9 +14,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $comments = CommentProduct::all()->take(3); 
         $popular_products = Product::all(); 
-        return view('home', compact('popular_products')); 
+        return view('home', compact('popular_products', 'comments')); 
     }
 
     /**

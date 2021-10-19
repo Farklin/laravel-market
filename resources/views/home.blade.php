@@ -146,6 +146,22 @@
             </div>
         </div>
         @endif 
+
+        {{-- Вывод отзывов о товарах --}}
+        @if(isset($comments)) 
+        <div class="container">
+            <div class="row">
+               
+                @foreach($comments as $coment)
+                    {{ $coment }}
+                @endforeach 
+            
+            </div>
+        </div>
+        @endif 
+
+        {{-- // Вывод отзывов о товарах --}}
+   
     </section>
     
 

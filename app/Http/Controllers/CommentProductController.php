@@ -87,7 +87,7 @@ class CommentProductController extends Controller
 
 
             $product = Product::find($product_id); 
-            return redirect('product.show', $product->seo->slug); 
+            return redirect()->route('product.show', $product->seo->slug); 
         }
 
     }

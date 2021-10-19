@@ -296,7 +296,7 @@
                                 @foreach($comments as $comment)
                                     <div class="blog-comments__item d-flex p-3">
                                         <div class="blog-comments__avatar mr-3">
-                                            @if( count( $comment->product->image ) > 0 )
+                                            @if( isset( $comment->product->image ) > 0 )
                                             <img src="{{ $comment->product->images[0]->thumbnail() }}"/>
                                             @endif
                                         </div>

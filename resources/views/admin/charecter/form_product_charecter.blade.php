@@ -20,7 +20,7 @@
             </select>
         </div>
         <div class="col-6 col-md-6">
-            {{ Form::text('charecter_value[]', $value , ['id'=>'', 'class' => 'form-control']) }}
+            {{ Form::text('charecter_value[]', $value ?? '' , ['id'=>'', 'class' => 'form-control']) }}
         </div>
     </div>
     

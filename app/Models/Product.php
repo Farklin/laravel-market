@@ -10,6 +10,7 @@ use App\Models\Seo;
 use Stem\LinguaStemRu; 
 use Illuminate\Support\Facades\DB;
 use App\Models\CommentProduct; 
+use App\Models\Charecter; 
 
 class Product extends Model
 {

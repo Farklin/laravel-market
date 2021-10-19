@@ -4,23 +4,25 @@
             <select name='charecter_id[]' class='form-control'>
     
                 @foreach ($charecters as $charecter)
+                   
                     @php 
-                    $selected = ''; 
+                        $selected = ''; 
                         if(isset($product_char))
                         {   
-                            if($product_char->id == $charecter->id){
+                            if($product_char->charecter_id == $charecter->id){
                                 $selected = 'selected'; 
+                                
                             }
-                            $value = $product_char->value; 
-                        }else{ $value = ''; }
-                    
+                        }
+                
                     @endphp 
+                 
                 <option {!! $selected !!} value="{{ $charecter->id }}">{{ $charecter->title }}</option>
                 @endforeach
             </select>
         </div>
         <div class="col-6 col-md-6">
-            {{ Form::text('charecter_value[]', $value ?? '' , ['id'=>'', 'class' => 'form-control']) }}
+            {{ Form::text('charecter_value[]',  $product_char->value ?? '' , ['id'=>'', 'class' => 'form-control']) }}
         </div>
     </div>
     

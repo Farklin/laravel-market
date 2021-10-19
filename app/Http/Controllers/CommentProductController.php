@@ -85,7 +85,9 @@ class CommentProductController extends Controller
                 $image->save(); 
             }
 
-            return back(); 
+
+            $product = Product::find($product_id); 
+            return redirect('product.show', $product->seo->slug); 
         }
 
     }

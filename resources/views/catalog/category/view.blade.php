@@ -2,6 +2,8 @@
 @extends('layouts/app')
 @section('title', $category->seo->title)
 @section('description', $category->seo->description)
+
+
 @section('content')
 
 

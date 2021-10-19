@@ -32,7 +32,10 @@ class CharecterProductController extends Controller
                 }
             }
         }
-        
+    }
 
+    public function delete($id){
+        CharecterProduct::findOrFail($id)->delete(); 
+        return back(); 
     }
 }

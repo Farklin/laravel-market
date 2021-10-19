@@ -149,6 +149,8 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/charecter/all', [App\Http\Controllers\Admin\CharecterControler::class, 'all'])->name('charecter.all'); 
     Route::get('/charecter/delete/{id}', [App\Http\Controllers\Admin\CharecterControler::class, 'delete'])->name('charecter.delete'); 
 
+
+
     // Группы характеристик 
     Route::get('/charecter/group/create', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.create'); 
     Route::post('/charecter/group/create', [App\Http\Controllers\Admin\CharecterGroupController::class, 'createUpdate'])->name('charecter.group.create'); 
@@ -159,7 +161,9 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/charecter/group/all', [App\Http\Controllers\Admin\CharecterGroupController::class, 'all'])->name('charecter.group.all'); 
     Route::get('/charecter/group/delete/{id}', [App\Http\Controllers\Admin\CharecterGroupController::class, 'delete'])->name('charecter.group.delete'); 
 
-
+    // Удаление характеристики у товара 
+    Route::get('/charecter/product/delete/{id}', [App\Http\Controllers\Admin\CharecterProductController::class, 'delete'])->name('charecter.product.delete'); 
+    
 
 }); 
 

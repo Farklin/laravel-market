@@ -23,7 +23,7 @@
             <div class="product_thumbnail_slides">
                 @if (isset($product->images))
                     @foreach ($product->images as $image)
-                        <img  itemprop="image" src="{{ $image->image_path }}" alt="">
+                        <img  itemprop="image" src="{{ $image->image_path }}" alt="{{ $image->alt }}">
                     @endforeach
                 @endif
             </div>

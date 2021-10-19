@@ -9,7 +9,7 @@
             
 
             @if(isset($product->images[1])) 
-                <img class="hover-img" src="{{ $product->images[1]->thumbnail() }}" alt="{{$product->images[0]->alt}}">
+                <img class="hover-img" src="{{ $product->images[1]->thumbnail() }}" alt="{{$product->images[1]->alt}}">
             @endif
 
         </div>

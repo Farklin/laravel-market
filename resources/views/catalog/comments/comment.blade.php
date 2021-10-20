@@ -1,8 +1,15 @@
 <div class="comment-product row">
-    <div class="comment-product-name col-md-12 mt-4">
-        <span> {{ $comment->name }} </span> <span class="comment-prodyct-date"> {{ $comment->created_at }} </span> 
+    <div class="comment-product-name col-md-6 mt-4">
+        <span class="font-weight-bold"> {{ $comment->name }} </span> 
     </div>  
-    
+
+    <div class="comment-product-date col-md-6 mt-4">
+        <span class="small"> {{ $comment->created_at->format('m-d h:m') }} </span>  
+    </div>  
+        <div class="comment-product-link col-md-12 col-12">
+            <a href="{{ route('product.show', $comment->product->seo->slug) }}">{{$comment->product->title}}</a>
+        </div>
+
     <div class="comment-product-meta col-md-12">
         <div class="row">
             <div class="comment-product-rating col-md-4 text-left">
@@ -16,13 +23,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
-               
-            </div>
-            <div class="comment-product-date col-md-4 text-right">
-            
-            </div>
-
+        
         </div>
         
     </div>

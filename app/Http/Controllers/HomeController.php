@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $comments = CommentProduct::all()->take(3); 
+        $comments = CommentProduct::where('status', true)->orderBy('created_at', 'asc')->take(9)->get(); 
         $popular_products = Product::all(); 
         return view('home', compact('popular_products', 'comments')); 
     }

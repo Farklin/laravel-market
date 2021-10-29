@@ -213,7 +213,7 @@ elseif ($status == 'update') {
 
            
     <script src="{{ asset('theme/app/app-blog-new-post.1.1.0.js') }}"></script>
-    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+    <script src="https://SortableJS.github.io/Sortable/Sortable.js"></script>
 
     <script>
         // Изменение последовательности картинок в товарах

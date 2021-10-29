@@ -25,9 +25,11 @@
             {{ Form::text('charecter_value[]',  $product_char->value ?? '' , ['id'=>'', 'class' => 'form-control']) }}
         </div>
         <div class="col-12 col-md-2">
+            @if(isset( $product_char->id))
             <a href="{{route('admin.charecter.product.delete', $product_char->id)}}"  class="btn btn-sm btn-outline-danger">
                 <i class="fa fa-minus-circle"></i> Удалить 
             </a>
+            @endif
         </div>
     </div>
     

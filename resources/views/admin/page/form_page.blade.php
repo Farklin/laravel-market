@@ -103,6 +103,6 @@ elseif ($status == 'update') {
 @section('scripts')
   
     <script src="{{ asset('theme/app/app-blog-new-post.1.1.0.js') }}"></script>
-    <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
+    <script src="https://SortableJS.github.io/Sortable/Sortable.js"></script>
 @endsection 
 @endsection

@@ -20,19 +20,16 @@ $(document).ready(function() {
     });
 
 
-    if ($(document).is('.charecter')) {
-        var charecter = $('.charecter')[0].outerHTML;
-
-        function cloneCharecter() {
+    function cloneCharecter() {
+        if ($('div').is('.charecter')) {
+            var charecter = $('.charecter')[0].outerHTML;
             var charecters = $('.charecters').append(charecter);
         }
-        $('.add-charecter').click(function() {
-            cloneCharecter();
-        });
     }
 
-
-
+    $('.add-charecter').click(function() {
+        cloneCharecter();
+    });
 
 
 })

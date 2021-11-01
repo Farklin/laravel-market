@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-    <!-- ##### Welcome Area Start ##### -->
     <section class="welcome_area bg-img background-overlay" style="background-image: url(/theme/img/bg-img/bg-1.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -19,13 +17,10 @@
             </div>
         </div>
     </section>
-    <!-- ##### Welcome Area End ##### -->
 
-    <!-- ##### Top Catagory Area Start ##### -->
     <div class="top_catagory_area section-padding-80 clearfix">
         <div class="container">
             <div class="row justify-content-center">
-                <!-- Single Catagory -->
                 <div class="col-sm-6 col-md-3 col-6">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/1.jpg);">
                         <div class="catagory-content">
@@ -33,19 +28,17 @@
                         </div>
                     </div>
                 </div>
-                <!-- Single Catagory -->
                 <div class="col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/2.jpg);">
                         <div class="catagory-content">
-                            <a class="text-center" href="/category/v-forme-saiby">В форме шайбы</a>
+                            <a class="text-center" href="/category/v-forme-saiby">Круглое мыло</a>
                         </div>
                     </div>
                 </div>
-                <!-- Single Catagory -->
                 <div class=" col-6 col-sm-6 col-md-3">
                     <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(/images/category/3.jpg);">
                         <div class="catagory-content">
-                            <a class="text-center" href="/category/kvadratnoe-mylo">Квадратное мыло </a>
+                            <a class="text-center" href="/category/kvadratnoe-mylo">Квадратное мыло</a>
                         </div>
                     </div>
                 </div>
@@ -61,9 +54,7 @@
             </div>
         </div>
     </div>
-    <!-- ##### Top Catagory Area End ##### -->
 
-    <!-- ##### CTA Area Start ##### -->
     <div class="cta-area">
         <div class="container">
             <div class="row">
@@ -81,9 +72,7 @@
             </div>
         </div>
     </div>
-    <!-- ##### CTA Area End ##### -->
 
-    <!-- ##### New Arrivals Area Start ##### -->
     @if(isset($popular_products))
     <section class="new_arrivals_area section-padding-80 clearfix">
         <div class="container">

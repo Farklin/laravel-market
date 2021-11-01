@@ -53,7 +53,7 @@ elseif ($status == 'update') {
 
                 {{ Form::label('description', 'Описание', ['id' => '', 'class' => '']) }}
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>
-                {{ Form::hidden('description', $category->description, ['id' => 'description', 'class' => 'form-control']) }}
+                {{ Form::hidden('description', $category->description, ['id' => 'description']) }}
 
                 <!-- Выбор родительской категории --> 
                 <div class="form-group mt-3"> 

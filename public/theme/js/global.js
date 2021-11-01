@@ -20,15 +20,17 @@ $(document).ready(function() {
     });
 
 
+    if ($(document).is('.charecter')) {
+        var charecter = $('.charecter')[0].outerHTML;
 
-    var charecter = $('.charecter')[0].outerHTML; 
-
-    function cloneCharecter() {
-        var charecters = $('.charecters').append(charecter);
+        function cloneCharecter() {
+            var charecters = $('.charecters').append(charecter);
+        }
+        $('.add-charecter').click(function() {
+            cloneCharecter();
+        });
     }
-    $('.add-charecter').click(function() {
-        cloneCharecter();
-    });
+
 
 
 

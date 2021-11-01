@@ -41,13 +41,6 @@ elseif ($status == 'update') {
         <div class="card card-small mb-3">
             <div class="card-body">
 
-
-
-
-
-                
-
-
                 {{ Form::text('title', $product->title, ['id' => 'title_product', 'class' => 'form-control form-control-lg mb-3', 'placeholder' => 'Название товара']) }}
 
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>

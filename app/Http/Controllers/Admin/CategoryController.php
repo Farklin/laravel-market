@@ -17,59 +17,65 @@ use App\Http\Controllers\SeoController;
 
 class CategoryController extends Controller
 {
+
+    /**
+     * Вывод формы создания категории сортировкой 
+     *
+     * @return void
+     */
     public function form_create()
     {
-        $status = 'create'; 
-        $category = new Category(); 
+        $status = 'create';
+        $category = new Category();
         // создание категории товаров
         $categories = Category::all();
         return view('admin/category/form_category', compact('category', 'categories', 'status'));
     }
 
+    /**
+     * Вывод формы обновления категории 
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function form_update($id)
     {
         // создание категории товаров
-        $status = 'update'; 
+        $status = 'update';
         $category = Category::find($id);
         $seo = Category::find($id)->seo;
         $categories = Category::all();
         return view('admin/category/form_category', compact('category', 'seo', 'categories', 'status'));
     }
 
-
-    public function update(Request $request, $id)
+    public function validation(Request $request)
     {
-
-        /* Обновление категории */
-
-       
-
         $validation_data = $request->validate([
             'title' => ['required'],
             'description' => ['required'],
         ]);
+        return $validation_data; 
+    }
+
+    /**
+     * Обновление категории 
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
+    public function update(Request $request, $id)
+    {
+        $validation_data = $this->validation($request); 
 
         $category = Category::find($id);
         $category->title = $validation_data['title'];
         $category->description = $validation_data['description'];
 
-        if ($request->has('public')) {
-            $category->public = True;
-        } else {
-            $category->public = False;
-        }
-
-        if ($request->has('display_main_page')) {
-            $category->display_main_page = True;
-        } else {
-            $category->display_main_page = False;
-        }
-
-        if ($request->has('display_sidebar')) {
-            $category->display_sidebar = True;
-        } else {
-            $category->display_sidebar = False;
-        }
+        $category->setPublic($request->has('public')); 
+        $category->setDisplayMainPage($request->has('display_main_page')); 
+        $category->setSidebar($request->has('display_sidebar')); 
+        
         // Выбор категории родителя
         if ($request->has('category_id')) {
             if ($request->input('category_id') != 0) {
@@ -77,19 +83,31 @@ class CategoryController extends Controller
             }
         }
 
-
         $category->save();
         $seo = new SeoController();
         $seo->update($request, $category->seo->id);
 
 
-        return back(); 
+        return back();
     }
+
+    /**
+     * Вывод списка всех категорий 
+     *
+     * @return void
+     */
     public function all()
     {
         $categories = Category::all();
         return view('admin.category.all', array('categories' => $categories));
     }
+
+    /**
+     * Удаление категории 
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function delete($id)
     {
         /* Удаление категории */
@@ -99,6 +117,14 @@ class CategoryController extends Controller
         $category->seo->delete();
         return back();
     }
+
+
+    /**
+     * Создание категории
+     *
+     * @param Request $request
+     * @return void
+     */
     public function create(Request $request)
     {
 
@@ -110,33 +136,14 @@ class CategoryController extends Controller
         $seo = new SeoController();
         $seo_id = $seo->create($request);
 
-
-
         $category = new Category();
         $category->title = $validation_data['title'];
         $category->description = $validation_data['description'];
         $category->seo_id = $seo_id;
 
-
-
-
-        if ($request->has('public')) {
-            $category->public = True;
-        } else {
-            $category->public = False;
-        }
-
-        if ($request->has('display_main_page')) {
-            $category->display_main_page = True;
-        } else {
-            $category->display_main_page = False;
-        }
-
-        if ($request->has('display_sidebar')) {
-            $category->display_sidebar = True;
-        } else {
-            $category->display_sidebar = False;
-        }
+        $category->setPublic($request->has('public')); 
+        $category->setDisplayMainPage($request->has('display_main_page')); 
+        $category->setSidebar($request->has('display_sidebar')); 
 
         // Выбор категории родителя
         if ($request->has('category_id')) {

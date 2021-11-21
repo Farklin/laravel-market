@@ -20,17 +20,17 @@ class SeoController extends Controller
 
         $seo = new Seo();
 
-        $seo->setTitle($seo, $request->input('title_seo'), $request->input('title')); 
+        $seo->setTitle($seo, $request->input('title_seo'), $request->input('title_seo'));
         $seo->setDescription($seo, $request->input('description_seo'));
-        $seo->setKeywords($seo, $request->input('keywords_seo')); 
+        $seo->setKeywords($seo, $request->input('keywords_seo'));
         $seo->save();
-        $seo->setUrl($request->input('slug'), $request->input('title')); 
+        $seo->setUrl($request->input('slug'), $request->input('title'));
         $seo->save();
 
         return $seo->id;
     }
 
-  
+
     /**
      * Обновление URL страницы 
      *
@@ -42,8 +42,8 @@ class SeoController extends Controller
     {
         $seo = Seo::findOrFail($id);
         $seo->setTitle($request->input('title_seo'), $request->input('title'));
-        $seo->setDescription($request->input('description_seo')); 
-        $seo->setKeywords($request->input('keywords_seo')); 
+        $seo->setDescription($request->input('description_seo'));
+        $seo->setKeywords($request->input('keywords_seo'));
         $seo->setUrl($request->input('slug'), $request->input('title'));
         $seo->save();
     }

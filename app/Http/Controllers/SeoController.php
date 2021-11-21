@@ -17,15 +17,18 @@ class SeoController extends Controller
      */
     public function create(Request $request)
     {
+        $validation_data = $request->validate([
+            'title_seo' => ['required'],
+            'description_seo' => ['required'],
+        ]);
 
         $seo = new Seo();
-
-        $seo->setTitle($seo, $request->input('title_seo'), $request->input('title_seo'));
-        $seo->setDescription($seo, $request->input('description_seo'));
-        $seo->setKeywords($seo, $request->input('keywords_seo'));
+        $seo->setTitle($request->input('title_seo'), $request->input('title'));
+        $seo->setDescription($validation_data['description_seo']);
+        $seo->setKeywords($request->input('keywords_seo'));
+        $seo->save();
         $seo->setUrl($request->input('slug'), $request->input('title'));
         $seo->save();
-
         return $seo->id;
     }
 

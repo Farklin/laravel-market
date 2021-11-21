@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class Seo extends Model
 {
     use HasFactory;
-    protected $table = 'seo'; 
+    protected $table = 'seo';
 
     /**
      * Установка Title 
@@ -35,7 +35,7 @@ class Seo extends Model
      */
     public function setDescription($description)
     {
-        $this->description = $description; 
+        $this->description = $description;
     }
 
     /**
@@ -46,7 +46,7 @@ class Seo extends Model
      */
     public function setKeywords($keywords)
     {
-        $this->keywords = $keywords; 
+        $this->keywords = $keywords;
     }
 
     /**
@@ -81,5 +81,4 @@ class Seo extends Model
             return $slug . (string)$id;
         }
     }
-
 }

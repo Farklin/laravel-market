@@ -85,7 +85,6 @@ class ProductController extends Controller
     {
 
         //обработчик создания товара 
-
         $validation_data = $request->validate([
             'title' => ['required'],
             'description' => ['required'],
@@ -95,9 +94,8 @@ class ProductController extends Controller
             'category' => ['required'],
         ]);
 
-        $seo = new SeoController();
+        $seo = new SeoController;
         $seo_id = $seo->create($request);
-
 
         $category = Category::find($validation_data['category']);
 
@@ -113,7 +111,7 @@ class ProductController extends Controller
         //добавление связей к товару (категория товар)
         $product->categories()->attach($category);
 
-        // Добавление кртинки
+        // Добавление картинки
 
         ImageProductController::add_image_product($request, $product);
         CharecterProductController::add($request, $product->id);

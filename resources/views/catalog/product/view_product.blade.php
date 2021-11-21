@@ -82,10 +82,6 @@
                     <!-- Форма для добавления товара в корзину -->
 
                     <div class="row">
-
-                     
-
-
                         <div class="col-4 col-md-4"><span for="input-quantity">Количество</span>
 
                         </div>
@@ -112,21 +108,12 @@
 
                     <script src="https://yastatic.net/share2/share.js"></script>
                     <div>
-
-
-
                         <span class="h3 mt-5"> Поделится в социальных сетях </span>
                         <div class="ya-share2" data-curtain data-shape="round" data-color-scheme="whiteblack"
                             data-limit="5"
                             data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp">
                         </div>
                     </div>
-
-
-
-
-
-
 
                     <!-- Favourite -->
 
@@ -226,6 +213,11 @@
 
     </section>
 
+    <section class="container link_product">
+        <div class="row">
+            
+        </div> 
+    </section>
 
     <!-- ##### Single Product Details Area End ##### -->
 

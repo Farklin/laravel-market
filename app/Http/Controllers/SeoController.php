@@ -23,7 +23,6 @@ class SeoController extends Controller
         $seo->setTitle($seo, $request->input('title_seo'), $request->input('title_seo'));
         $seo->setDescription($seo, $request->input('description_seo'));
         $seo->setKeywords($seo, $request->input('keywords_seo'));
-        $seo->save();
         $seo->setUrl($request->input('slug'), $request->input('title'));
         $seo->save();
 

@@ -95,7 +95,8 @@ class ProductController extends Controller
             'category' => ['required'],
         ]);
 
-        $seo_id = SeoController::create($request);
+        $seo = new SeoController();
+        $seo_id = $seo->create($request);
 
 
         $category = Category::find($validation_data['category']);

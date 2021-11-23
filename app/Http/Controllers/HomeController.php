@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CommentProduct;
-use App\Models\Product; 
+use App\Models\Product;
+use App\Models\Category; 
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,7 +18,8 @@ class HomeController extends Controller
     {   
         $comments = CommentProduct::where('status', true)->orderBy('created_at', 'asc')->take(9)->get(); 
         $popular_products = Product::all(); 
-        return view('home', compact('popular_products', 'comments')); 
+        $categories = Category::where('display_main_page', 1)->get(); 
+        return view('home', compact('popular_products', 'comments', 'categories')); 
     }
 
     /**

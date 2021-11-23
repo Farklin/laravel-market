@@ -50,6 +50,8 @@ elseif ($status == 'update') {
                 {{ Form::label('title', 'Название категории', ['id' => '', 'class' => '']) }}
                 {{ Form::text('title', $category->title, ['id' => 'title_category', 'class' => 'form-control form-control-lg mb-3']) }}
 
+                {{ Form::label('image', 'Путь картинки', ['id' => '', 'class' => '']) }}
+                {{ Form::text('image', $category->image, ['id' => 'image', 'class' => 'form-control form-control-lg mb-3']) }}
 
                 {{ Form::label('description', 'Описание', ['id' => '', 'class' => '']) }}
                 <div id="editor-container" class="add-new-post__editor mb-1"></div>

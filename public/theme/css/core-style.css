@@ -2629,3 +2629,10 @@ body {
 .us-product-attr-item {
     color: #787878;
 }
+
+
+/* меню */
+
+.image-category-menu {
+    height: 48px;
+}

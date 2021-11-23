@@ -1,4 +1,4 @@
-<div class="comment-product row">
+<div class="comment-product row card mx-2">
     <div class="comment-product-name col-md-6 mt-4">
         <span class="font-weight-bold"> {{ $comment->name }} </span> 
     </div>  
@@ -9,7 +9,9 @@
         <div class="comment-product-link col-md-12 col-12">
             <a href="{{ route('product.show', $comment->product->seo->slug) }}">{{$comment->product->title}}</a>
         </div>
-
+    <div class="comment-product-description col-md-12">
+        {{ $comment->description }}
+    </div>  
     <div class="comment-product-meta col-md-12">
         <div class="row">
             <div class="comment-product-rating col-md-4 text-left">
@@ -25,13 +27,7 @@
 
         
         </div>
-        
     </div>
-    
-    
-    <div class="comment-product-description col-md-12">
-        {{ $comment->description }}
-    </div>  
     
     <div class="comment-product-image col-md-12">
         <div class="row my-2">

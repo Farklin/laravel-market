@@ -53,6 +53,7 @@ class CategoryController extends Controller
         $validation_data = $request->validate([
             'title' => ['required'],
             'description' => ['required'],
+            'image' => [''] 
         ]);
         return $validation_data; 
     }
@@ -69,8 +70,7 @@ class CategoryController extends Controller
         $validation_data = $this->validation($request); 
 
         $category = Category::find($id);
-        $category->title = $validation_data['title'];
-        $category->description = $validation_data['description'];
+        $this->fillFields($category, $validation_data); 
 
         $category->setPublic($request->has('public')); 
         $category->setDisplayMainPage($request->has('display_main_page')); 
@@ -118,7 +118,17 @@ class CategoryController extends Controller
         return back();
     }
 
-
+    /**
+     * Заполнение полей категории 
+     *
+     * @return void
+     */
+    public function fillFields(Category $category, $validation)
+    {
+        $category->title = $validation['title'];
+        $category->image = $validation['image'];
+        $category->description = $validation['description'];
+    }
     /**
      * Создание категории
      *
@@ -128,17 +138,13 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
 
-        $validation_data = $request->validate([
-            'title' => ['required'],
-            'description' => ['required'],
-        ]);
+        $validation_data = $this->validation($request); 
 
         $seo = new SeoController();
         $seo_id = $seo->create($request);
-
+        
         $category = new Category();
-        $category->title = $validation_data['title'];
-        $category->description = $validation_data['description'];
+        $this->fillFields($category, $validation_data); 
         $category->seo_id = $seo_id;
 
         $category->setPublic($request->has('public')); 

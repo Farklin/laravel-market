@@ -37,7 +37,7 @@
                         <div class="col-md-8 col-sm-12"></div>
                         <div class="col-md-4 col-sm-12"></div>
                     </div> 
-                    <div class="row">
+                    <div class="row m-2">
                         <div class="col-md-6 col-sm-6 card p-2">
                             <div class="row p-1">
                                 <div class="col-md-9 col-sm-9">

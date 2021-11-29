@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Icons/Chevron/Down</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12.0209142,16.4073781 L6.16262002,10.5526597 C5.91724034,10.2968565 5.83214222,10.1919717 5.83086791,10.0157781 C5.82962051,9.83958452 5.91679989,9.74456146 6.16763979,9.47869417 L12.1123336,3.54269281 C12.9181441,2.74427963 14.100174,3.92630958 13.3007528,4.73030076 L7.99503394,10.015778 L13.207492,15.2188645 C14.0703212,16.0818748 12.8879537,17.2642424 12.0209142,16.4073781 Z" id="path-1"></path>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main-v.1-Dark" transform="translate(-1319.000000, -3026.000000)">
+            <g id="Group-7" transform="translate(940.000000, 3026.000000)">
+                <g id="Icons/Chevron/Down" transform="translate(380.000000, 0.000000)">
+                    <g id="ic_chevron_down" transform="translate(10.000000, 10.000000) rotate(-90.000000) translate(-10.000000, -10.000000) ">
+                        <rect id="Bg" stroke="#50E3C2" stroke-width="0.01" fill-opacity="0.01" fill="#030303" opacity="0.00999999978" x="0" y="0" width="20" height="20" rx="3"></rect>
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Shape" fill="#686D73" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

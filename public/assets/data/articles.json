@@ -1,0 +1,4 @@
+{
+    "status": "success",
+    "items": "<a class='articles__item' href='#' target='_blank'><div class='articles-card js-lazy'><div class='articles-card__inner'><div class='articles-card__top'><span class='articles-card__top-text'>Истории</span><p class='articles-card__top-title link--arrow'>Работать по 12 часов в сутки и не спать по 3 дня кряду, или как я стал frontend-разработчиком</p></div><div class='articles-card__bottom'><p class='articles-card__bottom-text'>Как парень из города Камешково прокладывает себе путь в IT и доказывает, что было бы желание, а возможности всегда найдутся</p><div class='articles__btn'><span class='articles__btn-text'>Читать статью</span><span class='articles__arrow'><svg class='icon arrow-right'><use xlink:href='#arrow-right'></use></svg></span></div></div></div></div></a>"
+}

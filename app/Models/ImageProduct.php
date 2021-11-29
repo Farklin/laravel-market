@@ -28,7 +28,7 @@ class ImageProduct extends Model
                 }
 
                 if(file_exists($this->image_path)){
-                    $thumbnail = Image::make(public_path()  . $this->image_path);
+                    $thumbnail = Image::make(public_path()  . $this->image_path)->orientate();
                     $thumbnail->fit(300, 300);
                     $thumbnail->save(public_path() . $path);
                 }

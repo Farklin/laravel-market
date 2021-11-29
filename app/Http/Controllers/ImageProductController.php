@@ -47,7 +47,13 @@ class ImageProductController extends Controller
             }
         }
     }
-
+    /**
+     * Удаление картинки
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
     public function delete(Request $request, $id)
     {
 

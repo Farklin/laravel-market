@@ -4,9 +4,24 @@ namespace App\Http\Controllers\Components;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Components\Slider; 
 
 class SliderController extends Controller
-{
+{   
+    
+    public function validation(Request $request)
+    {
+        $validation_data = $request->validate(
+            [
+                'title' => [''],
+                'description' => [''],
+                'price' => [''], 
+                'image' => ['file'],
+                'status' => ['boolean']
+            ]
+        ); 
+        return $validation_data; 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +37,24 @@ class SliderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request)
+    {   
+        $title = 'Создание нового слайдера';
+        $h1 = 'Создание нового слайдера';
+        $action = 'admin.slider.create'; 
+
+        $slider = new Slider(); 
+
+        if($request->method() == 'GET'){
+            $validate = $this->validation($request);
+            $slider->title = $validate['title'];
+            $slider->description = $validate['description'];
+            $slider->price = $validate['price'];
+            $slider->image = $validate['image'];
+            $slider->save(); 
+        }
+
+        return view ('admin.components.slider.form', compact('title', 'action', 'h1', 'slider'));
     }
 
     /**

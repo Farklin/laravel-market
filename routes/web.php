@@ -164,7 +164,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     // Удаление характеристики у товара 
     Route::get('/charecter/product/delete/{id}', [App\Http\Controllers\Admin\CharecterProductController::class, 'delete'])->name('charecter.product.delete'); 
     
-    Route::resource('slider', App\Http\Controllers\Admin\Components\SliderController::class);
+    Route::resource('slider', App\Http\Controllers\Components\SliderController::class);
 
 
 }); 

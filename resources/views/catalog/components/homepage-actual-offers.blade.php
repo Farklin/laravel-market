@@ -26,7 +26,7 @@
                                 @foreach ($popular_products as $product)
                                     <div class="single-product-wrapper">
                                         <a href="{{ route('product.show', $product->seo->slug) }}">
-                                            @if (count($product->images) >= 2)
+                                            @if(count($product->images) >= 2 and is_file($product->images[0]->thumbnail()) and is_file($product->images[1]->thumbnail()) )
                                                 <div class="product-img">
                                                     <img src="{{ $product->images[0]->thumbnail() }}" alt="">
                                                     <img class="hover-img"

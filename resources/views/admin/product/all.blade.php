@@ -3,7 +3,6 @@
 @section('h1', 'Товары магазина')
 
 @section('content')
-
   
         <div class="col-12 mb-5 card p-2 card card-small">
             <div class="row card-body">

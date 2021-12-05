@@ -165,7 +165,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/charecter/product/delete/{id}', [App\Http\Controllers\Admin\CharecterProductController::class, 'delete'])->name('charecter.product.delete');
 
     // слайдер 
-    Route::resource('slider', App\Http\Controllers\Components\SliderController::class);
+    Route::resource('slider', App\Http\Controllers\Admin\Components\SliderController::class);
 });
 
 

@@ -33,7 +33,7 @@
                       </ul>
                 </div>
                 <div class="col-md-8 col-sm-12">
-                    @include('components.homapage-general-slider')
+                    @include('components.homapage-general-slider', ['sliders' => $sliders])
                     @include('components.homepage-actual-offers')
                     @include('components.homepage-auth-profile')
                 </div>

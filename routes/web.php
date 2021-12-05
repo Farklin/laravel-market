@@ -165,12 +165,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/charecter/product/delete/{id}', [App\Http\Controllers\Admin\CharecterProductController::class, 'delete'])->name('charecter.product.delete');
 
     // слайдер 
-    Route::prefix('slider')->name('slider.')->group(function () {
-        Route::any('store', [App\Http\Controllers\Components\SliderController::class, 'store'])->name('store');
-        Route::any('create', [App\Http\Controllers\Components\SliderController::class, 'create'])->name('create');
-        Route::any('update', [App\Http\Controllers\Components\SliderController::class, 'update'])->name('update');
-        Route::delete('delete', [App\Http\Controllers\Components\SliderController::class, 'delete'])->name('delete');
-    });
+    Route::resource('slider', App\Http\Controllers\Components\SliderController::class);
 });
 
 

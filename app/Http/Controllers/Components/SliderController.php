@@ -5,6 +5,18 @@ namespace App\Http\Controllers\Components;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Components\Slider;
+use Illuminate\Support\Facades\Storage;
+
+/*
+TODO:
+* - Сделать обновление слайдера
+* - Сделать удаление слайдера
+* - Сделать удаление картинки
+* - Сделать отображение всех слайдеров
+* - Посмотреть как грамотно реализовать
+
+*/
+
 
 class SliderController extends Controller
 {
@@ -13,10 +25,10 @@ class SliderController extends Controller
     {
         $validation_data = $request->validate(
             [
-                'title' => [''],
-                'description' => [''],
-                'price' => [''],
-                'image' => ['image'],
+                'title' => ['nullable', 'max:100'],
+                'description' => ['nullable', 'max:300'],
+                'price' => ['nullable', 'max:5'],
+                'image' => ['required'],
                 'status' => ['boolean']
             ]
         );
@@ -42,20 +54,7 @@ class SliderController extends Controller
         $title = 'Создание нового слайдера';
         $h1 = 'Создание нового слайдера';
         $action = 'admin.slider.create';
-
         $slider = new Slider();
-
-        if ($request->method() == 'POST') {
-
-            return dd($request);
-            $validate = $this->validation($request);
-            $slider->title = $validate['title'];
-            $slider->description = $validate['description'];
-            $slider->price = $validate['price'];
-            $slider->image = $validate['image'];
-            $slider->save();
-        }
-
         return view('admin.components.slider.form', compact('title', 'action', 'h1', 'slider'));
     }
 
@@ -67,7 +66,15 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $this->validation($request);
+        $slider = new Slider();
+        $path = $request->file('image')->store('slider');
+        $slider->title = $validate['title'];
+        $slider->description = $validate['description'];
+        $slider->price = $validate['price'];
+        $slider->image = $path;
+        $slider->status = $validate['status'];
+        $slider->save();
     }
 
     /**

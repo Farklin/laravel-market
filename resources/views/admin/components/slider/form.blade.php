@@ -4,7 +4,7 @@
 @section('h1',  $h1)
 @section('content')
     <!-- Форма категории -->
-    {{ Form::open(['route' => $action, 'class' => 'row',  'id'=>'Form', 'enctype' => 'multipart/form-data']) }}
+    {{ Form::open(['route' => 'admin.slider.store', 'class' => 'row',  'id'=>'Form', 'enctype' => 'multipart/form-data']) }}
     <!-- Блок ошибок -->
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -24,8 +24,8 @@
                 {{ Form::label('title', 'Название', ['id' => '', 'class' => '']) }}
                 {{ Form::text('title', $slider->title, ['id' => 'title_slider', 'class' => 'form-control form-control-lg mb-3']) }}
 
-                {{ Form::label('descrtiption', 'Описание', ['id' => '', 'class' => '']) }}
-                {{ Form::text('descrtiption', $slider->description, ['id' => 'description_slider', 'class' => 'form-control form-control-lg mb-3']) }}
+                {{ Form::label('description', 'Описание', ['id' => '', 'class' => '']) }}
+                {{ Form::text('description', $slider->description, ['id' => 'description_slider', 'class' => 'form-control form-control-lg mb-3']) }}
 
                 {{ Form::label('price', 'Цена', ['id' => '', 'class' => '']) }}
                 {{ Form::number('price', $slider->price, ['id' => 'price_slider', 'class' => 'form-control form-control-lg mb-3']) }}
@@ -54,7 +54,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item px-3 pb-2">
                         <div class="custom-control custom-checkbox mb-1">
-                            {{ Form::checkbox('slider_status', 'true', $slider->status, ['id' => 'slider_status', 'class' => 'custom-control-input']) }}
+                            {{ Form::checkbox('status', true, $slider->status, ['id' => 'slider_status', 'class' => 'custom-control-input']) }}
                             {{ Form::label('slider_status', 'Опубликован', ['id' => '', 'class' => 'custom-control-label', 'for' => 'public']) }}
                         </div>
                     </li>

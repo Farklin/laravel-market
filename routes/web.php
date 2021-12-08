@@ -166,6 +166,7 @@ Route::middleware(['auth', 'isadmin'])->prefix('admin')->name('admin.')->group(f
 
     // слайдер 
     Route::resource('slider', App\Http\Controllers\Admin\Components\SliderController::class);
+    Route::resource('actual', App\Http\Controllers\Admin\Components\ActualController::class);
 });
 
 

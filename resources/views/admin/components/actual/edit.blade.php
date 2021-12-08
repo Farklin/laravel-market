@@ -11,10 +11,10 @@
         </div>
     @endif
 
-    <form enctype="multipart/form-data" class="row" action="{{ route('admin.slider.update', $slider->id) }}"
-        method="post">
+    <form id="form-actual" enctype="multipart/form-data" class="row"
+        action="{{ route('admin.actual.update', $actual) }}" method="post">
         @csrf
         @method('PUT')
-        @include('admin.components.slider.fields')
+        @include('admin.components.actual.fields')
     </form>
 @endsection

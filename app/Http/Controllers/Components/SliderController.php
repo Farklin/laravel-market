@@ -1,16 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Components;
 
-use App\Models\CommentProduct;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\Components\Actual;
-use App\Models\Components\Slider;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Components\Slider;
+use Illuminate\Support\Facades\Storage;
 
-class HomeController extends Controller
+
+
+class SliderController extends Controller
 {
+
+    public function validation(Request $request)
+    {
+        $validation_data = $request->validate(
+            [
+                'title' => ['nullable', 'max:100'],
+                'description' => ['nullable', 'max:300'],
+                'price' => ['nullable', 'max:5'],
+                'image' => ['required'],
+                'status' => ['boolean']
+            ]
+        );
+        return $validation_data;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,12 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::where('status', true)->get();
-        $comments = CommentProduct::where('status', true)->orderBy('created_at', 'asc')->take(9)->get();
-        $popular_products = Product::all();
-        $categories = Category::where('display_main_page', 1)->get();
-        $actuals = Actual::where('status', true)->get();
-        return view('home', compact('popular_products', 'comments', 'categories', 'sliders', 'actuals'));
+        //
     }
 
     /**
@@ -31,9 +40,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $title = 'Создание нового слайдера';
+        $h1 = 'Создание нового слайдера';
+        $action = 'admin.slider.create';
+        $slider = new Slider();
+        return view('admin.components.slider.form', compact('title', 'action', 'h1', 'slider'));
     }
 
     /**
@@ -44,7 +57,15 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $this->validation($request);
+        $slider = new Slider();
+        $path = $request->file('image')->store('slider');
+        $slider->title = $validate['title'];
+        $slider->description = $validate['description'];
+        $slider->price = $validate['price'];
+        $slider->image = $path;
+        $slider->status = $validate['status'];
+        $slider->save();
     }
 
     /**
@@ -56,7 +77,6 @@ class HomeController extends Controller
     public function show($id)
     {
         //
-        return "Hellow World" . $id;
     }
 
     /**

@@ -2,28 +2,21 @@
     <div class="col-md-12">
         <div class="tab">
             <ul class="nav nav-tabs" role="tablist">
+                @foreach ($actuals as $actual)
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#charecter" role="tab">Характеристики</a>
+                    <a class="nav-link" data-toggle="tab" href="#charecter{{$loop->index}}" role="tab">{{$actual->title}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Описание</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#home" role="tab">Отзывы</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#delivery" role="tab">Доставка и оплата</a>
-                </li>
-
+                @endforeach
             </ul>
 
             <!-- Вкладка панели -->
             <div class="tab-content">
-                <div class="tab-pane active p-2" id="charecter" role="tabpane0">
+                @foreach ($actuals as $actual)
+                <div class="tab-pane @if($loop->first) active @endif p-2" id="charecter{{$loop->index}}" role="tabpane0">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="popular-products-slides owl-carousel">
-                                @foreach ($popular_products as $product)
+                                @foreach ($actual->products as $product)
                                     <div class="single-product-wrapper">
                                         <a href="{{ route('product.show', $product->seo->slug) }}">
                                             @if(count($product->images) >= 2 and is_file($product->images[0]->thumbnail()) and is_file($product->images[1]->thumbnail()) )
@@ -64,12 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="home" role="tabpanel">
-                </div>
-                <div class="tab-pane" id="profile" role="tabpanel">
-                </div>
-                <div class="tab-pane" id="delivery" role="tabpanel">
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

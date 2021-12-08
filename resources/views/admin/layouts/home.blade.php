@@ -24,6 +24,15 @@
 </head>
 
 <body>
+
+    @if (\Session::has('message'))
+        <div class="alert alert-success">
+            <ul>
+                <li>{!! \Session::get('message') !!}</li>
+            </ul>
+        </div>
+    @endif
+
        <div class="container-fluid">
         <div class="row">
             <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
